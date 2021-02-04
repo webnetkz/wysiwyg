@@ -57,7 +57,7 @@ function createSectionNav() {
 function appendSection() {
     const newSection = document.createElement('div');
     let rand = URL.createObjectURL(new Blob([])).slice(-36).replace(/-/g, "")
-    newSection.classList.add('newEditor');
+    newSection.classList.add('editor');
     newSection.setAttribute('id', 'a'+rand);
     newSection.setAttribute('contenteditable', 'true');
 

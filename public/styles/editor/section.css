@@ -1,4 +1,4 @@
-.editor, .newEditor {
+.editor {
     margin: 10px auto;
     margin-bottom: 10px;
     max-width: 1000px;
@@ -13,10 +13,7 @@
 	border: 1px dashed blue;
 }
 .editor:focus {
-	border: 1px dashed blue;
-}
-.newEditor {
-
+	border: 1px dashed red;
 }
 .newEditor2 {
     margin: 100px auto;
