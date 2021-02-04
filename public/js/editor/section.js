@@ -22,15 +22,35 @@ leftNavSection.addEventListener('click', () => {
 });
 
 // Создание кнопки удаления секции
-function createBtnDel() {
-    let newDel = document.createElement('img');
+function createSectionNav() {
+    let newSectionNav = document.createElement('div');
+    newSectionNav.classList.add('sectionNav');
     
-    newDel.classList.add('del');
+    let newDel = document.createElement('img');
+
+    newDel.classList.add('elementSectionNav');
     newDel.classList.add('notEdit');
     newDel.src = 'public/img/delete.svg';
     newDel.setAttribute('onclick', 'deletedSectionBtn(this);');
+
+    let newSect = document.createElement('img');
+
+    newSect.classList.add('elementSectionNav');
+    newSect.classList.add('notEdit');
+    newSect.src = 'public/img/delete.svg';
+    newSect.setAttribute('onclick', 'deletedSectionBtn(this);');
+
+    let newSetings = document.createElement('img');
+
+    newSetings.classList.add('elementSectionNav');
+    newSetings.classList.add('notEdit');
+    newSetings.src = 'public/img/setings.svg';
+    newSetings.setAttribute('onclick', 'deletedSectionBtn(this);');
     
-    return newDel;
+    newSectionNav.appendChild(newDel);
+    newSectionNav.appendChild(newSect);
+    newSectionNav.appendChild(newSetings);
+    return newSectionNav;
 }
 
 // Добавление новой секции
@@ -41,10 +61,10 @@ function appendSection() {
     newSection.setAttribute('id', 'a'+rand);
     newSection.setAttribute('contenteditable', 'true');
 
-    let newDel = createBtnDel();
+    let newSectionNav = createSectionNav();
 
     document.querySelector('#contentBook').appendChild(newSection);
-    document.querySelector('#contentBook').appendChild(newDel);
+    document.querySelector('#contentBook').appendChild(newSectionNav);
 }
 // Блоки для секций
     let block2 = document.createElement('div');
@@ -67,10 +87,10 @@ function appendSection2() {
     newSection.appendChild(block2);
     newSection.appendChild(block3);
 
-    let newDel = createBtnDel();
+    let newSectionNav = createSectionNav();
 
     document.querySelector('#contentBook').appendChild(newSection);
-    document.querySelector('#contentBook').appendChild(newDel);
+    document.querySelector('#contentBook').appendChild(newSectionNav);
 }
 // Добавление секции 1-2
 function appendSection3() {
@@ -83,10 +103,10 @@ function appendSection3() {
     newSection.appendChild(block3);
     newSection.appendChild(block2);
 
-    let newDel = createBtnDel();
+    let newSectionNav = createSectionNav();
 
     document.querySelector('#contentBook').appendChild(newSection);
-    document.querySelector('#contentBook').appendChild(newDel);
+    document.querySelector('#contentBook').appendChild(newSectionNav);
 }
 // Добавление секции 1-1-1
 function appendSection4() {
@@ -104,10 +124,10 @@ function appendSection4() {
     newSection.appendChild(block5);
 
 
-    let newDel = createBtnDel();
+    let newSectionNav = createSectionNav();
 
     document.querySelector('#contentBook').appendChild(newSection);
-    document.querySelector('#contentBook').appendChild(newDel);
+    document.querySelector('#contentBook').appendChild(newSectionNav);
 }
 // Удаление сеции через иконку
 function deletedSectionBtn(elem) {

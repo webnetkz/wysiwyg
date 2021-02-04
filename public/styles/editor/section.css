@@ -29,11 +29,13 @@
     padding: 10px;
     margin-top: 50px;
 }
-.del {
-    position: relative;
-    display: block;
+.sectionNav {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 10px;
+}
+.elementSectionNav {
     max-width: 40px;
-    left: calc(50vw - 22px);
     background: white;
     border-radius: 7px;
     padding: 5px;
@@ -41,9 +43,8 @@
     z-index: 0;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
     margin: 4px;
-    margin-bottom: 10px;
 }
-.del:hover {
+.elementSectionNav:hover {
     cursor: pointer;
     box-shadow: 0 0 18px rgba(0, 0, 0, 0.8);
 }
