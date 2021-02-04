@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .TAcenter {
+                text-align: center;
+            }
+            .red {
+                color: red!important;
+            }
+            .blue {
+                color: blue!important;
+            }
+            .FS4 {
+                font-size: 4em;
+            }
+            .border {
+                border: 1px solid black;
+            }
+            .sect, .o {
+                border: 1px solid black;
+                min-height: 500px;
+            }
+            .o {
+                vertical-align: top;
+                border: 2px solid red;
+                display: inline-block;
+                min-width: 49%;
+            }
+            .bg {
+                background-color: burlywood;
+            }
+            .bg2 {
+                background-color: rgb(73, 51, 22);
+            }
+        </style>
+        <meta charset="UTF-8">
+        <title>My own Editor</title>
+        <link rel="stylesheet" href="public/styles/editor/editor.css">
+    </head>
+    <body>
+        <div class="leftNav">
+            <span class="leftNavItem activeLeftNav">
+                <img src="public/img/leftNav/section.svg" class="leftNavItemImg" id="leftNavSection">
+            </span>
+            <span class="leftNavItem">
+                <img src="public/img/leftNav/block.svg" class="leftNavItemImg" id="leftNavBlock">
+            </span>
+            <span class="leftNavItem">
+                <img src="public/img/leftNav/text.svg" class="leftNavItemImg" id="leftNavText">
+            </span>
+            <span class="leftNavItem">
+                <img src="public/img/leftNav/settings.svg" class="leftNavItemImg" id="leftNavSettings">
+            </span>
+        </div>
+        <header>
+            <div class="notEdit">
+
+            	<div>
+        <button onclick="appendText();" class="notEdit">Текст</button><button onclick="deletedText();" class="notEdit">Удалить Текст</button></div>
+
+<!--                 <div>
+                    <button onclick="appendSection();" class="notEdit">Секция</button>
+                    <button onclick="appendSection2();" class="notEdit">Секция 2-1</button>
+                    <button onclick="deletedSection();" class="notEdit">Удалить секцию</button>
+                </div> -->
+
+
+            </div>
+        </header>
+        <div id="contentBook">
+            <div class="editor" id="startSection" contenteditable="true">
+
+            </div>
+        </div>
+
+        <script>
+            let startSection = document.querySelector('#startSection');
+            startSection.id = 'a'+URL.createObjectURL(new Blob([])).slice(-36).replace(/-/g, "");
+
+
+        </script>
+        <script src="public/js/editor/editor.js"></script>
+        <script src="public/js/editor/leftNav.js"></script>
+
+        <script src="public/js/editor/text.js"></script>
+    </body>
+</html>
+
