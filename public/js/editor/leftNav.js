@@ -1,18 +1,10 @@
 const headerNav = document.querySelector('header');
 
-let leftNavBlock = document.querySelector('#leftNavBlock');
 
 let leftNavSettings = document.querySelector('#leftNavSettings');
 
 
 
-leftNavBlock.addEventListener('click', () => {
-    headerNav.innerHTML = '<div>'+
-        'Block'+
-        '<button onclick="appendBlock();" class="notEdit">Брок</button>'+
-        '<button onclick="deletedBlock();" class="notEdit">Удалить блок</button>'+
-    '</div>';
-});
 
 
 

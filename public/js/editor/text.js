@@ -4,10 +4,11 @@ leftNavText.addEventListener('click', () => {
 	// Отключение страндартного поведения при клике, чтоб не сбрасывать фокус
 	leftNavText.addEventListener('mousedown', e => e.preventDefault());
 	// Отображение панели убравления "ТЕКСТ"
-    headerNav.innerHTML = '<div>'+
-        'Text'+
-        '<button onclick="appendText();" class="notEdit">Текст</button>'+
-        '<button onclick="deletedText();" class="notEdit">Удалить Текст</button>'+
+    headerNav.innerHTML = '<div class="notEdit allTopNav">'+
+        '<div class="notEdit">'+
+            '<span onclick="appendText();" class="notEdit elementTopNav">Добавить текст</span>'+
+            '<span onclick="deletedText();" class="notEdit elementTopNav">Удалить текст</span>'+
+        '</div>'+
     '</div>';
 });
 

@@ -56,8 +56,7 @@
         <header>
             <div class="notEdit">
 
-            	<div>
-        <button onclick="appendText();" class="notEdit">Текст</button><button onclick="deletedText();" class="notEdit">Удалить Текст</button></div>
+            <div>
 
 <!--                 <div>
                     <button onclick="appendSection();" class="notEdit">Секция</button>
@@ -73,6 +72,7 @@
                 
             </div>
             <img src="public/img/delete.svg" class="del notEdit" onclick="deletedSectionBtn(this);">
+            <img src="public/img/delete.svg" class="del notEdit" onclick="appendSection();">
         </div>
 
         <script>
@@ -85,6 +85,7 @@
         <script src="public/js/editor/leftNav.js"></script>
 
         <script src="public/js/editor/section.js"></script>
+        <script src="public/js/editor/block.js"></script>
         <script src="public/js/editor/text.js"></script>
     </body>
 </html>

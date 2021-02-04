@@ -1,22 +1,18 @@
-let leftNavSection = document.querySelector('#leftNavSection'); // Кнопка вызова панели "СЕКЦИЯ"
-// Обработчик вызова панели "СЕКЦИЯ"
-leftNavSection.addEventListener('click', () => {
+let leftNavBlock = document.querySelector('#leftNavBlock'); // Кнопка вызова панели "БЛОК"
+// Обработчик вызова панели "БЛОК"
+leftNavBlock.addEventListener('click', () => {
 	// Отключение страндартного поведения при клике, чтоб не сбрасывать фокус
-	leftNavSection.addEventListener('mousedown', e => e.preventDefault());
-	// Отображение панели убравления "СЕКЦИЯ"
+	leftNavBlock.addEventListener('mousedown', e => e.preventDefault());
+	// Отображение панели убравления "БЛОК"
     headerNav.innerHTML = '<div class="notEdit allTopNav">'+
         '<div class="notEdit">'+
-            '<span onclick="appendSection();" class="notEdit elementTopNav">Добавить секцию</span>'+
+            '<span onclick="appendBlock();" class="notEdit elementTopNav">Добавить блок</span>'+
+            '<span onclick="deletedBlock();" class="notEdit elementTopNav">Удалить блок</span>'+
         '</div>'+
         '<div class="notEdit">'+
-            '<span onclick="appendSection2();" class="notEdit elementTopNav">Добавить секцию 2-1</span>'+
-            '<span onclick="appendSection3();" class="notEdit elementTopNav">Добавить секцию 1-2</span>'+
-            '<span onclick="appendSection4();" class="notEdit elementTopNav">Добавить секцию 1-1-1</span>'+
-        '</div>'+
-        '<div class="notEdit">'+
-            '<span onclick="changeClassSection("bg");" class="notEdit elementTopNav">Фон красный</span>'+
-            '<span onclick="appendSection3();" class="notEdit elementTopNav">Добавить секцию 1-2</span>'+
-            '<span onclick="appendSection4();" class="notEdit elementTopNav">Добавить секцию 1-1-1</span>'+
+            '<span onclick="checkClass();" class="notEdit elementTopNav">Клонка 1 из 3</span>'+
+            '<span onclick="checkClass();" class="notEdit elementTopNav">Клонка 2 из 3</span>'+
+            '<span onclick="checkClass();" class="notEdit elementTopNav">Добавить секцию 1-1-1</span>'+
         '</div>'+
     '</div>';
 });
@@ -46,7 +42,15 @@ function appendSection() {
     document.querySelector('#contentBook').appendChild(newSection);
     document.querySelector('#contentBook').appendChild(newDel);
 }
-// Блоки для секций
+// Добавление секции 2-1
+function appendSection2() {
+    const newSection = document.createElement('div');
+    let rand = URL.createObjectURL(new Blob([])).slice(-36).replace(/-/g, "")
+    newSection.classList.add('newEditor2');
+    newSection.setAttribute('id', 'a'+rand);
+    newSection.setAttribute('contenteditable', 'true');
+
+
     let block2 = document.createElement('div');
     rand = URL.createObjectURL(new Blob([])).slice(-36).replace(/-/g, "")
     block2.classList.add('block2');
@@ -56,16 +60,11 @@ function appendSection() {
     rand = URL.createObjectURL(new Blob([])).slice(-36).replace(/-/g, "")
     block3.classList.add('block3');
     block3.setAttribute('id', 'a'+rand);
-// Добавление секции 2-1
-function appendSection2() {
-    const newSection = document.createElement('div');
-    let rand = URL.createObjectURL(new Blob([])).slice(-36).replace(/-/g, "")
-    newSection.classList.add('newEditor2');
-    newSection.setAttribute('id', 'a'+rand);
-    newSection.setAttribute('contenteditable', 'true');
+
 
     newSection.appendChild(block2);
     newSection.appendChild(block3);
+
 
     let newDel = createBtnDel();
 
@@ -80,8 +79,21 @@ function appendSection3() {
     newSection.setAttribute('id', 'a'+rand);
     newSection.setAttribute('contenteditable', 'true');
 
+
+    let block2 = document.createElement('div');
+    rand = URL.createObjectURL(new Blob([])).slice(-36).replace(/-/g, "")
+    block2.classList.add('block2');
+    block2.setAttribute('id', 'a'+rand);
+
+    let block3 = document.createElement('div');
+    rand = URL.createObjectURL(new Blob([])).slice(-36).replace(/-/g, "")
+    block3.classList.add('block3');
+    block3.setAttribute('id', 'a'+rand);
+
+
     newSection.appendChild(block3);
     newSection.appendChild(block2);
+
 
     let newDel = createBtnDel();
 
@@ -96,8 +108,20 @@ function appendSection4() {
     newSection.setAttribute('id', 'a'+rand);
     newSection.setAttribute('contenteditable', 'true');
 
-    let block4 = block3;
-    let block5 = block3;
+    let block3 = document.createElement('div');
+    rand = URL.createObjectURL(new Blob([])).slice(-36).replace(/-/g, "")
+    block3.classList.add('block3');
+    block3.setAttribute('id', 'a'+rand);
+
+    let block4 = document.createElement('div');
+    rand = URL.createObjectURL(new Blob([])).slice(-36).replace(/-/g, "")
+    block4.classList.add('block3');
+    block4.setAttribute('id', 'a'+rand);
+
+    let block5 = document.createElement('div');
+    rand = URL.createObjectURL(new Blob([])).slice(-36).replace(/-/g, "")
+    block5.classList.add('block3');
+    block5.setAttribute('id', 'a'+rand);
 
     newSection.appendChild(block3);
     newSection.appendChild(block4);
@@ -108,6 +132,11 @@ function appendSection4() {
 
     document.querySelector('#contentBook').appendChild(newSection);
     document.querySelector('#contentBook').appendChild(newDel);
+}
+// Удаление сеции
+function deletedSection() {
+    let focusElem = window.getSelection();
+    document.querySelector('#'+focusElem.anchorNode.id).remove();
 }
 // Удаление сеции через иконку
 function deletedSectionBtn(elem) {
@@ -125,14 +154,26 @@ function deletedSectionBtn(elem) {
 }
 
 
-function changeClassSection(NameClass) {
+function appendBlock() {
     let focusElem = window.getSelection();
-    console.log(focusElem);
-    console.log(focusElem.focusNode.parentNode.className);
-    console.log(focusElem);
-    // if(checkClass(focusElem.focusNode.parentNode.className, NameClass)) {
-    //     focusElem.focusNode.parentNode.className = deleteClass(focusElem.focusNode.parentNode.className, NameClass);
-    // } else {
-    //     focusElem.focusNode.parentNode.className += ' '+NameClass;
-    // }
+
+    if(focusElem) {
+        let rand = URL.createObjectURL(new Blob([])).slice(-36).replace(/-/g, "")
+        let newBlock = document.createElement('div');
+        newBlock.classList.add('newBlock');
+        newBlock.setAttribute('id', 'a'+rand);
+
+        document.querySelector('#'+focusElem.anchorNode.id).appendChild(newBlock);
+    } else {
+        return false;
+    }   
+}
+
+function deletedBlock() {
+    let focusElem = window.getSelection();
+    if(!checkClass(focusElem.anchorNode.firstElementChild.className, 'editor')) {
+        document.querySelector('#'+focusElem.anchorNode.firstElementChild.id).remove();
+    } else {
+        return false;
+    }
 }
