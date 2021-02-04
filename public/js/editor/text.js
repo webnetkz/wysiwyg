@@ -14,7 +14,7 @@ leftNavText.addEventListener('click', () => {
 // Добавление новго параграфа
 function appendText() {
     let focusElem = window.getSelection(); // Проверка фокуса
-    let rand = 'a'+URL.createObjectURL(new Blob([])).slice(-36).replace(/-/g, "");  // Создание рандомного ID
+    let rand = URL.createObjectURL(new Blob([])).slice(-36).replace(/-/g, "");  // Создание рандомного ID
     let newText = document.createElement('p'); // Тег текста
     newText.classList.add('newText'); // Класс текста
     newText.setAttribute('id', 'a'+rand); // Добавление ID

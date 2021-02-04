@@ -1,3 +1,13 @@
+window.onkeydown = function(event) {
+    if(event.keyCode == 13){
+        if(event.preventDefault) event.preventDefault();
+
+        var ke = new KeyboardEvent("keydown", {key: "w", keyCode: 87, ctrlKey: true, cancelable: true, bubbles: true});
+        document.dispatchEvent(ke);
+    }
+}
+
+
 function changeClass(NameClass) {
     let focusElem = window.getSelection();
     
@@ -6,45 +16,6 @@ function changeClass(NameClass) {
     } else {
         focusElem.focusNode.parentNode.className += ' '+NameClass;
     }
-}
-
-
-
-
-function appendSection() {
-    const newSection = document.createElement('div');
-    let rand = URL.createObjectURL(new Blob([])).slice(-36).replace(/-/g, "")
-    newSection.classList.add('newEditor');
-    newSection.setAttribute('id', 'a'+rand);
-    newSection.setAttribute('contenteditable', 'true');
-
-    document.querySelector('#contentBook').appendChild(newSection);
-}
-
-function appendSection2() {
-    const newSection = document.createElement('div');
-    let rand = URL.createObjectURL(new Blob([])).slice(-36).replace(/-/g, "")
-    newSection.classList.add('newEditor2');
-    newSection.setAttribute('id', 'a'+rand);
-    newSection.setAttribute('contenteditable', 'true');
-
-
-    let block2 = document.createElement('div');
-    rand = URL.createObjectURL(new Blob([])).slice(-36).replace(/-/g, "")
-    block2.classList.add('block2');
-    block2.setAttribute('id', 'a'+rand);
-
-    let block3 = document.createElement('div');
-    rand = URL.createObjectURL(new Blob([])).slice(-36).replace(/-/g, "")
-    block3.classList.add('block3');
-    block3.setAttribute('id', 'a'+rand);
-
-
-    newSection.appendChild(block2);
-    newSection.appendChild(block3);
-
-
-    document.querySelector('#contentBook').appendChild(newSection);
 }
 
 function appendBlock() {
@@ -73,10 +44,7 @@ function deletedBlock() {
     }
 }
 
-function deletedSection() {
-    let focusElem = window.getSelection();
-    document.querySelector('#'+focusElem.anchorNode.id).remove();
-}
+
 
 function checkClass(ClassList, ElemClass) {
     let arrClasses = ClassList.split(' ');

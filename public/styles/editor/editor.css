@@ -5,8 +5,9 @@
 * {
     /* Variables */
     --transitionDuration: 500ms;
+    
 
-
+    caret-color: rgb(55, 0, 255);
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -29,23 +30,32 @@ html, body {
     background-color: rgb(240, 243, 246);
     margin-bottom: 1rem;
 }
+#contentBook {
+    margin-top: 100px;
+}
 .editor, .newEditor {
-    margin: 100px auto;
-    margin-bottom: 0px;
+    margin: 10px auto;
+    margin-bottom: 10px;
     max-width: 1000px;
     min-height: calc(100vh - 120px);
     background-color: rgb(255, 255, 255);
     border-radius: 8px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
     padding: 10px;
+    z-index: 1;
 }
 .newEditor {
-    margin-top: 50px;
+
 }
 .notEdit {
     -webkit-user-select: none;
 }
 
+
+button {
+    margin: 5px;
+    padding: 3px;
+}
 
 .newBlock {
     min-height: 100px;
@@ -57,7 +67,17 @@ html, body {
     margin-bottom: 0px;
     max-width: 1000px;
     min-height: calc(100vh - 120px);
-    border: 1px dashed black;
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    margin-top: 50px;
+}
+.newEditor3 {
+    margin: 100px auto;
+    margin-bottom: 0px;
+    max-width: 1000px;
+    min-height: calc(100vh - 120px);
     background-color: rgb(255, 255, 255);
     border-radius: 8px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
@@ -72,12 +92,32 @@ html, body {
     display: inline-block;
     padding: 10px;
     vertical-align: top;
+    margin: 5px;
 }
 .block3 {
     border: 1px dashed red;
-    width: 35%;
+    width: 32%;
     display: inline-block;
     min-height: 100px;
     padding: 10px;
     vertical-align: top;
+    margin: 5px;
+}
+.del {
+    position: relative;
+    display: block;
+    max-width: 40px;
+    left: calc(50vw - 22px);
+    background: white;
+    border-radius: 7px;
+    padding: 5px;
+    padding-left: 9px;
+    z-index: 0;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+    margin: 4px;
+    margin-bottom: 10px;
+}
+.del:hover {
+    cursor: pointer;
+    box-shadow: 0 0 18px rgba(0, 0, 0, 0.8);
 }
