@@ -7,6 +7,16 @@ window.onkeydown = function(event) {
     // }
 }
 
+// Отключение страндартного поведения при клике, чтоб не сбрасывать фокус
+// setInterval(() => {
+//     let allNotEdit = document.querySelectorAll('.notEdit');
+//     for(let i = 0; i < allNotEdit.length; i++) {
+//         allNotEdit[i].addEventListener('mousedown', e => e.preventDefault());
+//     }
+// }, 1500);
+    
+
+
 
 function changeClass(NameClass) {
     let focusElem = window.getSelection();

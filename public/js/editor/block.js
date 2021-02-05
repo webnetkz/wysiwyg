@@ -7,7 +7,8 @@ leftNavBlock.addEventListener('click', () => {
     headerNav.innerHTML = '<div class="notEdit allTopNav">'+
         '<div class="notEdit">'+
             '<span onclick="appendBlock();" class="notEdit elementTopNav">Добавить блок</span>'+
-            '<span onclick="deletedBlock();" class="notEdit elementTopNav">Удалить блок</span>'+
+            '<span onclick="appendBlock();" class="notEdit elementTopNav">Добавить блок 2/3</span>'+
+            '<span onclick="appendBlock();" class="notEdit elementTopNav">Добавить блок 1/3</span>'+
         '</div>'+
         '<div class="notEdit">'+
             '<span onclick="checkClass();" class="notEdit elementTopNav">Клонка 1 из 3</span>'+
@@ -29,19 +30,26 @@ function createBtnDel() {
     return newDel;
 }
 
+function appendBlock(idSect, classBlock) {
+    let focusElem = document.querySelector('#'+idSect);
 
-
-
-function appendBlock() {
-    let focusElem = window.getSelection();
+    let block = classBlock;
 
     if(focusElem) {
         let rand = URL.createObjectURL(new Blob([])).slice(-36).replace(/-/g, "")
-        let newBlock = document.createElement('div');
-        newBlock.classList.add('newBlock');
-        newBlock.setAttribute('id', 'a'+rand);
+        let block0 = document.createElement('div');
+        block0.classList.add(classBlock);
+        block0.setAttribute('id', 'a'+rand);
 
-        document.querySelector('#'+focusElem.anchorNode.id).appendChild(newBlock);
+        let setingsBlock = document.createElement('img');
+        setingsBlock.classList.add('setingsBlock');
+        setingsBlock.classList.add('notEdit');
+        setingsBlock.src = 'public/img/settings.svg';
+        setingsBlock.setAttribute('onclick', 'topNavSection(this);');
+        
+        focusElem.appendChild(block0);
+        focusElem.appendChild(setingsBlock);
+
     } else {
         return false;
     }   

@@ -1,15 +1,14 @@
 // Панель "НАСТРОЙКА СЕКЦИИ"
 function topNavSection(elem) {
-        // Отключение страндартного поведения при клике, чтоб не сбрасывать фокус
-        elem.addEventListener('mousedown', e => e.preventDefault());
-
         let sect = elem.parentNode.previousSibling;
         let idSect = elem.parentNode.previousSibling.id;
 
         // Отображение панели убравления "СЕКЦИЯ"
         headerNav.innerHTML = '<div class="notEdit allTopNav">'+
             '<div class="notEdit">'+
-                '<span onclick="appendSection();" class="notEdit elementTopNav">Добавить секцию</span>'+
+                '<span onclick="appendBlock(\''+idSect+'\', \'block0\');" class="notEdit elementTopNav">Добавить блок</span>'+
+                '<span onclick="appendBlock(\''+idSect+'\', \'block2\');" class="notEdit elementTopNav">Добавить блок 2/3</span>'+
+                '<span onclick="appendBlock(\''+idSect+'\', \'block3\');" class="notEdit elementTopNav">Добавить блок 1/3</span>'+
             '</div>'+
             '<div class="notEdit">'+
                 '<span onclick="appendSection2();" class="notEdit elementTopNav">Добавить секцию 2-1</span>'+
@@ -42,7 +41,7 @@ function topNavSection(elem) {
         '</div>';
 }
 
-
+// Стили секции
 function changeBgSect(nameStyle, idElem) {
     let focusElem = document.querySelector('#'+idElem);
     focusElem.style.background = nameStyle
@@ -106,6 +105,16 @@ function createSectionNav() {
     rand = URL.createObjectURL(new Blob([])).slice(-36).replace(/-/g, "")
     block3.classList.add('block3');
     block3.setAttribute('id', 'a'+rand);
+
+    let block4 = document.createElement('div');
+    rand = URL.createObjectURL(new Blob([])).slice(-36).replace(/-/g, "")
+    block4.classList.add('block3');
+    block4.setAttribute('id', 'a'+rand);
+
+    let block5 = document.createElement('div');
+    rand = URL.createObjectURL(new Blob([])).slice(-36).replace(/-/g, "")
+    block5.classList.add('block3');
+    block5.setAttribute('id', 'a'+rand);
 // Добавление секции 2-1
 function appendSection2() {
     const newSection = document.createElement('div');
@@ -146,8 +155,6 @@ function appendSection4() {
     newSection.setAttribute('id', 'a'+rand);
     newSection.setAttribute('contenteditable', 'true');
 
-    let block4 = block3;
-    let block5 = block3;
 
     newSection.appendChild(block3);
     newSection.appendChild(block4);
