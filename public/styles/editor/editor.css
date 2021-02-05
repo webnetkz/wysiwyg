@@ -38,3 +38,15 @@ html, body {
 .notEdit {
     -webkit-user-select: none;
 }
+.bgRed {
+    background-color: red;
+}
+.bgBlue {
+    background-color: blue;
+}
+.bgBlack {
+    background-color: black;
+}
+.bgWhite {
+    background-color: white;
+}

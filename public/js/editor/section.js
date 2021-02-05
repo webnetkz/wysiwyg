@@ -1,71 +1,101 @@
-let leftNavSection = document.querySelector('#leftNavSection'); // Кнопка вызова панели "СЕКЦИЯ"
-// Обработчик вызова панели "СЕКЦИЯ"
-leftNavSection.addEventListener('click', () => {
-	// Отключение страндартного поведения при клике, чтоб не сбрасывать фокус
-	leftNavSection.addEventListener('mousedown', e => e.preventDefault());
-	// Отображение панели убравления "СЕКЦИЯ"
-    headerNav.innerHTML = '<div class="notEdit allTopNav">'+
-        '<div class="notEdit">'+
-            '<span onclick="appendSection();" class="notEdit elementTopNav">Добавить секцию</span>'+
-        '</div>'+
-        '<div class="notEdit">'+
-            '<span onclick="appendSection2();" class="notEdit elementTopNav">Добавить секцию 2-1</span>'+
-            '<span onclick="appendSection3();" class="notEdit elementTopNav">Добавить секцию 1-2</span>'+
-            '<span onclick="appendSection4();" class="notEdit elementTopNav">Добавить секцию 1-1-1</span>'+
-        '</div>'+
-        '<div class="notEdit">'+
-            '<span onclick="changeClassSection("bg");" class="notEdit elementTopNav">Фон красный</span>'+
-            '<span onclick="appendSection3();" class="notEdit elementTopNav">Добавить секцию 1-2</span>'+
-            '<span onclick="appendSection4();" class="notEdit elementTopNav">Добавить секцию 1-1-1</span>'+
-        '</div>'+
-    '</div>';
-});
+// Панель "НАСТРОЙКА СЕКЦИИ"
+function topNavSection(elem) {
+        // Отключение страндартного поведения при клике, чтоб не сбрасывать фокус
+        elem.addEventListener('mousedown', e => e.preventDefault());
 
-// Создание кнопки удаления секции
+        let sect = elem.parentNode.previousSibling;
+        let idSect = elem.parentNode.previousSibling.id;
+
+        // Отображение панели убравления "СЕКЦИЯ"
+        headerNav.innerHTML = '<div class="notEdit allTopNav">'+
+            '<div class="notEdit">'+
+                '<span onclick="appendSection();" class="notEdit elementTopNav">Добавить секцию</span>'+
+            '</div>'+
+            '<div class="notEdit">'+
+                '<span onclick="appendSection2();" class="notEdit elementTopNav">Добавить секцию 2-1</span>'+
+                '<span onclick="appendSection3();" class="notEdit elementTopNav">Добавить секцию 1-2</span>'+
+                '<span onclick="appendSection4();" class="notEdit elementTopNav">Добавить секцию 1-1-1</span>'+
+            '</div>'+
+            '<div class="notEdit">'+
+                '<select class="inp" onchange="changeBgSect(this.value, \''+idSect+'\')">'+
+                    '<option selected value="none">Фоновый цвет</option>'+
+                    '<option value="red">Красный</option>'+
+                    '<option value="blue">Синий</option>'+
+                    '<option value="black">Черный</option>'+
+                    '<option value="white">Белый</option>'+
+                '</select>'+
+                '<select class="inp" onchange="changeBorderSect(this.value, \''+idSect+'\')">'+
+                    '<option selected value="none">Цвет рамки</option>'+
+                    '<option value="red">Красный</option>'+
+                    '<option value="blue">Синий</option>'+
+                    '<option value="black">Черный</option>'+
+                    '<option value="white">Белый</option>'+
+                '</select>'+
+                '<select class="inp" onchange="changeShadowSect(this.value, \''+idSect+'\')">'+
+                    '<option selected value="none;">Цвет тени</option>'+
+                    '<option value="red">Красный</option>'+
+                    '<option value="blue">Синий</option>'+
+                    '<option value="black">Черный</option>'+
+                    '<option value="white">Белый</option>'+
+                '</select>'+
+            '</div>'+
+        '</div>';
+}
+
+
+function changeBgSect(nameStyle, idElem) {
+    let focusElem = document.querySelector('#'+idElem);
+    focusElem.style.background = nameStyle
+}
+function changeBorderSect(nameStyle, idElem) {
+    let focusElem = document.querySelector('#'+idElem);
+    focusElem.style.border = '1px solid '+nameStyle+'';
+}
+function changeShadowSect(nameStyle, idElem) {
+    let focusElem = document.querySelector('#'+idElem);
+    focusElem.style.boxShadow = '0px 0px 10px '+nameStyle+'';
+}
+// Добавление новой секции
+function appendSection() {
+    let newSection = document.createElement('div'); // Создание секции
+    let rand = URL.createObjectURL(new Blob([])).slice(-36).replace(/-/g, ""); // Создание рандомного ID
+    newSection.classList.add('editor'); // Добавление класса области редактирования
+    newSection.setAttribute('id', 'a'+rand); // Добавление ID
+    newSection.setAttribute('contenteditable', 'true'); // Возможность редактировать контент
+
+    let newSectionNav = createSectionNav(); // Создание навигации для секции
+
+    document.querySelector('#contentBook').appendChild(newSection); // Добавлении Секции
+    document.querySelector('#contentBook').appendChild(newSectionNav); // Добавление навигации для секции
+}
+
+// Создание навигации для секции
 function createSectionNav() {
-    let newSectionNav = document.createElement('div');
-    newSectionNav.classList.add('sectionNav');
+    let newSectionNav = document.createElement('div'); // Создание навигации
+    newSectionNav.classList.add('sectionNav'); // Добавление класса навигации
     
-    let newDel = document.createElement('img');
+    let newDel = document.createElement('img'); // Создание кнопки удаление секции
 
-    newDel.classList.add('elementSectionNav');
+    newDel.classList.add('elementSectionNav'); // Добавление классов элементу
     newDel.classList.add('notEdit');
+    newDel.classList.add('trush');
     newDel.src = 'public/img/delete.svg';
     newDel.setAttribute('onclick', 'deletedSectionBtn(this);');
 
-    let newSect = document.createElement('img');
-
-    newSect.classList.add('elementSectionNav');
-    newSect.classList.add('notEdit');
-    newSect.src = 'public/img/delete.svg';
-    newSect.setAttribute('onclick', 'deletedSectionBtn(this);');
 
     let newSetings = document.createElement('img');
 
     newSetings.classList.add('elementSectionNav');
     newSetings.classList.add('notEdit');
-    newSetings.src = 'public/img/setings.svg';
-    newSetings.setAttribute('onclick', 'deletedSectionBtn(this);');
+    newSetings.src = 'public/img/settings.svg';
+    newSetings.setAttribute('onclick', 'topNavSection(this);');
     
     newSectionNav.appendChild(newDel);
-    newSectionNav.appendChild(newSect);
     newSectionNav.appendChild(newSetings);
     return newSectionNav;
 }
 
-// Добавление новой секции
-function appendSection() {
-    const newSection = document.createElement('div');
-    let rand = URL.createObjectURL(new Blob([])).slice(-36).replace(/-/g, "")
-    newSection.classList.add('editor');
-    newSection.setAttribute('id', 'a'+rand);
-    newSection.setAttribute('contenteditable', 'true');
 
-    let newSectionNav = createSectionNav();
-
-    document.querySelector('#contentBook').appendChild(newSection);
-    document.querySelector('#contentBook').appendChild(newSectionNav);
-}
 // Блоки для секций
     let block2 = document.createElement('div');
     rand = URL.createObjectURL(new Blob([])).slice(-36).replace(/-/g, "")
@@ -131,16 +161,11 @@ function appendSection4() {
 }
 // Удаление сеции через иконку
 function deletedSectionBtn(elem) {
-    if(elem.previousSibling.previousSibling.id) {
-        var res = document.querySelector('#'+elem.previousSibling.previousSibling.id);
-    }
-    if(res) {
-        res.remove();
-        elem.remove();
+    if(elem.parentNode.previousSibling) {
+        elem.parentNode.previousSibling.remove();
+        elem.parentNode.remove();
     } else {
-        let res = document.querySelector('#'+elem.previousSibling.id);
-        res.remove();
-        elem.remove();
+        return false;
     }
 }
 

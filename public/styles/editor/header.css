@@ -32,3 +32,12 @@ header {
     cursor: pointer;
     background: rgb(197, 195, 209);
 }
+.inp {
+    color:rgba(0, 0, 0, 0.9);
+    font-size: 0.8rem;
+    border-radius: 4px;
+    display: block;
+    min-width: calc(100% - 6px);
+    margin: 2px;
+    padding: 2px;
+}

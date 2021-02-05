@@ -27,9 +27,6 @@
                 display: inline-block;
                 min-width: 49%;
             }
-            .bg {
-                background-color: burlywood;
-            }
             .bg2 {
                 background-color: rgb(73, 51, 22);
             }
@@ -41,7 +38,7 @@
     <body>
         <div class="leftNav">
             <span class="leftNavItem activeLeftNav">
-                <img src="public/img/leftNav/section.svg" class="leftNavItemImg" id="leftNavSection">
+                <img src="public/img/leftNav/home.svg" class="leftNavItemImg" id="leftNavHome">
             </span>
             <span class="leftNavItem">
                 <img src="public/img/leftNav/block.svg" class="leftNavItemImg" id="leftNavBlock">
@@ -68,24 +65,13 @@
             </div>
         </header>
         <div id="contentBook">
-            <div class="editor" id="startSection" contenteditable="true">
-                
-            </div>
             <div class="sectionNav">
-                <img src="public/img/delete.svg" class="elementSectionNav notEdit" onclick="deletedSectionBtn(this);">
-                <img src="public/img/delete.svg" class="elementSectionNav notEdit" onclick="appendSection();">
+                <img src="public/img/plus.svg" class="elementSectionNav notEdit" onclick="appendSection();">
             </div>
-
         </div>
 
-        <script>
-            let startSection = document.querySelector('#startSection');
-            startSection.id = 'a'+URL.createObjectURL(new Blob([])).slice(-36).replace(/-/g, "");
-
-
-        </script>
         <script src="public/js/editor/editor.js"></script>
-        <script src="public/js/editor/leftNav.js"></script>
+        <script src="./public/js/editor/leftNav.js"></script>
 
         <script src="public/js/editor/section.js"></script>
         <script src="public/js/editor/block.js"></script>
