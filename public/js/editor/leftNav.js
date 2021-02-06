@@ -5,9 +5,11 @@ let leftNavSettings = document.querySelector('#leftNavSettings');
 let leftNavHome = document.querySelector('#leftNavHome');
 
 
+
 leftNavHome.addEventListener('click', () => {
     headerNav.innerHTML = '<div class="notEdit allTopNav">'+
         '<div class="notEdit">'+
+        	'<span onclick="xs();" class="notEdit elementTopNav">Красный цвет</span>'+
             '<span onclick="appendSection2();" class="notEdit elementTopNav">Добавить секцию 2-1</span>'+
             '<span onclick="appendSection3();" class="notEdit elementTopNav">Добавить секцию 1-2</span>'+
             '<span onclick="appendSection4();" class="notEdit elementTopNav">Добавить секцию 1-1-1</span>'+

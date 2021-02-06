@@ -1,31 +1,34 @@
-
-
-// Добавление новго параграфа
-function appendText() {
-    let focusElem = window.getSelection(); // Проверка фокуса
-    let rand = URL.createObjectURL(new Blob([])).slice(-36).replace(/-/g, "");  // Создание рандомного ID
-    let newText = document.createElement('p'); // Тег текста
-    newText.classList.add('newText'); // Класс текста
-    newText.setAttribute('id', 'a'+rand); // Добавление ID
-    newText.innerText = 'Добавить содержание'; // Отображаемый текст
-
-    // Если секция
-	if(focusElem.anchorNode.className == 'editor') {
-		document.querySelector('#'+focusElem.anchorNode.id).appendChild(newText);
-	}
-
-    // Если блок
-    if(focusElem.anchorNode.className == 'newBlock') {
-    	document.querySelector('#'+focusElem.anchorNode.id).appendChild(newText);
-    }
-}
-
-// Удаление параграфа
-function deletedText() {
+window.addEventListener('click', () => {
     let focusElem = window.getSelection();
-    if(!checkClass(focusElem.baseNode.firstElementChild.className, 'editor') && !checkClass(focusElem.baseNode.firstElementChild.className, 'newBlock')) {
-        document.querySelector('#'+focusElem.baseNode.firstElementChild.id).remove();
-    } else {
-        return false;
+
+    if(focusElem.anchorNode && focusElem.anchorNode.nodeName == "#text") {
+        headerNav.innerHTML = '<div class="notEdit allTopNav">'+
+            '<div class="notEdit">'+
+            	'<p>Цвет текта</p>'+
+                '<div class="colorPicker">'+
+                    '<div onclick="changeColorText(\'white\');" style="background: white"></div>'+
+                    '<div onclick="changeColorText(\'red\');" style="background: red"></div>'+
+                    '<div onclick="changeColorText(\'blue\');" style="background: blue"></div>'+
+                    '<div onclick="changeColorText(\'black\');" style="background: black"></div>'+
+                '</div>'+
+                '<div class="colorPicker">'+
+                    '<div onclick="changeColorText(\'yellow\');" style="background: yellow"></div>'+
+                    '<div onclick="changeColorText(\'green\');" style="background: green"></div>'+
+                    '<div onclick="changeColorText(\'pink\');" style="background: pink"></div>'+
+                    '<div onclick="changeColorText(\'orange\');" style="background: orange"></div>'+
+                '</div>'+
+            '</div>'+
+        '</div>';
     }
+
+
+});
+    
+function changeColorText(color) {
+    let range = window.getSelection().getRangeAt(0);
+    let newNode = document.createElement("span");
+    newNode.style.color = color;
+
+    range.surroundContents(newNode);
+    return false;
 }
