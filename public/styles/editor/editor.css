@@ -18,15 +18,6 @@
     outline: none;
     transition-duration: 600ms;
 }
-header div {
-    animation: x 1s linear;
-}
-@keyframes x {
-    0% {opacity: 0;}
-    50% {
-        opacity: 1;
-    }
-}
 html, body {
     scroll-behavior: smooth;
     overflow-x: hidden;

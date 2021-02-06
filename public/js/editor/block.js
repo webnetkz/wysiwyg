@@ -34,6 +34,9 @@ function topNavBlock(elem) {
                 '<option value="white">Белый</option>'+
             '</select>'+
         '</div>'+
+        '<div class="notEdit">'+
+            '<span onclick="appendFormula(\''+idBlock+'\');" class="notEdit elementTopNav">Добавить формулу</span>'+
+        '</div>'+
     '</div>';
 }
 
@@ -51,7 +54,26 @@ function changeShadowBlock(nameStyle, idElem) {
     focusElem.style.boxShadow = '0px 0px 10px '+nameStyle+'';
 }
 
-// Создание кнопки удаления секции
+
+function appendFormula(idBlock) {
+    let focusElem = document.querySelector('#'+idBlock);
+
+    if(focusElem) {
+        //let rand = URL.createObjectURL(new Blob([])).slice(-36).replace(/-/g, "")
+        let fl = document.createElement('math');
+        //fl.setAttribute('id', 'a'+rand);
+
+        let flRes = prompt('Введите формулу без тегов <math>');
+        fl.innerHTML = flRes;
+
+        focusElem.appendChild(fl);
+
+    } else {
+        return false;
+    }   
+}
+
+// Создание кнопки удаления блока
 function createBtnDel() {
     let newDel = document.createElement('img');
     
@@ -63,8 +85,8 @@ function createBtnDel() {
     return newDel;
 }
 
-function appendBlock(idSect, classBlock) {
-    let focusElem = document.querySelector('#'+idSect);
+function appendBlock(idBlock, classBlock) {
+    let focusElem = document.querySelector('#'+idBlock);
 
     let block = classBlock;
 
