@@ -1,22 +1,55 @@
-let leftNavBlock = document.querySelector('#leftNavBlock'); // Кнопка вызова панели "БЛОК"
-// Обработчик вызова панели "БЛОК"
-leftNavBlock.addEventListener('click', () => {
-	// Отключение страндартного поведения при клике, чтоб не сбрасывать фокус
-	leftNavBlock.addEventListener('mousedown', e => e.preventDefault());
-	// Отображение панели убравления "БЛОК"
+// Панель "НАСТРОЙКА СЕКЦИИ"
+function topNavBlock(elem) {
+    
+    let block = elem.previousSibling;
+    let idBlock = block.id;
+
+    // Отображение панели убравления "СЕКЦИЯ"
     headerNav.innerHTML = '<div class="notEdit allTopNav">'+
         '<div class="notEdit">'+
-            '<span onclick="appendBlock();" class="notEdit elementTopNav">Добавить блок</span>'+
-            '<span onclick="appendBlock();" class="notEdit elementTopNav">Добавить блок 2/3</span>'+
-            '<span onclick="appendBlock();" class="notEdit elementTopNav">Добавить блок 1/3</span>'+
+            '<span onclick="appendBlock(\''+idBlock+'\', \'block0\');" class="notEdit elementTopNav">Добавить изображение</span>'+
+            '<span onclick="appendBlock(\''+idBlock+'\', \'block2\');" class="notEdit elementTopNav">Добавить видео</span>'+
+            '<span onclick="appendBlock(\''+idBlock+'\', \'block3\');" class="notEdit elementTopNav">Добавить таблицу</span>'+
         '</div>'+
         '<div class="notEdit">'+
-            '<span onclick="checkClass();" class="notEdit elementTopNav">Клонка 1 из 3</span>'+
-            '<span onclick="checkClass();" class="notEdit elementTopNav">Клонка 2 из 3</span>'+
-            '<span onclick="checkClass();" class="notEdit elementTopNav">Добавить секцию 1-1-1</span>'+
+            '<select class="inp" onchange="changeBgBlock(this.value, \''+idBlock+'\')">'+
+                '<option selected value="none">Фоновый цвет</option>'+
+                '<option value="red">Красный</option>'+
+                '<option value="blue">Синий</option>'+
+                '<option value="black">Черный</option>'+
+                '<option value="white">Белый</option>'+
+            '</select>'+
+            '<select class="inp" onchange="changeBorderBlock(this.value, \''+idBlock+'\')">'+
+                '<option selected value="none">Цвет рамки</option>'+
+                '<option value="red">Красный</option>'+
+                '<option value="blue">Синий</option>'+
+                '<option value="black">Черный</option>'+
+                '<option value="white">Белый</option>'+
+            '</select>'+
+            '<select class="inp" onchange="changeShadowBlock(this.value, \''+idBlock+'\')">'+
+                '<option selected value="none;">Цвет тени</option>'+
+                '<option value="red">Красный</option>'+
+                '<option value="blue">Синий</option>'+
+                '<option value="black">Черный</option>'+
+                '<option value="white">Белый</option>'+
+            '</select>'+
         '</div>'+
     '</div>';
-});
+}
+
+// Стили блока
+function changeBgBlock(nameStyle, idElem) {
+    let focusElem = document.querySelector('#'+idElem);
+    focusElem.style.background = nameStyle
+}
+function changeBorderBlock(nameStyle, idElem) {
+    let focusElem = document.querySelector('#'+idElem);
+    focusElem.style.border = '1px solid '+nameStyle+'';
+}
+function changeShadowBlock(nameStyle, idElem) {
+    let focusElem = document.querySelector('#'+idElem);
+    focusElem.style.boxShadow = '0px 0px 10px '+nameStyle+'';
+}
 
 // Создание кнопки удаления секции
 function createBtnDel() {
@@ -45,7 +78,7 @@ function appendBlock(idSect, classBlock) {
         setingsBlock.classList.add('setingsBlock');
         setingsBlock.classList.add('notEdit');
         setingsBlock.src = 'public/img/settings.svg';
-        setingsBlock.setAttribute('onclick', 'topNavSection(this);');
+        setingsBlock.setAttribute('onclick', 'topNavBlock(this);');
         
         focusElem.appendChild(block0);
         focusElem.appendChild(setingsBlock);

@@ -12,17 +12,6 @@
     padding: 10px;
     z-index: 1;
 }
-.newEditor2 {
-    margin: 100px auto;
-    margin-bottom: 0px;
-    max-width: 1000px;
-    min-height: calc(100vh - 120px);
-    background-color: rgb(255, 255, 255);
-    border-radius: 8px;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
-    padding: 10px;
-    margin-top: 50px;
-}
 .sectionNav {
 	display: flex;
 	justify-content: center;
