@@ -15,6 +15,14 @@ window.onkeydown = function(event) {
 //     }
 // }, 1500);
     
+setInterval(() => {
+    let focusElem = window.getSelection();
+ 
+    if(focusElem.anchorNode && focusElem.anchorNode.nodeName == "#text") {
+        console.log(focusElem);
+    }
+}, 500);
+
 
 
 
