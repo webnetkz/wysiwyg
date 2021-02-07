@@ -17,6 +17,12 @@
 	justify-content: center;
 	margin-bottom: 10px;
 }
+.sectionNavOne {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 10px;
+    margin-top: 100px;
+}
 .elementSectionNav {
     max-width: 40px;
     background: white;

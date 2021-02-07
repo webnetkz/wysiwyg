@@ -7,9 +7,9 @@ function topNavBlock(elem) {
     // Отображение панели убравления "СЕКЦИЯ"
     headerNav.innerHTML = '<div class="notEdit allTopNav">'+
         '<div class="notEdit">'+
-            '<span onclick="appendBlock(\''+idBlock+'\', \'block0\');" class="notEdit elementTopNav">Добавить изображение</span>'+
+            '<span onclick="appendImg(\''+idBlock+'\');" class="notEdit elementTopNav">Добавить изображение</span>'+
             '<span onclick="appendBlock(\''+idBlock+'\', \'block2\');" class="notEdit elementTopNav">Добавить видео</span>'+
-            '<span onclick="appendBlock(\''+idBlock+'\', \'block3\');" class="notEdit elementTopNav">Добавить таблицу</span>'+
+            '<span onclick="deletedBlock(\''+idBlock+'\');" class="notEdit elementTopNav">Удалить блок</span>'+
         '</div>'+
         '<div class="notEdit">'+
             '<select class="inp" onchange="changeBgBlock(this.value, \''+idBlock+'\')">'+
@@ -54,7 +54,7 @@ function changeShadowBlock(nameStyle, idElem) {
     focusElem.style.boxShadow = '0px 0px 10px '+nameStyle+'';
 }
 
-
+// Добавление формулы
 function appendFormula(idBlock) {
     let focusElem = document.querySelector('#'+idBlock);
 
@@ -65,6 +65,22 @@ function appendFormula(idBlock) {
         fl.innerHTML = flRes;
 
         focusElem.appendChild(fl);
+    } else {
+        return false;
+    }   
+}
+
+// Добавление изображения по ссылке
+function appendImg(idBlock) {
+    let focusElem = document.querySelector('#'+idBlock);
+
+    if(focusElem) {
+        let newImg = document.createElement('img');
+
+        let urlLink = prompt('Введите ссылку на картинку');
+        newImg.src = urlLink;
+
+        focusElem.appendChild(newImg);
     } else {
         return false;
     }   
@@ -107,11 +123,7 @@ function appendBlock(idBlock, classBlock) {
     }   
 }
 
-function deletedBlock() {
-    let focusElem = window.getSelection();
-    if(!checkClass(focusElem.anchorNode.firstElementChild.className, 'editor')) {
-        document.querySelector('#'+focusElem.anchorNode.firstElementChild.id).remove();
-    } else {
-        return false;
-    }
+function deletedBlock(idBlock) {
+    let focusElem = document.querySelector('#'+idBlock);
+    focusElem.remove();
 }

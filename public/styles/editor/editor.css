@@ -25,7 +25,7 @@ html, body {
     margin-bottom: 1rem;
 }
 #contentBook {
-    margin-top: 100px;
+    margin-top: 0px;
 }
 .notEdit {
     -webkit-user-select: none;
