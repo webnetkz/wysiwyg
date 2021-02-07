@@ -66,9 +66,12 @@ function appendLinkText() {
     let range = window.getSelection().getRangeAt(0);
     let newNode = document.createElement("a");
   	let linkAnswer = prompt('Введите ссылку');
-  	newNode.href = linkAnswer;
+  	if(linkAnswer) {
+  		newNode.href = linkAnswer;
 
-    range.surroundContents(newNode);
-    document.getSelection().removeAllRanges();
-    return false;
+	    range.surroundContents(newNode);
+	    document.getSelection().removeAllRanges();
+	    return false;
+  	}
+  	return false;
 }

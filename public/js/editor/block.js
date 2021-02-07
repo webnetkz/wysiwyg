@@ -59,15 +59,12 @@ function appendFormula(idBlock) {
     let focusElem = document.querySelector('#'+idBlock);
 
     if(focusElem) {
-        //let rand = URL.createObjectURL(new Blob([])).slice(-36).replace(/-/g, "")
         let fl = document.createElement('math');
-        //fl.setAttribute('id', 'a'+rand);
 
         let flRes = prompt('Введите формулу без тегов <math>');
         fl.innerHTML = flRes;
 
         focusElem.appendChild(fl);
-
     } else {
         return false;
     }   
