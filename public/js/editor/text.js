@@ -35,8 +35,9 @@ window.addEventListener('click', () => {
             '</div>'+
              '<div class="notEdit">'+
                 '<div>'+
-                    '<img src="public/img/link.svg" onclick="appendLinkText();" class="notEdit elementTopNavImg">'+
+                    '<img src="public/img/link.svg" onclick="appendLinkText();" title="Создать ссылку" class="notEdit elementTopNavImg">'+
                     '<img src="public/img/centerT.svg" onclick="textAlignCenter();" class="notEdit elementTopNavImg">'+
+                    '<img src="public/img/crosshair.svg" onclick="textTitle();" class="notEdit elementTopNavImg">'+
                 '</div>'+
                 '<div>'+
                     '<img src="public/img/leftT.svg" onclick="textAlignLeft();" class="notEdit elementTopNavImg">'+
@@ -105,5 +106,19 @@ function textAlignRight() {
     newNode.style.textAlign = 'right';
     range.surroundContents(newNode);
 	document.getSelection().removeAllRanges();
+  	return false;
+}
+function textTitle() {
+    let range = window.getSelection().getRangeAt(0);
+    let newNode = document.createElement("span");
+    let titleText = prompt('Введите подсказку');
+    if(titleText) {
+        newNode.title = titleText;
+
+      range.surroundContents(newNode);
+      document.getSelection().removeAllRanges();
+      return false;
+    }
+
   	return false;
 }
