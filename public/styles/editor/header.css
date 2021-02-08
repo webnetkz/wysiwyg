@@ -50,6 +50,24 @@ header {
     text-transform: uppercase;
     text-align: center;
 }
+.elementTopNavImg {
+    padding: 3px;
+
+    margin: 2px;
+    border-radius: 4px;
+    max-width: 30px;
+    vertical-align: middle;
+    text-align: center;
+    box-shadow: 0 0 0 1px #ddd inset, 0 1px 1px #fff;
+}
+.elementTopNavImg:hover {
+    background: #dcdcdc linear-gradient(#fff, #dcdcdc);
+    box-shadow: 0 0 0 1px #aaa inset, 0 1px 1px #aaa;
+}
+.elementTopNavImg:active {
+    background: #dcdcdc linear-gradient(#fff, #dcdcdc);
+    box-shadow: 0 0 0 1px #aaa inset, 0 1px 1px #aaa;
+}
 .inp {
     color:rgba(0, 0, 0, 0.9);
     font-size: 0.8rem;

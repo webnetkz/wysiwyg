@@ -1,36 +1,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <style>
-            .TAcenter {
-                text-align: center;
-            }
-            .red {
-                color: red!important;
-            }
-            .blue {
-                color: blue!important;
-            }
-            .FS4 {
-                font-size: 4em;
-            }
-            .border {
-                border: 1px solid black;
-            }
-            .sect, .o {
-                border: 1px solid black;
-                min-height: 500px;
-            }
-            .o {
-                vertical-align: top;
-                border: 2px solid red;
-                display: inline-block;
-                min-width: 49%;
-            }
-            .bg2 {
-                background-color: rgb(73, 51, 22);
-            }
-        </style>
         <meta charset="UTF-8">
         <title>My own Editor</title>
         <link rel="stylesheet" href="public/styles/editor/editor.css">
@@ -49,10 +19,10 @@
         </div>
         <header>
             <div class="notEdit allTopNav">
-                <div class="notEdit">
+                <!-- <div class="notEdit">
                     <span onclick="appendSection();" class="notEdit elementTopNav">Добавить секцию</span>
                         
-                </div>
+                </div> -->
             </div>
         </header>
         <div class="sectionNavOne">

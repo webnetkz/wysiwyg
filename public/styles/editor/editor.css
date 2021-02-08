@@ -24,6 +24,14 @@ html, body {
     background-color: rgb(240, 243, 246);
     margin-bottom: 1rem;
 }
+img {
+    width: 100%;
+}
+video {
+    position: relative;
+    min-width: 100%;
+    z-index: 9;
+}
 #contentBook {
     margin-top: 0px;
 }

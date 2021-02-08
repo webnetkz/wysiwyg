@@ -34,7 +34,14 @@ window.addEventListener('click', () => {
                 '</div>'+
             '</div>'+
              '<div class="notEdit">'+
-            	'<span onclick="appendLinkText();" class="notEdit elementTopNav">Ссылка</span>'+
+                '<div>'+
+                    '<img src="public/img/link.svg" onclick="appendLinkText();" class="notEdit elementTopNavImg">'+
+                    '<img src="public/img/centerT.svg" onclick="textAlignCenter();" class="notEdit elementTopNavImg">'+
+                '</div>'+
+                '<div>'+
+                    '<img src="public/img/leftT.svg" onclick="textAlignLeft();" class="notEdit elementTopNavImg">'+
+                    '<img src="public/img/rightT.svg" onclick="textAlignRight();" class="notEdit elementTopNavImg">'+
+                '</div>'+
             '</div>'+
         '</div>';
     }
@@ -73,5 +80,30 @@ function appendLinkText() {
 	    document.getSelection().removeAllRanges();
 	    return false;
   	}
+  	return false;
+}
+
+function textAlignCenter() {
+    let range = window.getSelection().getRangeAt(0);
+    let newNode = document.createElement("p");
+    newNode.style.textAlign = 'center';
+    range.surroundContents(newNode);
+	document.getSelection().removeAllRanges();
+  	return false;
+}
+function textAlignLeft() {
+    let range = window.getSelection().getRangeAt(0);
+    let newNode = document.createElement("p");
+    newNode.style.textAlign = 'left';
+    range.surroundContents(newNode);
+	document.getSelection().removeAllRanges();
+  	return false;
+}
+function textAlignRight() {
+    let range = window.getSelection().getRangeAt(0);
+    let newNode = document.createElement("p");
+    newNode.style.textAlign = 'right';
+    range.surroundContents(newNode);
+	document.getSelection().removeAllRanges();
   	return false;
 }

@@ -7,9 +7,14 @@ function topNavBlock(elem) {
     // Отображение панели убравления "СЕКЦИЯ"
     headerNav.innerHTML = '<div class="notEdit allTopNav">'+
         '<div class="notEdit">'+
-            '<span onclick="appendImg(\''+idBlock+'\');" class="notEdit elementTopNav">Добавить изображение</span>'+
-            '<span onclick="appendBlock(\''+idBlock+'\', \'block2\');" class="notEdit elementTopNav">Добавить видео</span>'+
-            '<span onclick="deletedBlock(\''+idBlock+'\');" class="notEdit elementTopNav">Удалить блок</span>'+
+            '<div>'+
+                '<img src="public/img/delete.svg" onclick="deletedBlock(\''+idBlock+'\');" class="notEdit elementTopNavImg">'+
+                '<img src="public/img/formula.svg" onclick="appendFormula(\''+idBlock+'\');" class="notEdit elementTopNavImg">'+
+            '</div>'+
+            '<div>'+
+                '<img src="public/img/photo.svg" onclick="appendImg(\''+idBlock+'\');" class="notEdit elementTopNavImg">'+
+                '<img src="public/img/video.svg" onclick="appendVideo(\''+idBlock+'\');" class="notEdit elementTopNavImg">'+
+            '</div>'+
         '</div>'+
         '<div class="notEdit">'+
             '<select class="inp" onchange="changeBgBlock(this.value, \''+idBlock+'\')">'+
@@ -33,9 +38,6 @@ function topNavBlock(elem) {
                 '<option value="black">Черный</option>'+
                 '<option value="white">Белый</option>'+
             '</select>'+
-        '</div>'+
-        '<div class="notEdit">'+
-            '<span onclick="appendFormula(\''+idBlock+'\');" class="notEdit elementTopNav">Добавить формулу</span>'+
         '</div>'+
     '</div>';
 }
@@ -86,6 +88,26 @@ function appendImg(idBlock) {
     }   
 }
 
+// Добавление видео по ссылке
+function appendVideo(idBlock) {
+    let focusElem = document.querySelector('#'+idBlock);
+
+    if(focusElem) {
+        let newVideo = document.createElement('video');
+        newVideo.setAttribute('controls', '');
+
+        let urlLink = prompt('Введите ссылку на видео');
+
+        let newSource = document.createElement('source');
+        newSource.src = urlLink;
+        newVideo.appendChild(newSource);
+
+        focusElem.appendChild(newVideo);
+    } else {
+        return false;
+    }   
+}
+
 // Создание кнопки удаления блока
 function createBtnDel() {
     let newDel = document.createElement('img');
@@ -125,5 +147,6 @@ function appendBlock(idBlock, classBlock) {
 
 function deletedBlock(idBlock) {
     let focusElem = document.querySelector('#'+idBlock);
+    focusElem.nextSibling.remove();
     focusElem.remove();
 }

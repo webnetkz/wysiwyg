@@ -1,14 +1,13 @@
 .colorPicker {
-                                display: flex;
-                                width: 100%;
-
-                            }
-                            .colorPicker > div {
-                                min-height: 20px;
-                                min-width: 20px;
-                                margin: 3px;
-                            }
-                            .colorPicker > div:hover {
-                            cursor: pointer;
-                box-shadow: 0 0 5px black;
+    display: flex;
+    width: 100%;
+}
+.colorPicker > div {
+    min-height: 20px;
+    min-width: 20px;
+    margin: 3px;
+}
+.colorPicker > div:hover {
+    cursor: pointer;
+    box-shadow: 0 0 5px black;
 }
