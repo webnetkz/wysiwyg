@@ -32,6 +32,35 @@ video {
     min-width: 100%;
     z-index: 9;
 }
+.modalEr {
+    display: block;
+    position: fixed;
+    top: 10px;
+    left: 10%;
+    width: 80%;
+    height: 40px;
+    padding: auto auto;
+    text-align: center;
+    box-shadow: 0 0 10px rgb(28, 38, 47);
+    z-index: 9999999;
+    font-size: 2rem;
+    border-radius: 30px;
+    color: white;
+    font-family: sans-serif;
+    animation: modalEr 0.4s linear;
+}
+.modalEr:hover {
+    cursor: pointer;
+}
+@keyframes modalEr {
+    0% {
+        top: -100px;
+    }
+    100% {
+        top: 10px;
+    }
+}
+
 #contentBook {
     margin-top: 0px;
 }

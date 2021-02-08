@@ -6,17 +6,6 @@
         <link rel="stylesheet" href="public/styles/editor/editor.css">
     </head>
     <body>
-        <div class="leftNav">
-            <span class="leftNavItem activeLeftNav">
-                <img src="public/img/leftNav/home.svg" class="leftNavItemImg" id="leftNavHome">
-            </span>
-            <span class="leftNavItem">
-                <img src="public/img/leftNav/settings.svg" class="leftNavItemImg" id="leftNavSettings">
-            </span>
-            <span class="leftNavItem" onclick="saveContent();">
-                <img src="public/img/leftNav/save.svg" class="leftNavItemImg" id="leftNavSave">
-            </span>
-        </div>
         <header>
             <div class="notEdit allTopNav">
                 <!-- <div class="notEdit">
@@ -34,6 +23,21 @@
             ?>
         </div>
 
+
+
+
+        <div class="leftNav">
+            <span class="leftNavItem activeLeftNav">
+                <img src="public/img/leftNav/home.svg" class="leftNavItemImg" id="leftNavHome">
+            </span>
+            <span class="leftNavItem">
+                <img src="public/img/leftNav/settings.svg" class="leftNavItemImg" id="leftNavSettings">
+            </span>
+            <span class="leftNavItem" onclick="saveContent();">
+                <img src="public/img/leftNav/save.svg" class="leftNavItemImg" id="leftNavSave">
+            </span>
+        </div>
+        <script src="public/js/editor/messages.js"></script>
         <script src="./public/js/editor/leftNav.js"></script>
         <script src="public/js/editor/editor.js"></script>
         

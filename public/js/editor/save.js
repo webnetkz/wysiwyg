@@ -31,6 +31,12 @@ function request(userData, serverFile) {
     xhr.onreadystatechange = function() {
         if(xhr.readyState === 4 && xhr.status === 200) {
             let res = xhr.responseText;
+            alert(res);
+            // if(res == 'good') {
+            //     message('Сохранено', 2);
+            // } else {
+            //     message('Произошла ошибка', 1);
+            // }
         }
     }
 
