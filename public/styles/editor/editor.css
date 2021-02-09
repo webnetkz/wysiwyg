@@ -60,7 +60,11 @@ video {
         top: 10px;
     }
 }
-
+.formula {
+    padding: 4px;
+    border: 1px solid black;
+    display: inline-block;
+}
 #contentBook {
     margin-top: 0px;
 }
@@ -78,4 +82,39 @@ video {
 }
 .bgWhite {
     background-color: white;
+}
+.colorPicker > div {
+	transition-duration: 100ms;
+}
+.colorPickerPalitra {
+	position: absolute;
+	background-color: rgb(240, 243, 246);
+	padding: 2px;
+	border: 1px solid rgb(140, 243, 246);
+	z-index: 9999999999999999999;
+	border-radius: 2px;
+}
+.showList {
+	position: absolute;
+	background-color: rgb(240, 243, 246);
+	padding: 2px;
+	min-width: 110px;
+	border: 1px solid rgb(140, 243, 246);
+	z-index: 9999999999999999999;
+	border-radius: 2px;
+}
+.showList > div {
+	font-family: sans-serif;
+	margin: 2px;
+	border-radius: 2px;
+	padding: 2px;
+	border: 1px solid rgb(140, 243, 246);
+}
+.showList > div:hover {
+	margin: 2px;
+	border-radius: 2px;
+	padding: 2px;
+	border: 1px solid rgb(240, 243, 246);
+	background-color: rgb(210, 213, 216);
+	cursor: pointer;
 }

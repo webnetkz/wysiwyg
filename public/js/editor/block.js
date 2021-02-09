@@ -56,22 +56,6 @@ function changeShadowBlock(nameStyle, idElem) {
     focusElem.style.boxShadow = '0px 0px 10px '+nameStyle+'';
 }
 
-// Добавление формулы
-function appendFormula(idBlock) {
-    let focusElem = document.querySelector('#'+idBlock);
-
-    if(focusElem) {
-        let fl = document.createElement('math');
-
-        let flRes = prompt('Введите формулу без тегов <math>');
-        fl.innerHTML = flRes;
-
-        focusElem.appendChild(fl);
-    } else {
-        return false;
-    }   
-}
-
 // Добавление изображения по ссылке
 function appendImg(idBlock) {
     let focusElem = document.querySelector('#'+idBlock);

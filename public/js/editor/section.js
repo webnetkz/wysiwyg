@@ -19,14 +19,14 @@ function topNavSection(elem) {
                     '<option value="white">Белый</option>'+
                 '</select>'+
                 '<select class="inp" onchange="changeBorderSect(this.value, \''+idSect+'\')">'+
-                    '<option selected value="none">Цвет рамки</option>'+
+                    '<option selected value="1px solid rgba(0,0,0,0)">Цвет рамки</option>'+
                     '<option value="red">Красный</option>'+
                     '<option value="blue">Синий</option>'+
                     '<option value="black">Черный</option>'+
                     '<option value="white">Белый</option>'+
                 '</select>'+
                 '<select class="inp" onchange="changeShadowSect(this.value, \''+idSect+'\')">'+
-                    '<option selected value="none;">Цвет тени</option>'+
+                    '<option selected value="0 0 0px rgba(0,0,0,0)">Цвет тени</option>'+
                     '<option value="red">Красный</option>'+
                     '<option value="blue">Синий</option>'+
                     '<option value="black">Черный</option>'+

@@ -37,3 +37,37 @@ function deleteClass(ClassList, ElemClass) {
         }
     }
 }
+
+function showPalitra(elem) {
+	if(elem.nextSibling.nextSibling.style.display == 'block') {
+	   	elem.nextSibling.nextSibling.style.display = 'none';
+		return false;
+	} else {
+		elem.nextSibling.nextSibling.style.display = 'block';
+	
+		elem.nextSibling.nextSibling.addEventListener('click', () => {
+			elem.nextSibling.nextSibling.style.display = 'none';
+			return false;
+		});
+	}
+	
+	return false;
+}
+
+function showList(elem) {
+	if(elem.nextSibling.nextSibling.style.display == 'block') {
+	   	elem.nextSibling.nextSibling.style.display = 'none';
+		return false;
+	} else {
+		elem.nextSibling.nextSibling.style.display = 'block';
+	
+		elem.nextSibling.nextSibling.addEventListener('click', () => {
+			elem.nextSibling.nextSibling.style.display = 'none';
+			return false;
+		});
+	}
+	
+	return false;
+}
+
+
