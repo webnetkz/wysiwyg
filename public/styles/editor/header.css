@@ -3,21 +3,22 @@ header {
     top: 0;
     left: 0;
     width: 100vw;
-    min-height: 90px;
+    min-height: 40px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
-    background: rgb(255, 255, 255);
+    background: var(--colorOne);
     z-index: 99;
 }
 .allTopNav, .allTopNavText {
     display: flex;
-    height: 90px;
+    height: 40px;
     align-items: center;
 }
 .allTopNav > div {
+    display: flex;
     padding: 3px;
     border-right: 2px solid rgba(0, 0, 0, 0.3);
-    height: 80px;
-    vertical-align: top;
+    height: 40px;
+    align-items: center;
 }
 .allTopNavText > div {
     padding: 3px;
@@ -28,7 +29,7 @@ header {
 .elementTopNav {
     display: block;
     padding: 3px;
-    background:rgb(237, 236, 243);
+    background: var(--colorTwo);
     margin: 2px;
     font-size: 0.8rem;
     border-radius: 4px;
@@ -36,7 +37,7 @@ header {
 }
 .elementTopNav:hover {
     cursor: pointer;
-    background: rgb(197, 195, 209);
+    background: var(--colorTwo);
 }
 .elementTopNavH {
     display: block;
@@ -51,9 +52,8 @@ header {
     text-align: center;
 }
 .elementTopNavImg {
-    padding: 3px;
-
-    margin: 2px;
+    padding: 4px;
+    margin: 1px;
     border-radius: 4px;
     max-width: 30px;
     vertical-align: middle;

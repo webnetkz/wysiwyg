@@ -8,9 +8,17 @@
 * {
     /* Variables */
     --transitionDuration: 500ms;
+
+    --colorOne: rgb(255, 255, 255);
+        --colorOneDark: rgb(50, 50, 50);
+    --colorTwo: rgb(237, 236, 243);
+        --colorTwoDark: rgb(27, 27, 27);
+    --colorThree: rgb(13, 102, 208);
+        --colorThreeDark: rgb(13, 102, 208);
+    
     
 
-    caret-color: rgb(55, 0, 255);
+    caret-color: var(--colorThree);
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -44,7 +52,7 @@ video {
     box-shadow: 0 0 10px rgb(28, 38, 47);
     z-index: 9999999;
     font-size: 2rem;
-    border-radius: 30px;
+    border-radius: 3px;
     color: white;
     font-family: sans-serif;
     animation: modalEr 0.4s linear;
@@ -62,8 +70,10 @@ video {
 }
 .formula {
     padding: 4px;
-    border: 1px solid black;
+    border: 1px solid rgb(175, 175, 175);
     display: inline-block;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 #contentBook {
     margin-top: 0px;
@@ -85,21 +95,22 @@ video {
 }
 .colorPicker > div {
 	transition-duration: 100ms;
+    border-radius: 2px;
 }
 .colorPickerPalitra {
 	position: absolute;
-	background-color: rgb(240, 243, 246);
+	background-color: var(--colorOne);
 	padding: 2px;
-	border: 1px solid rgb(140, 243, 246);
+	border: 1px solid var(--colorTwo);
 	z-index: 9999999999999999999;
 	border-radius: 2px;
 }
 .showList {
 	position: absolute;
-	background-color: rgb(240, 243, 246);
+	background-color: var(--colorOne);
 	padding: 2px;
 	min-width: 110px;
-	border: 1px solid rgb(140, 243, 246);
+	border: 1px solid var(--colorTwo);
 	z-index: 9999999999999999999;
 	border-radius: 2px;
 }
@@ -108,13 +119,12 @@ video {
 	margin: 2px;
 	border-radius: 2px;
 	padding: 2px;
-	border: 1px solid rgb(140, 243, 246);
+	border: 1px solid var(--colorTwo);
 }
 .showList > div:hover {
 	margin: 2px;
 	border-radius: 2px;
 	padding: 2px;
-	border: 1px solid rgb(240, 243, 246);
-	background-color: rgb(210, 213, 216);
+	border: 1px solid var(--colorThree);
 	cursor: pointer;
 }

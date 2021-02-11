@@ -187,38 +187,3 @@ function appendAnchor() {
 		return false;
 	}
 }
-
-// Добавление формулы
-function appendFormula() {
-    if(typeof window.getSelection() != "undefined" && window.getSelection().anchorNode != null) {
-        let range = window.getSelection().getRangeAt(0);
-
-        insertAtCaret(document.querySelector('#'+range.startContainer.id));
-    } else {
-		return false;
-	} 
-}
-
-
-function insertAtCaret(obj){
-    let myValue = prompt('Введите формулу без тегов "<math> </math>"');
-    if(myValue == null) {
-        return false;
-    }
-    myValue = '<span class="formula"><math>'+myValue+'</math></span>';
-  
-    if (document.selection) { 
-        obj.focus();
-        sel = document.selection.createRange();
-        sel.text = myValue;
-        obj.focus();
-    } else if (window.getSelection) {
-        caret = window.getSelection().anchorOffset; // тут позиция каретки
-        txt = obj.innerHTML;
-        txt = txt.substring(0, caret) + myValue + txt.substring(caret);
-        obj.innerHTML = txt;
-    } else {
-        obj.innerhtml += myValue;
-        obj.focus();
-    };
-};

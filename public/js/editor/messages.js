@@ -20,6 +20,6 @@ function message(mes, typeMes) {
 
     setInterval(() => {
         modal.remove();
-    }, 7000);
+    }, 5000);
 }
 

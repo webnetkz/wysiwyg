@@ -8,8 +8,10 @@ function topNavBlock(elem) {
     headerNav.innerHTML = '<div class="notEdit allTopNav">'+
         '<div class="notEdit">'+
             '<div>'+
-                '<img src="public/img/delete.svg" onclick="deletedBlock(\''+idBlock+'\');" class="notEdit elementTopNavImg">'+
                 '<img src="public/img/formula.svg" onclick="appendFormula(\''+idBlock+'\');" class="notEdit elementTopNavImg">'+
+            '</div>'+
+            '<div>'+
+                '<img src="public/img/delete.svg" onclick="deletedBlock(\''+idBlock+'\');" class="notEdit elementTopNavImg">'+
             '</div>'+
             '<div>'+
                 '<img src="public/img/photo.svg" onclick="appendImg(\''+idBlock+'\');" class="notEdit elementTopNavImg">'+

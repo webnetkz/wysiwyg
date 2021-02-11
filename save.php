@@ -7,7 +7,7 @@
         $f = fopen('./book.html', 'w');
         @fwrite($f, $data);
         fclose($f);
-        header('Location: index.php?mes=good');
+        header('Location: index.php');
     } else {
         return false;
     }
