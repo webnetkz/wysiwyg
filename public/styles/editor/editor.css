@@ -72,8 +72,9 @@ video {
     padding: 4px;
     border: 1px solid rgb(175, 175, 175);
     display: inline-block;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+	border-radius: 3px;
 }
 #contentBook {
     margin-top: 0px;
@@ -92,39 +93,4 @@ video {
 }
 .bgWhite {
     background-color: white;
-}
-.colorPicker > div {
-	transition-duration: 100ms;
-    border-radius: 2px;
-}
-.colorPickerPalitra {
-	position: absolute;
-	background-color: var(--colorOne);
-	padding: 2px;
-	border: 1px solid var(--colorTwo);
-	z-index: 9999999999999999999;
-	border-radius: 2px;
-}
-.showList {
-	position: absolute;
-	background-color: var(--colorOne);
-	padding: 2px;
-	min-width: 110px;
-	border: 1px solid var(--colorTwo);
-	z-index: 9999999999999999999;
-	border-radius: 2px;
-}
-.showList > div {
-	font-family: sans-serif;
-	margin: 2px;
-	border-radius: 2px;
-	padding: 2px;
-	border: 1px solid var(--colorTwo);
-}
-.showList > div:hover {
-	margin: 2px;
-	border-radius: 2px;
-	padding: 2px;
-	border: 1px solid var(--colorThree);
-	cursor: pointer;
 }

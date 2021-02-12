@@ -7,7 +7,7 @@
         $f = fopen('./book.html', 'w');
         @fwrite($f, $data);
         fclose($f);
-        header('Location: index.php');
+        echo 'save';
     } else {
         return false;
     }

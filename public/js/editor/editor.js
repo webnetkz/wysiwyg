@@ -39,72 +39,65 @@ function deleteClass(ClassList, ElemClass) {
 }
 
 function showPalitra(elem) {
-	if(elem.nextSibling.nextSibling.style.display == 'block') {
-	   	elem.nextSibling.nextSibling.style.display = 'none';
-		return false;
-	} else {
-		elem.nextSibling.nextSibling.style.display = 'block';
-	
-		elem.nextSibling.nextSibling.addEventListener('click', () => {
+	if(elem.nextSibling.nextSibling != null) {
+		if(elem.nextSibling.nextSibling.style.display == 'block') {
 			elem.nextSibling.nextSibling.style.display = 'none';
 			return false;
-		});
+		} else {
+			elem.nextSibling.nextSibling.style.display = 'block';
+
+			elem.nextSibling.nextSibling.addEventListener('click', () => {
+				elem.nextSibling.nextSibling.style.display = 'none';
+				return false;
+			});
+		}
+
+		return false;
+	} else {
+		if(elem.nextSibling.style.display == 'block') {
+			elem.nextSibling.style.display = 'none';
+			return false;
+		} else {
+			elem.nextSibling.style.display = 'block';
+
+			elem.nextSibling.addEventListener('click', () => {
+				elem.nextSibling.style.display = 'none';
+				return false;
+			});
+		}
 	}
-	
 	return false;
 }
 
 function showList(elem) {
-	if(elem.nextSibling.nextSibling.style.display == 'block') {
-	   	elem.nextSibling.nextSibling.style.display = 'none';
-		return false;
-	} else {
-		elem.nextSibling.nextSibling.style.display = 'block';
-	
-		elem.nextSibling.nextSibling.addEventListener('click', () => {
+	if(elem.nextSibling.nextSibling != null) {
+		if(elem.nextSibling.nextSibling.style.display == 'block') {
 			elem.nextSibling.nextSibling.style.display = 'none';
 			return false;
-		});
+		} else {
+			elem.nextSibling.nextSibling.style.display = 'block';
+
+			elem.nextSibling.nextSibling.addEventListener('click', () => {
+				elem.nextSibling.nextSibling.style.display = 'none';
+				return false;
+			});
+		}
+
+		return false;
+	} else {
+		if(elem.nextSibling.style.display == 'block') {
+			elem.nextSibling.style.display = 'none';
+			return false;
+		} else {
+			elem.nextSibling.style.display = 'block';
+
+			elem.nextSibling.addEventListener('click', () => {
+				elem.nextSibling.style.display = 'none';
+				return false;
+			});
+		}
 	}
-	
 	return false;
 }
 
-// Добавление формулы
-function appendFormula(idBlock) {
-    let mainBlock = document.querySelector('#'+idBlock);
-    let myValue = prompt('Введите формулу без тегов "<math> </math>"');
-    if(myValue == null) {
-        return false;
-    }
 
-    mainBlock.innerHTML += '<span  contenteditable="false" class="formula"><math>'+myValue+'</math><span>';
-    return false;
-}
-
-
-function insertAtCaret(obj){
-    let myValue = prompt('Введите формулу без тегов "<math> </math>"');
-    if(myValue == null) {
-        return false;
-    }
-    myValue = '<div><span class="formula" contenteditable="false"><math contenteditable="false">'+myValue+'</math></span>';
-  
-    if (document.selection) { 
-        obj.focus();
-        sel = document.selection.createRange();
-        sel.text = myValue;
-        obj.focus();
-    } else if (window.getSelection) {
-        console.log(window.getSelection());
-        console.log(window.getSelection().anchorOffset);
-        alert();
-        caret = window.getSelection().anchorOffset; // тут позиция каретки
-        txt = obj.innerHTML;
-        txt = txt.substring(0, caret) + myValue + txt.substring(caret);
-        obj.innerHTML = txt;
-    } else {
-        obj.innerhtml += myValue;
-        obj.focus();
-    };
-};

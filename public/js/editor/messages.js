@@ -5,7 +5,7 @@ function message(mes, typeMes) {
     let modal = document.createElement('div');
     modal.classList.add('modalEr');
 
-    if(type == 1) {
+    if(type == 0) {
         modal.style.background = 'red';   
     } else {
         modal.style.background = 'green'; 

@@ -1,0 +1,215 @@
+/* Components */
+@import url("./modalEr.css");
+/* Elements */
+* {
+    /* Variables */
+    --transitionDuration: 500ms;
+
+    --colorZeroDark: rgb(83, 83, 83);
+    --colorOneDark: rgb(50, 50, 50);
+    --colorTwoDark: rgb(27, 27, 27);
+    --colorThreeDark: rgb(13, 102, 208);
+    
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition-duration: var(--transitionDuration);
+    outline: none;
+    transition-duration: 600ms;
+}
+html, body {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    font-family: sans-serif;
+    background-color: var(--colorTwoDark);
+}
+.fullScreen {
+    background-color: var(--colorTwoDark);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.signin {
+    min-width: 350px;
+    min-height: 250px;
+    background-color: var(--colorOneDark);
+    border-radius: 6px;
+    box-shadow: 0 0 20px var(--colorTwoDark);
+    animation: showSignIn 0.4s linear;
+}
+@keyframes showSignIn {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(0.5);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 20px var(--colorThreeDark);
+    }
+}
+.signin:hover {
+    box-shadow: 0 0 200px var(--colorThreeDark);
+}
+.signin:focus {
+    box-shadow: 0 0 200px var(--colorThreeDark);
+}
+.signin > h2 {
+    color: var(--colorZeroDark);
+    text-align: center;
+    margin: 10px;
+    margin-top: 30px;
+    font-weight: 100;
+}
+.inp {
+    display: block;
+    width: 90%;
+    margin: 20px;
+    margin-left: 5%;
+    font-size: 1rem;
+    padding: 5px;
+    border-radius: 10px;
+    color: var(--colorOneDark);
+    background: var(--colorZeroDark);
+    border: none;
+}
+.inp:focus {
+    background: white;
+}
+.btn {
+    display: block;
+    width: 90%;
+    margin: 20px;
+    margin-left: 5%;
+    font-size: 1.3rem;
+    padding: 5px;
+    border-radius: 10px;
+    border: none;
+    background: var(--colorThreeDark);
+    color: var(--colorOneDark);
+    border: 1px solid var(--colorThreeDark);
+}
+.btn:hover {
+    background: var(--colorOneDark);
+    color: var(--colorThreeDark);
+}
+.btnMini {
+    display: inline;
+    width: 20%;
+    margin: 10px;
+    font-size: 1.3rem;
+    padding: 5px;
+    border-radius: 10px;
+    border: none;
+    background: var(--colorThreeDark);
+    color: var(--colorOneDark);
+    border: 1px solid var(--colorThreeDark);
+}
+.btnMini:hover {
+    background: var(--colorOneDark);
+    color: var(--colorThreeDark);
+}
+.btnMiniRed {
+    display: inline;
+    width: 20%;
+    margin: 10px;
+    font-size: 1.3rem;
+    padding: 5px;
+    border-radius: 10px;
+    border: none;
+    background: rgb(238, 57, 57);
+    color: var(--colorOneDark);
+    border: 1px solid rgb(238, 57, 57);
+}
+.btnMiniRed:hover {
+    background: var(--colorOneDark);
+    color: rgb(238, 57, 57);
+}
+
+header {
+    background: var(--colorOneDark);
+    height: 50px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99999999999999999999;
+    width: 100vw;
+}
+.login {
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    border: 1px solid white;
+    padding: 3px;
+    height: 45px;
+    border-radius: 100px;
+    padding-right: 20px;
+}
+.login:hover {
+    border: 1px solid var(--colorThreeDark);
+    cursor: pointer;
+}
+.login > img {
+    max-height: 38px;
+    display: inline-block;
+    margin-right: 5px;
+}
+.login:hover > img {
+    transform: rotate(360deg);
+}
+.login > span {
+    display: inline-block;
+    color: white;
+}
+.login:hover > span {
+    margin: 0 20px;
+}
+
+.content {
+    margin: 70px 3%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.content > div {
+    margin: 5px;
+    border: 1px solid rgba(0, 0, 0, 0);
+    box-shadow: 0 0 10px rgb(17, 17, 17);
+    width: 100px;
+    height: 150px;
+    border-radius: 3px;
+    background: rgb(50, 50, 50);
+}
+.addBook > img {
+    width: 70%;
+    margin-left: 15%;
+    margin-top: 20%;
+}
+.content > div:hover {
+    cursor: pointer;
+    background: rgb(60, 60, 60);
+    border: 1px solid var(--colorThreeDark);
+}
+
+
+.createNewBookModal {
+    position: fixed;
+    top: -110%;
+    background: rgb(50, 50, 50);
+    z-index: 999999999;
+    width: 800px;
+    margin-left: calc((100vw - 800px) / 2);
+    border-radius: 7px;
+    box-shadow: 0 0 10px rgb(17, 17, 17);
+    padding: 40px 20px;
+    color: white;
+}
+hr {
+    border-color: var(--colorThreeDark);
+    opacity: 0.9;
+    margin: 10px 0;
+}

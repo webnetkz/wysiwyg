@@ -86,3 +86,49 @@ header .allTopNav {
         opacity: 1;
     }
 }
+@keyframes showList {
+	50% {
+		border: 1px solid red;
+			box-shadow: 0 0 10px red;
+	}
+}
+.colorPicker > div {
+	transition-duration: 100ms;
+    border-radius: 2px;
+	border: 1px solid var(--colorTwo);
+}
+.colorPickerPalitra {
+	position: absolute;
+	background-color: var(--colorOne);
+	padding: 2px;
+	border: 1px solid var(--colorTwo);
+	z-index: 9999999999999999999;
+	border-radius: 2px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.4);
+	animation: showList 0.2s linear;
+}
+.showList {
+	position: absolute;
+	background-color: var(--colorOne);
+	padding: 2px;
+	min-width: 110px;
+	border: 1px solid var(--colorTwo);
+	z-index: 9999999999999999999;
+	border-radius: 2px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.4);
+	animation: showList 0.2s linear;
+}
+.showList > div {
+	font-family: sans-serif;
+	margin: 2px;
+	border-radius: 2px;
+	padding: 2px;
+	border: 1px solid var(--colorTwo);
+}
+.showList > div:hover {
+	margin: 2px;
+	border-radius: 2px;
+	padding: 2px;
+	border: 1px solid var(--colorThree);
+	cursor: pointer;
+}

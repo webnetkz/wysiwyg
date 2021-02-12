@@ -5,11 +5,20 @@ function topNavSection(elem) {
 
         // Отображение панели убравления "СЕКЦИЯ"
         headerNav.innerHTML = '<div class="notEdit allTopNav">'+
-            '<div class="notEdit">'+
-                '<span onclick="appendBlock(\''+idSect+'\', \'block0\');" class="notEdit elementTopNav">Добавить блок</span>'+
-                '<span onclick="appendBlock(\''+idSect+'\', \'block2\');" class="notEdit elementTopNav">Добавить блок 2/3</span>'+
-                '<span onclick="appendBlock(\''+idSect+'\', \'block3\');" class="notEdit elementTopNav">Добавить блок 1/3</span>'+
-            '</div>'+
+            						'<div class="notEdit">'+
+			
+			
+			
+										'<div>'+
+											'<img src="public/img/plus.svg" onclick="showList(this);" class="notEdit elementTopNavImg">'+
+											'<div class="showList" style="display: none">'+
+												'<div onclick="appendBlock(\''+idSect+'\', \'block0\');">Добавить блок</div>'+
+												'<div onclick="appendBlock(\''+idSect+'\', \'block2\');">Добавить блок 1/2</div>'+
+												'<div onclick="appendBlock(\''+idSect+'\', \'block3\');">Добавить блок 1/3</div>'+   
+											'</div>'+
+                                    '</div>'+
+								'</div>'+
+         
             '<div class="notEdit">'+
                 '<select class="inp" onchange="changeBgSect(this.value, \''+idSect+'\')">'+
                     '<option selected value="none">Фоновый цвет</option>'+
@@ -97,3 +106,4 @@ function deletedSectionBtn(elem) {
         return false;
     }
 }
+

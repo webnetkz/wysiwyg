@@ -102,7 +102,7 @@ function createBtnDel() {
     newDel.classList.add('notEdit');
     newDel.src = 'public/img/delete.svg';
     newDel.setAttribute('onclick', 'deletedSectionBtn(this);');
-    
+	
     return newDel;
 }
 
@@ -122,6 +122,7 @@ function appendBlock(idBlock, classBlock) {
         setingsBlock.classList.add('notEdit');
         setingsBlock.src = 'public/img/settings.svg';
         setingsBlock.setAttribute('onclick', 'topNavBlock(this);');
+		
         
         focusElem.appendChild(block0);
         focusElem.appendChild(setingsBlock);
@@ -136,3 +137,42 @@ function deletedBlock(idBlock) {
     focusElem.nextSibling.remove();
     focusElem.remove();
 }
+
+// Добавление формулы
+function appendFormula(idBlock) {
+    let mainBlock = document.querySelector('#'+idBlock);
+    let myValue = prompt('Введите формулу без тегов "<math> </math>"');
+    if(myValue == null) {
+        return false;
+    }
+
+    mainBlock.innerHTML += '<span  contenteditable="false" class="formula"><math>'+myValue+'</math><span>';
+    return false;
+}
+
+
+function insertAtCaret(obj){
+    let myValue = prompt('Введите формулу без тегов "<math> </math>"');
+    if(myValue == null) {
+        return false;
+    }
+    myValue = '<div><span class="formula" contenteditable="false"><math contenteditable="false">'+myValue+'</math></span>';
+  
+    if (document.selection) { 
+        obj.focus();
+        sel = document.selection.createRange();
+        sel.text = myValue;
+        obj.focus();
+    } else if (window.getSelection) {
+        console.log(window.getSelection());
+        console.log(window.getSelection().anchorOffset);
+        alert();
+        caret = window.getSelection().anchorOffset; // тут позиция каретки
+        txt = obj.innerHTML;
+        txt = txt.substring(0, caret) + myValue + txt.substring(caret);
+        obj.innerHTML = txt;
+    } else {
+        obj.innerhtml += myValue;
+        obj.focus();
+    };
+};
