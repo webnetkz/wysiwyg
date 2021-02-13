@@ -213,3 +213,7 @@ hr {
     opacity: 0.9;
     margin: 10px 0;
 }
+
+.bookPanel:hover {
+    transform: scale(1.1);
+}

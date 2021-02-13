@@ -1,6 +1,11 @@
 <?php
 
-$config = require_once '../../config/db.php';
+$config = [
+    'host' => 'localhost:3306',
+    'db_name' => 'wysiwyg',
+    'db_user' => 'root',
+    'db_pass' => 'root',
+];
 
 // Данные для подключения к базе данных
 $driver = 'mysql';
