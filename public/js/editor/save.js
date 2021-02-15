@@ -18,7 +18,10 @@ function saveContent() {
     
     // Отправка дыннх на сервер и получение ответа
     // location.href = 'save.php?contentBook='+newContent+'';
-    request(newContent, 'save.php');
+
+    let params = (new URL(document.location)).searchParams; 
+
+    request(newContent, 'app/saveBook/saveBook?book='+params.get("book")+'&part='+params.get("part"));
 }
 
 function request(userData, serverFile) {
@@ -32,7 +35,7 @@ function request(userData, serverFile) {
         if(xhr.readyState === 4 && xhr.status === 200) {
             let res = xhr.responseText;
             if(res != null && res != undefined && res != 'undefined' && res != ' ' && res != '') {
-                 message('Сохранено', 2);
+                 message(res, 2);
             } else {
                  message('Произошла ошибка', 1);
             }

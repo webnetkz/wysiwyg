@@ -169,7 +169,12 @@
         </div>
         <div id="contentBook">
             <?php
-                echo file_get_contents('./book.html');
+                require_once 'app/libs/db/db.php';
+
+                $getContentSQL = 'SELECT content FROM book_'.$_GET['book'].' WHERE part = "'.$_GET['part'].'"';
+                $res = $pdo->query($getContentSQL);
+                $res = $res->fetch(PDO::FETCH_ASSOC);
+                echo urldecode($res['content']);
             ?>
         </div>
 

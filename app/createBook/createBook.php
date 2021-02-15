@@ -2,7 +2,7 @@
 
 
     ini_set("max_execution_time", 300);
-    require_once '../db/db.php';
+    require_once '../libs/db/db.php';
 
     // Получение номера книги
     $sqlLast = 'SELECT id FROM books ORDER BY id DESC';
@@ -17,17 +17,18 @@
     $pack = trim($_POST['pack']);
     
     // Создание директории для книги
-    @mkdir('../../../books/'.$book, 0777, true);
+    @mkdir('../../books/'.$book, 0777, true);
 
     // Загрузка обложки
-    $file = 'index_'.$_FILES['titleImg']['name'];
-    $uploaddir = '../../../books/'.$book.'/';
+    $typeFile = substr($_FILES['titleImg']['name'], strrpos($_FILES['titleImg']['name'], '.') + 1);
+    $file = 'indexImg.'.$typeFile;
+    $uploaddir = '../../books/'.$book.'/';
     $uploadfile = $uploaddir . basename($file);
 
     if (move_uploaded_file($_FILES['titleImg']['tmp_name'], $uploadfile)) {
 
 			// Создание таблицы глав
-			$sqlCreateParts = 'CREATE TABLE IF NOT EXISTS parts_'.$book.'(id INT NOT NULL AUTO_INCREMENT, part VARCHAR (255) NOT NULL, type VARCHAR (255) NOT NULL, PRIMARY KEY (ID) )';
+			$sqlCreateParts = 'CREATE TABLE IF NOT EXISTS parts_'.$book.'(id INT NOT NULL AUTO_INCREMENT, part VARCHAR (255) NOT NULL, PRIMARY KEY (ID) )';
 			$pdo->query($sqlCreateParts);
 
 			// Создание таблицы контента

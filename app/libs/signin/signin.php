@@ -5,8 +5,6 @@
     require_once '../db/db.php';
 
     if(isset($_POST['signin'])) {
-            
-            require_once '../../config/db.php';
 
             $login = trim($_POST['login']);
             $login = htmlentities($login);

@@ -78,6 +78,23 @@ html, body {
 }
 .inp:focus {
     background: white;
+    padding-left: 20px;
+}
+.inpHalf {
+    display: inline-block;
+    width: 60%;
+    margin: 20px;
+    margin-left: 5%;
+    font-size: 1rem;
+    padding: 5px;
+    border-radius: 10px;
+    color: var(--colorOneDark);
+    background: var(--colorZeroDark);
+    border: none;
+}
+.inpHalf:focus {
+    background: white;
+    padding-left: 20px;
 }
 .btn {
     display: block;
@@ -208,6 +225,20 @@ header {
     padding: 40px 20px;
     color: white;
 }
+.showContent {
+    position: relative;
+    top: 70px;
+    height: 100%;
+    background: rgb(50, 50, 50);
+    z-index: 999999999;
+    width: 800px;
+    margin-left: calc((100vw - 800px) / 2);
+    margin-bottom: 75px;
+    border-radius: 7px;
+    box-shadow: 0 0 10px rgb(17, 17, 17);
+    padding: 40px 20px;
+    color: white;
+}
 hr {
     border-color: var(--colorThreeDark);
     opacity: 0.9;
@@ -216,4 +247,16 @@ hr {
 
 .bookPanel:hover {
     transform: scale(1.1);
+}
+
+.addPart {
+    border: 1px solid var(--colorThreeDark);
+    border-radius: 7px;
+}
+.navPart {
+    margin-left: 30px;
+}
+.navPart > li:hover {
+    cursor: pointer;
+    color: var(--colorThreeDark);
 }

@@ -28,7 +28,7 @@
         <div class="createNewBookModal">
             <h3>Создать учебник</h3>
             <hr>
-                <form action="app/libs/createBook/createBook" method="POST" enctype="multipart/form-data">
+                <form action="app/createBook/createBook" method="POST" enctype="multipart/form-data">
                     <select name="level" id="level" class="inp" required onchange="OGN(this)">
                         <option value="" disabled selected>Класс</option>
                         <option value="1">1</option>
@@ -113,9 +113,9 @@
 
                 <?php
                     foreach($allBooks as $k => $v) {
-
-                        echo '<div class="bookPanel" style="background: url(\'books/'.$v['id'].'/'.$v['titleImg'].'\'); background-size: cover; background-position: center center;" onclick="alert(\''.$v['subject'].'\');"></div>';
-
+                        if($v['id'] != 1) {
+                            echo '<div class="bookPanel" style="background: url(\'books/'.$v['id'].'/'.$v['titleImg'].'\'); background-size: cover; background-position: center center;" onclick="location.href = \'navigation?book='.$v['id'].'\';"></div>';
+                        }
                     }
                 ?>
             </div>    

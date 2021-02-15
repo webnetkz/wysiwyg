@@ -37,9 +37,14 @@
     vertical-align: top;
     margin: 5px;
 }
+.block0 video {
+    max-width: 900px;
+}
+.block2 video {
+    max-width: 600px;
+}
 .block3 video {
-    min-width: 80%;
-    max-width: 100%;
+    max-width: 300px;
 }
 .block3:hover {
     border: 1px dashed blue;

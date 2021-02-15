@@ -6,9 +6,6 @@ function topNavSection(elem) {
         // Отображение панели убравления "СЕКЦИЯ"
         headerNav.innerHTML = '<div class="notEdit allTopNav">'+
             						'<div class="notEdit">'+
-			
-			
-			
 										'<div>'+
 											'<img src="public/img/plus.svg" onclick="showList(this);" class="notEdit elementTopNavImg">'+
 											'<div class="showList" style="display: none">'+
@@ -16,33 +13,98 @@ function topNavSection(elem) {
 												'<div onclick="appendBlock(\''+idSect+'\', \'block2\');">Добавить блок 1/2</div>'+
 												'<div onclick="appendBlock(\''+idSect+'\', \'block3\');">Добавить блок 1/3</div>'+   
 											'</div>'+
+                                        '</div>'+
+
+                                        '<div>'+
+                                        '<img src="public/img/palitra.svg" onclick="showPalitra(this);" class="notEdit elementTopNavImg">'+
+                                        '<div class="colorPickerPalitra" style="display: none;">'+
+                                            '<div class="colorPicker">'+
+                                                '<div onclick="changeBgSect(\'black\', \''+idSect+'\');" style="background: black"></div>'+
+                                                '<div onclick="changeBgSect(\'white\', \''+idSect+'\');" style="background: white"></div>'+
+                                                '<div onclick="changeBgSect(\'red\', \''+idSect+'\');" style="background: red"></div>'+
+                                                '<div onclick="changeBgSect(\'IndianRed\', \''+idSect+'\');" style="background: IndianRed"></div>'+
+                                                '<div onclick="changeBgSect(\'DarkRed\', \''+idSect+'\');" style="background: DarkRed"></div>'+
+                                            '</div>'+
+                                            '<div class="colorPicker">'+
+                                                '<div onclick="changeBgSect(\'green\', \''+idSect+'\');" style="background: green"></div>'+
+                                                '<div onclick="changeBgSect(\'GreenYellow\', \''+idSect+'\');" style="background: GreenYellow"></div>'+
+                                                '<div onclick="changeBgSect(\'LimeGreen\', \''+idSect+'\');" style="background: LimeGreen"></div>'+
+                                                '<div onclick="changeBgSect(\'SpringGreen\', \''+idSect+'\');" style="background: SpringGreen"></div>'+
+                                                '<div onclick="changeBgSect(\'LightSeaGreen\', \''+idSect+'\');" style="background: LightSeaGreen"></div>'+
+                                            '</div>'+
+                                            '<div class="colorPicker">'+
+                                                '<div onclick="changeBgSect(\'MediumSeaGreen\', \''+idSect+'\');" style="background: MediumSeaGreen"></div>'+
+                                                '<div onclick="changeBgSect(\'DarkGreen\', \''+idSect+'\');" style="background: DarkGreen"></div>'+
+                                                '<div onclick="changeBgSect(\'Olive\', \''+idSect+'\');" style="background: Olive"></div>'+
+                                                '<div onclick="changeBgSect(\'LightSeaGreen\', \''+idSect+'\');" style="background: LightSeaGreen"></div>'+
+                                                '<div onclick="changeBgSect(\'Teal\', \''+idSect+'\');" style="background: Teal"></div>'+
+                                            '</div>'+
+                                            '<div class="colorPicker">'+
+                                                '<div onclick="changeBgSect(\'Pink\', \''+idSect+'\');" style="background: Pink"></div>'+
+                                                '<div onclick="changeBgSect(\'HotPink\', \''+idSect+'\');" style="background: HotPink"></div>'+
+                                                '<div onclick="changeBgSect(\'MediumVioletRed\', \''+idSect+'\');" style="background: MediumVioletRed"></div>'+
+                                                '<div onclick="changeBgSect(\'LightSalmon\', \''+idSect+'\');" style="background: LightSalmon"></div>'+
+                                                '<div onclick="changeBgSect(\'OrangeRed\', \''+idSect+'\');" style="background: OrangeRed"></div>'+
+                                            '</div>'+
+                                            '<div class="colorPicker">'+
+                                                '<div onclick="changeBgSect(\'Gold\', \''+idSect+'\');" style="background: Gold"></div>'+
+                                                '<div onclick="changeBgSect(\'Yellow\', \''+idSect+'\');" style="background: Yellow"></div>'+
+                                                '<div onclick="changeBgSect(\'Aqua\', \''+idSect+'\');" style="background: Aqua"></div>'+
+                                                '<div onclick="changeBgSect(\'DarkTurquoise\', \''+idSect+'\');" style="background: DarkTurquoise"></div>'+
+                                                '<div onclick="changeBgSect(\'SteelBlue\', \''+idSect+'\');" style="background: SteelBlue"></div>'+
+                                            '</div>'+
+                                            '<div class="colorPicker">'+
+                                                '<div onclick="changeBgSect(\'Blue\', \''+idSect+'\');" style="background: Blue"></div>'+
+                                                '<div onclick="changeBgSect(\'DarkBlue\', \''+idSect+'\');" style="background: DarkBlue"></div>'+
+                                                '<div onclick="changeBgSect(\'Violet\', \''+idSect+'\');" style="background: Violet"></div>'+
+                                                '<div onclick="changeBgSect(\'Magenta\', \''+idSect+'\');" style="background: Magenta"></div>'+
+                                                '<div onclick="changeBgSect(\'Indigo\', \''+idSect+'\');" style="background: Indigo"></div>'+
+                                            '</div>'+
+                                            '<div class="colorPicker">'+
+                                                '<div onclick="changeBgSect(\'Snow\', \''+idSect+'\');" style="background: Snow"></div>'+
+                                                '<div onclick="changeBgSect(\'AntiqueWhite\', \''+idSect+'\');" style="background: AntiqueWhite"></div>'+
+                                                '<div onclick="changeBgSect(\'Gray\', \''+idSect+'\');" style="background: Gray"></div>'+
+                                                '<div onclick="changeBgSect(\'SlateGray\', \''+idSect+'\');" style="background: SlateGray"></div>'+
+                                                '<div onclick="changeBgSect(\'Brown\', \''+idSect+'\');" style="background: Brown"></div>'+
+                                            '</div>'+
+                                        '</div>'+
+                                    '</div>	'+
+		
+	
+                                                    
+                            
+                                    '<div>'+
+                                        '<img src="public/img/borderRadius.svg" onclick="showList(this);" class="notEdit elementTopNavImg">'+
+                                        '<div class="showList" style="display: none">'+
+                                            '<div onclick="changeBorderRadiusBlock(\'1px\', \''+idSect+'\');">1 пиксель</div>'+
+                                            '<div onclick="changeBorderRadiusBlock(\'2px\', \''+idSect+'\');">2 пикселя</div>'+
+                                            '<div onclick="changeBorderRadiusBlock(\'3px\', \''+idSect+'\');">3 пикселя</div>'+
+                                            '<div onclick="changeBorderRadiusBlock(\'4px\', \''+idSect+'\');">4 пикселя</div>'+
+                                            '<div onclick="changeBorderRadiusBlock(\'5px\', \''+idSect+'\');">5 пикселей</div>'+
+                                            '<div onclick="changeBorderRadiusBlock(\'10px\', \''+idSect+'\');">10 пикселей</div>'+
+                                            '<div onclick="changeBorderRadiusBlock(\'20px\', \''+idSect+'\');">20 пикселей</div>'+
+
+                                        '</div>'+
                                     '</div>'+
-								'</div>'+
-         
-            '<div class="notEdit">'+
-                '<select class="inp" onchange="changeBgSect(this.value, \''+idSect+'\')">'+
-                    '<option selected value="none">Фоновый цвет</option>'+
-                    '<option value="red">Красный</option>'+
-                    '<option value="blue">Синий</option>'+
-                    '<option value="black">Черный</option>'+
-                    '<option value="white">Белый</option>'+
-                '</select>'+
-                '<select class="inp" onchange="changeBorderSect(this.value, \''+idSect+'\')">'+
-                    '<option selected value="1px solid rgba(0,0,0,0)">Цвет рамки</option>'+
-                    '<option value="red">Красный</option>'+
-                    '<option value="blue">Синий</option>'+
-                    '<option value="black">Черный</option>'+
-                    '<option value="white">Белый</option>'+
-                '</select>'+
-                '<select class="inp" onchange="changeShadowSect(this.value, \''+idSect+'\')">'+
-                    '<option selected value="0 0 0px rgba(0,0,0,0)">Цвет тени</option>'+
-                    '<option value="red">Красный</option>'+
-                    '<option value="blue">Синий</option>'+
-                    '<option value="black">Черный</option>'+
-                    '<option value="white">Белый</option>'+
-                '</select>'+
-            '</div>'+
-        '</div>';
+                                    
+
+                                    '<div>'+
+                                        '<img src="public/img/shadow.svg" onclick="showList(this);" class="notEdit elementTopNavImg">'+
+                                        '<div class="showList" style="display: none">'+
+                                            '<div onclick="changeShadowBox(\'0 0 0px white\', \''+idSect+'\');">Убрать тень</div>'+
+                                            '<div onclick="changeShadowBox(\'0 0 10px black\', \''+idSect+'\');">Стиль тени 1</div>'+
+                                            '<div onclick="changeShadowBox(\'0 0 30px black\', \''+idSect+'\');">Стиль тени 2</div>'+
+                                            '<div onclick="changeShadowBox(\'10px 10px 10px black\', \''+idSect+'\');">Стиль тени 3</div>'+
+                                            '<div onclick="changeShadowBox(\'-10px -10px 10px black\', \''+idSect+'\');">Стиль тени 4</div>'+
+                                            '<div onclick="changeShadowBox(\'10px 10px 30px black\', \''+idSect+'\');">Стиль тени 5</div>'+
+                                            '<div onclick="changeShadowBox(\'-10px -10px 30px black\', \''+idSect+'\');">Стиль тени 6</div>'+
+                                            '<div onclick="changeShadowBox(\'0 0 20px rgba(0,0,0, 0.4)\', \''+idSect+'\');">Стиль тени 7</div>'+
+                                        '</div>'+
+                                    '</div>'+
+
+						'</div>';
+                                    
+                                    
 }
 
 // Стили секции
@@ -50,26 +112,38 @@ function changeBgSect(nameStyle, idElem) {
     let focusElem = document.querySelector('#'+idElem);
     focusElem.style.background = nameStyle
 }
-function changeBorderSect(nameStyle, idElem) {
+
+
+
+function changeBorderColorSect(nameStyle, idElem) {
     let focusElem = document.querySelector('#'+idElem);
-    focusElem.style.border = '1px solid '+nameStyle+'';
+    focusElem.style.borderColor = nameStyle
 }
-function changeShadowSect(nameStyle, idElem) {
+function changeBorderWidthSect(nameStyle, idElem) {
     let focusElem = document.querySelector('#'+idElem);
-    focusElem.style.boxShadow = '0px 0px 10px '+nameStyle+'';
+    focusElem.style.borderWidth = nameStyle
 }
+function changeBorderRadiusSect(nameStyle, idElem) {
+    let focusElem = document.querySelector('#'+idElem);
+    focusElem.style.borderRadius = nameStyle
+}
+
 // Добавление новой секции
 function appendSection() {
+    let shellSect = document.createElement('div'); // Оболочка секции
     let newSection = document.createElement('div'); // Создание секции
     let rand = URL.createObjectURL(new Blob([])).slice(-36).replace(/-/g, ""); // Создание рандомного ID
     newSection.classList.add('editor'); // Добавление класса области редактирования
     newSection.setAttribute('id', 'a'+rand); // Добавление ID
     newSection.setAttribute('contenteditable', 'true'); // Возможность редактировать контент
 
+
+
     let newSectionNav = createSectionNav(); // Создание навигации для секции
 
-    document.querySelector('#contentBook').appendChild(newSection); // Добавлении Секции
-    document.querySelector('#contentBook').appendChild(newSectionNav); // Добавление навигации для секции
+    shellSect.appendChild(newSection); // Добавлении Секции
+    shellSect.appendChild(newSectionNav); // Добавление навигации для секции
+    document.querySelector('#contentBook').appendChild(shellSect); // Добавление всей секции с навигацией и оболочкой
 }
 
 // Создание навигации для секции
