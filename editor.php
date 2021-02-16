@@ -186,6 +186,9 @@
                 <img src="public/img/leftNav/home.svg" class="leftNavItemImg" id="leftNavHome">
             </span>
             <span class="leftNavItem">
+                <img src="public/img/leftNav/folder.svg" class="leftNavItemImg" id="leftNavFolder">
+            </span>
+            <span class="leftNavItem">
                 <img src="public/img/leftNav/settings.svg" class="leftNavItemImg" id="leftNavSettings">
             </span>
             <span class="leftNavItem" onclick="saveContent();">

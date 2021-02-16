@@ -3,8 +3,7 @@ const headerNav = document.querySelector('header');
 
 let leftNavSettings = document.querySelector('#leftNavSettings');
 let leftNavHome = document.querySelector('#leftNavHome');
-
-
+let leftNavFolder = document.querySelector('#leftNavFolder');
 
 leftNavHome.addEventListener('click', () => {
     headerNav.innerHTML = '<div class="notEdit allTopNav">'+
