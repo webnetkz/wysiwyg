@@ -4,6 +4,11 @@ function topNavBlock(elem) {
     let block = elem.previousSibling;
     let idBlock = block.id;
 
+    let params = (new URL(document.location)).searchParams;
+    let book = params.get("book");
+    let part = params.get("part");
+
+
     // Отображение панели убравления "СЕКЦИЯ"
     headerNav.innerHTML = '<div class="notEdit allTopNav">'+
         '<div class="notEdit">'+
@@ -18,9 +23,21 @@ function topNavBlock(elem) {
             '</div>'+
             '<div>'+
                 '<img src="public/img/photo.svg" onclick="appendImg(\''+idBlock+'\');" class="notEdit elementTopNavImg">'+
-			'</div>'+
+                '<form action="app/uploads/uploadImg" style="display: none;"  method="POST" enctype="multipart/form-data">'+
+                    '<input type="file" onchange="this.form.submit();" id="addNewImg" name="newFile" style="display: none";>'+
+                    '<input type="text" name="book" style="display: none;" value="'+book+'">'+
+                    '<input type="text" name="part" style="display: none;" value="'+part+'">'+
+                    '<input type="text" name="block" style="display: none;" value="'+idBlock+'">'+
+                '</form>'+
+            '</div>'+
 			'<div>'+
-                '<img src="public/img/video.svg" onclick="appendVideo(\''+idBlock+'\');" class="notEdit elementTopNavImg">'+
+                '<img src="public/img/video.svg" onclick="appendVideo();" class="notEdit elementTopNavImg">'+
+                '<form action="app/uploads/uploadVideo" style="display: none;"  method="POST" enctype="multipart/form-data">'+
+                    '<input type="file" onchange="this.form.submit();" id="addNewVideo" name="newFile" style="display: none";>'+
+                    '<input type="text" name="book" style="display: none;" value="'+book+'">'+
+                    '<input type="text" name="part" style="display: none;" value="'+part+'">'+
+                    '<input type="text" name="block" style="display: none;" value="'+idBlock+'">'+
+                '</form>'+
             '</div>'+
 		
 		
@@ -268,41 +285,38 @@ function appendTable(idBlock) {
 }
 
 
-// Добавление изображения по ссылке
-function appendImg(idBlock) {
-    let focusElem = document.querySelector('#'+idBlock);
+// Добавление изображения 
+function appendImg() {
+    saveContent();
+    let addNewImg = document.querySelector('#addNewImg');
+    addNewImg.click();   
+}
 
-    if(focusElem) {
-        let newImg = document.createElement('img');
-
-        let urlLink = prompt('Введите ссылку на картинку');
-        newImg.src = urlLink;
-
-        focusElem.appendChild(newImg);
-    } else {
-        return false;
-    }   
+function appendVideo() {
+    saveContent();
+    let addNewVideo = document.querySelector('#addNewVideo');
+    addNewVideo.click();   
 }
 
 // Добавление видео по ссылке
-function appendVideo(idBlock) {
-    let focusElem = document.querySelector('#'+idBlock);
+// function appendVideo(idBlock) {
+//     let focusElem = document.querySelector('#'+idBlock);
 
-    if(focusElem) {
-        let newVideo = document.createElement('video');
-        newVideo.setAttribute('controls', '');
+//     if(focusElem) {
+//         let newVideo = document.createElement('video');
+//         newVideo.setAttribute('controls', '');
 
-        let urlLink = prompt('Введите ссылку на видео');
+//         let urlLink = prompt('Введите ссылку на видео');
 
-        let newSource = document.createElement('source');
-        newSource.src = urlLink;
-        newVideo.appendChild(newSource);
+//         let newSource = document.createElement('source');
+//         newSource.src = urlLink;
+//         newVideo.appendChild(newSource);
 
-        focusElem.appendChild(newVideo);
-    } else {
-        return false;
-    }   
-}
+//         focusElem.appendChild(newVideo);
+//     } else {
+//         return false;
+//     }   
+// }
 
 // Создание кнопки удаления блока
 function createBtnDel() {
@@ -333,7 +347,6 @@ function appendBlock(idBlock, classBlock) {
         setingsBlock.src = 'public/img/settings.svg';
         setingsBlock.setAttribute('onclick', 'topNavBlock(this);');
 		
-        
         focusElem.appendChild(block0);
         focusElem.appendChild(setingsBlock);
 

@@ -1,3 +1,9 @@
+<?php 
+
+    @session_start();
+    require_once 'editorComponents/folder.php';
+
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -152,6 +158,9 @@
                         <img src="public/img/rightT.svg" onclick="textAlignRight();" class="notEdit elementTopNavImg">
                     </div>
                     <div>
+                        <img src="public/img/leftT.svg" onclick="textAlignLeft();" class="notEdit elementTopNavImg">
+                    </div>
+                    <div>
                         <img src="public/img/title.svg" onclick="textTitle();" class="notEdit elementTopNavImg">
                     </div>
                     <div>
@@ -181,12 +190,15 @@
 
 
 
+
+
+
         <div class="leftNav">
             <span class="leftNavItem activeLeftNav">
                 <img src="public/img/leftNav/home.svg" class="leftNavItemImg" id="leftNavHome">
             </span>
             <span class="leftNavItem">
-                <img src="public/img/leftNav/folder.svg" class="leftNavItemImg" id="leftNavFolder">
+                <img src="public/img/leftNav/folder.svg"  onclick="document.querySelector('.folderPanel').style.right = '0px'" class="leftNavItemImg" id="leftNavFolder">
             </span>
             <span class="leftNavItem">
                 <img src="public/img/leftNav/settings.svg" class="leftNavItemImg" id="leftNavSettings">
@@ -204,6 +216,55 @@
         <script src="public/js/editor/text.js"></script>
 
         <script src="public/js/editor/save.js"></script>
+
+
+        <?php
+
+        if(isset($_SESSION['img'])) {
+            echo '<script>
+                let blockImg = document.querySelector("#'.$_SESSION['block'].'");
+                let blockImgId = "#"+blockImg.id;
+
+                if(blockImg) {
+                    let newImg = document.createElement("img");
+                    newImg.src = "books/'.$_GET['book'].'/'.$_SESSION['img'].'";
+
+                    blockImg.appendChild(newImg);
+
+                    saveContent();
+                }
+                
+            </script>';
+
+            unset($_SESSION['block']);
+            unset($_SESSION['img']);
+        }
+
+        if(isset($_SESSION['video'])) {
+            echo '<script>
+                let blockVideo = document.querySelector("#'.$_SESSION['block'].'");
+                
+                if(blockVideo) {
+                    let blockVideoId = "#"+blockVideo.id;
+                    let newVideo = document.createElement("video");
+                    newVideo.setAttribute("controls", "");
+
+                    let newSource = document.createElement("source");
+                    newSource.src = "books/'.$_GET['book'].'/'.$_SESSION['video'].'";
+                    newVideo.appendChild(newSource);
+
+                    blockVideo.appendChild(newVideo);
+
+                    saveContent();
+                }
+                
+            </script>';
+
+            unset($_SESSION['block']);
+            unset($_SESSION['video']);
+        }
+
+        ?>
 
 
         <script id="appendFl" src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>

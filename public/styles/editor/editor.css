@@ -17,7 +17,7 @@
         --colorThreeDark: rgb(13, 102, 208);
     
     
-
+    
     caret-color: var(--colorThree);
     margin: 0;
     padding: 0;
@@ -105,3 +105,27 @@ th, td {
     padding: 3px;
     border: 1px solid black;
 }
+
+.btn {
+    border: 1px solid rgb(175, 175, 175);
+    padding: 5px;
+    border-radius: 4px;
+}
+.btn:hover {
+    cursor: pointer;
+    border: 1px solid rgb(105, 105, 105)
+}
+
+
+
+#fileid {
+    display:none;
+    }
+    label {
+    padding:10px;
+    border:1px solid #ccc;
+    border-radius:3px;
+    display:inline-block;
+    border-bottom-width:2px;
+    cursor:pointer;
+    }

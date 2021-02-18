@@ -3,7 +3,6 @@ const headerNav = document.querySelector('header');
 
 let leftNavSettings = document.querySelector('#leftNavSettings');
 let leftNavHome = document.querySelector('#leftNavHome');
-let leftNavFolder = document.querySelector('#leftNavFolder');
 
 leftNavHome.addEventListener('click', () => {
     headerNav.innerHTML = '<div class="notEdit allTopNav">'+
@@ -148,6 +147,9 @@ leftNavHome.addEventListener('click', () => {
                                     '</div>'+
                                     '<div>'+
                                         '<img src="public/img/rightT.svg" onclick="textAlignRight();" class="notEdit elementTopNavImg">'+
+                                    '</div>'+
+                                    '<div>'+
+                                        '<img src="public/img/leftT.svg" onclick="textAlignLeft();" class="notEdit elementTopNavImg">'+
                                     '</div>'+
                                     '<div>'+
                                         '<img src="public/img/title.svg" onclick="textTitle();" class="notEdit elementTopNavImg">'+
