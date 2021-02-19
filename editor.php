@@ -2,7 +2,6 @@
 
     @session_start();
     require_once 'editorComponents/folder.php';
-
 ?>
 <!DOCTYPE html>
 <html>
