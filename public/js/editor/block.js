@@ -39,6 +39,15 @@ function topNavBlock(elem) {
                     '<input type="text" name="block" style="display: none;" value="'+idBlock+'">'+
                 '</form>'+
             '</div>'+
+            '<div>'+
+                '<img src="public/img/audio.svg" onclick="appendAudio();" class="notEdit elementTopNavImg">'+
+                '<form action="app/uploads/uploadAudio" style="display: none;"  method="POST" enctype="multipart/form-data">'+
+                    '<input type="file" onchange="this.form.submit();" id="addNewAudio" name="newFile" style="display: none";>'+
+                    '<input type="text" name="book" style="display: none;" value="'+book+'">'+
+                    '<input type="text" name="part" style="display: none;" value="'+part+'">'+
+                    '<input type="text" name="block" style="display: none;" value="'+idBlock+'">'+
+                '</form>'+
+            '</div>'+
 		
 		
 		        '<div>'+
@@ -296,6 +305,12 @@ function appendVideo() {
     saveContent();
     let addNewVideo = document.querySelector('#addNewVideo');
     addNewVideo.click();   
+}
+
+function appendAudio() {
+    saveContent();
+    let addNewAudio = document.querySelector('#addNewAudio');
+    addNewAudio.click();   
 }
 
 // Добавление видео по ссылке

@@ -43,6 +43,20 @@ function changeFontSize(size) {
 		return false;
 	}
 }
+function changeFontLine(line) {
+    if(typeof window.getSelection() != "undefined" && window.getSelection().anchorNode != null) {
+        let range = window.getSelection().getRangeAt(0);
+        let newNode = document.createElement("span");
+        newNode.style.textDecoration = line;
+
+        range.surroundContents(newNode);
+        document.getSelection().removeAllRanges();
+        return false;
+    } else {
+		return false;
+	}
+}
+
 
 function changeMarginText(size) {
     if(typeof window.getSelection() != "undefined" && window.getSelection().anchorNode != null) {

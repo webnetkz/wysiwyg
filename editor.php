@@ -142,6 +142,18 @@
                         </div>
                     </div>
                     <div>
+                        <img src="public/img/pen.svg" onclick="showList(this);" class="notEdit elementTopNavImg">
+                        <div class="showList" style="display: none">
+                            <div onclick="changeFontLine('blink');">Мигающий текст</div>
+                            <div onclick="changeFontLine('line-through');">Перечеркнутый</div>
+                            <div onclick="changeFontLine('overline');">Сплошная над текстом</div>
+                            <div onclick="changeFontLine('underline');">Спрошная</div>
+                            <div onclick="changeFontLine('wavy ');">Волнистая</div>
+                            <div onclick="changeFontLine('wavy ');">Волнистая</div>
+                            dashed
+                        </div>
+                    </div>
+                    <div>
                         <img src="public/img/normal.svg" onclick="normal();" class="notEdit elementTopNavImg">
                     </div>
                     <div>
@@ -261,6 +273,30 @@
 
             unset($_SESSION['block']);
             unset($_SESSION['video']);
+        }
+
+        if(isset($_SESSION['audio'])) {
+            echo '<script>
+                let blockAudio = document.querySelector("#'.$_SESSION['block'].'");
+                
+                if(blockAudio) {
+                    let blockAudioId = "#"+blockAudio.id;
+                    let newAudio = document.createElement("audio");
+                    newAudio.setAttribute("controls", "");
+
+                    //let newSource = document.createElement("source");
+                    newAudio.src = "books/'.$_GET['book'].'/'.$_SESSION['audio'].'";
+                    //newAudio.appendChild(newSource);
+
+                    blockAudio.appendChild(newAudio);
+
+                    saveContent();
+                }
+                
+            </script>';
+
+            unset($_SESSION['block']);
+            unset($_SESSION['audio']);
         }
 
         ?>
