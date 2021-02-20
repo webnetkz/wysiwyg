@@ -54,9 +54,7 @@
                             
                                 echo '<ol class="navPart">';
                                     foreach($allParts as $k => $v) {
-                                        echo '<li>';
-                                        echo '<a style="text-decoration: none; color white;" href="/editor?book='.$book.'&part='.$v['part'].'">' .$v['part'].'</a>';
-                                        echo '</li>';
+                                        echo '<li onclick="location.href=\'/editor?book='.$book.'&part='.$v['part'].'\'">'.$v['part'].'</li>';
                                     }
                                 echo '</ol>';
                             
