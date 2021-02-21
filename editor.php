@@ -124,7 +124,8 @@
                             </div>
                         </div>
                     </div>	
-					
+				
+
                     <div>
                         <img src="public/img/fontSize.svg" onclick="showList(this);" class="notEdit elementTopNavImg">
                         <div class="showList" style="display: none">
@@ -144,13 +145,11 @@
                     <div>
                         <img src="public/img/pen.svg" onclick="showList(this);" class="notEdit elementTopNavImg">
                         <div class="showList" style="display: none">
-                            <div onclick="changeFontLine('blink');">Мигающий текст</div>
-                            <div onclick="changeFontLine('line-through');">Перечеркнутый</div>
-                            <div onclick="changeFontLine('overline');">Сплошная над текстом</div>
-                            <div onclick="changeFontLine('underline');">Спрошная</div>
-                            <div onclick="changeFontLine('wavy ');">Волнистая</div>
-                            <div onclick="changeFontLine('wavy ');">Волнистая</div>
-                            dashed
+                            <div onclick="changeFontLine('lineSolid');">Спрошная</div>
+                            <div onclick="changeFontLine('lineDouble');">Двойная</div>
+                            <div onclick="changeFontLine('lineDotted');">Точками</div>
+                            <div onclick="changeFontLine('lineDashed');">Пунктирная</div>
+                            <div onclick="changeFontLine('lineWavy');">Волнистая</div>
                         </div>
                     </div>
                     <div>

@@ -43,11 +43,12 @@ function changeFontSize(size) {
 		return false;
 	}
 }
-function changeFontLine(line) {
+function changeFontLine(lineStyle) {
     if(typeof window.getSelection() != "undefined" && window.getSelection().anchorNode != null) {
         let range = window.getSelection().getRangeAt(0);
         let newNode = document.createElement("span");
-        newNode.style.textDecoration = line;
+        newNode.classList.add('lineColor');
+        newNode.classList.add(lineStyle);
 
         range.surroundContents(newNode);
         document.getSelection().removeAllRanges();
@@ -56,6 +57,7 @@ function changeFontLine(line) {
 		return false;
 	}
 }
+
 
 
 function changeMarginText(size) {

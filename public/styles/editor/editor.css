@@ -118,14 +118,23 @@ th, td {
 
 
 
-#fileid {
-    display:none;
-    }
-    label {
-    padding:10px;
-    border:1px solid #ccc;
-    border-radius:3px;
-    display:inline-block;
-    border-bottom-width:2px;
-    cursor:pointer;
-    }
+/* Стили которые должны перенестись и в учебник при публикации*/
+.lineColor {
+    text-decoration: underline;
+    text-decoration-color: red;
+}
+.lineSolid {
+    text-decoration-style: solid;
+}
+.lineDouble {
+    text-decoration-style: double;
+}
+.lineDotted {
+    text-decoration-style: dotted;
+}
+.lineDashed {
+    text-decoration-style: dashed;
+}
+.lineWavy {
+    text-decoration-style: wavy;
+}
