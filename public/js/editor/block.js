@@ -42,69 +42,12 @@ function topNavBlock(elem) {
             '<div>'+
                 '<img src="public/img/audio.svg" onclick="appendAudio();" class="notEdit elementTopNavImg">'+
                 '<form action="app/uploads/uploadAudio" style="display: none;"  method="POST" enctype="multipart/form-data">'+
-                    '<input type="file" onchange="this.form.submit();" id="addNewAudio" name="newFile" style="display: none";>'+
+                    '<input type="file" onchange="this.form.submit();" id="addNewVideo" name="newFile" style="display: none";>'+
                     '<input type="text" name="book" style="display: none;" value="'+book+'">'+
                     '<input type="text" name="part" style="display: none;" value="'+part+'">'+
                     '<input type="text" name="block" style="display: none;" value="'+idBlock+'">'+
                 '</form>'+
             '</div>'+
-		
-		
-		        '<div>'+
-                    '<img src="public/img/palitra.svg" onclick="showPalitra(this);" class="notEdit elementTopNavImg">'+
-                    '<div class="colorPickerPalitra" style="display: none;">'+
-                        '<div class="colorPicker">'+
-                            '<div onclick="changeBorderColorBlock(\'black\', \''+idBlock+'\');" style="background: black"></div>'+
-                            '<div onclick="changeBorderColorBlock(\'white\', \''+idBlock+'\');" style="background: white"></div>'+
-                            '<div onclick="changeBorderColorBlock(\'red\', \''+idBlock+'\');" style="background: red"></div>'+
-                            '<div onclick="changeBorderColorBlock(\'IndianRed\', \''+idBlock+'\');" style="background: IndianRed"></div>'+
-                            '<div onclick="changeBorderColorBlock(\'DarkRed\', \''+idBlock+'\');" style="background: DarkRed"></div>'+
-                        '</div>'+
-                        '<div class="colorPicker">'+
-                            '<div onclick="changeBorderColorBlock(\'green\', \''+idBlock+'\');" style="background: green"></div>'+
-                            '<div onclick="changeBorderColorBlock(\'GreenYellow\', \''+idBlock+'\');" style="background: GreenYellow"></div>'+
-                            '<div onclick="changeBorderColorBlock(\'LimeGreen\', \''+idBlock+'\');" style="background: LimeGreen"></div>'+
-                            '<div onclick="changeBorderColorBlock(\'SpringGreen\', \''+idBlock+'\');" style="background: SpringGreen"></div>'+
-                            '<div onclick="changeBorderColorBlock(\'LightSeaGreen\', \''+idBlock+'\');" style="background: LightSeaGreen"></div>'+
-                        '</div>'+
-                        '<div class="colorPicker">'+
-                            '<div onclick="changeBorderColorBlock(\'MediumSeaGreen\', \''+idBlock+'\');" style="background: MediumSeaGreen"></div>'+
-                            '<div onclick="changeBorderColorBlock(\'DarkGreen\', \''+idBlock+'\');" style="background: DarkGreen"></div>'+
-                            '<div onclick="changeBorderColorBlock(\'Olive\', \''+idBlock+'\');" style="background: Olive"></div>'+
-                            '<div onclick="changeBorderColorBlock(\'LightSeaGreen\', \''+idBlock+'\');" style="background: LightSeaGreen"></div>'+
-                            '<div onclick="changeBorderColorBlock(\'Teal\', \''+idBlock+'\');" style="background: Teal"></div>'+
-                        '</div>'+
-                        '<div class="colorPicker">'+
-                            '<div onclick="changeBorderColorBlock(\'Pink\', \''+idBlock+'\');" style="background: Pink"></div>'+
-                            '<div onclick="changeBorderColorBlock(\'HotPink\', \''+idBlock+'\');" style="background: HotPink"></div>'+
-                            '<div onclick="changeBorderColorBlock(\'MediumVioletRed\', \''+idBlock+'\');" style="background: MediumVioletRed"></div>'+
-                            '<div onclick="changeBorderColorBlock(\'LightSalmon\', \''+idBlock+'\');" style="background: LightSalmon"></div>'+
-                            '<div onclick="changeBorderColorBlock(\'OrangeRed\', \''+idBlock+'\');" style="background: OrangeRed"></div>'+
-                        '</div>'+
-                        '<div class="colorPicker">'+
-                            '<div onclick="changeBorderColorBlock(\'Gold\', \''+idBlock+'\');" style="background: Gold"></div>'+
-                            '<div onclick="changeBorderColorBlock(\'Yellow\', \''+idBlock+'\');" style="background: Yellow"></div>'+
-                            '<div onclick="changeBorderColorBlock(\'Aqua\', \''+idBlock+'\');" style="background: Aqua"></div>'+
-                            '<div onclick="changeBorderColorBlock(\'DarkTurquoise\', \''+idBlock+'\');" style="background: DarkTurquoise"></div>'+
-                            '<div onclick="changeBorderColorBlock(\'SteelBlue\', \''+idBlock+'\');" style="background: SteelBlue"></div>'+
-                        '</div>'+
-                        '<div class="colorPicker">'+
-                            '<div onclick="changeBorderColorBlock(\'Blue\', \''+idBlock+'\');" style="background: Blue"></div>'+
-                            '<div onclick="changeBorderColorBlock(\'DarkBlue\', \''+idBlock+'\');" style="background: DarkBlue"></div>'+
-                            '<div onclick="changeBorderColorBlock(\'Violet\', \''+idBlock+'\');" style="background: Violet"></div>'+
-                            '<div onclick="changeBorderColorBlock(\'Magenta\', \''+idBlock+'\');" style="background: Magenta"></div>'+
-                            '<div onclick="changeBorderColorBlock(\'Indigo\', \''+idBlock+'\');" style="background: Indigo"></div>'+
-                        '</div>'+
-                        '<div class="colorPicker">'+
-                            '<div onclick="changeBorderColorBlock(\'Snow\', \''+idBlock+'\');" style="background: Snow"></div>'+
-                            '<div onclick="changeBorderColorBlock(\'AntiqueWhite\', \''+idBlock+'\');" style="background: AntiqueWhite"></div>'+
-                            '<div onclick="changeBorderColorBlock(\'Gray\', \''+idBlock+'\');" style="background: Gray"></div>'+
-                            '<div onclick="changeBorderColorBlock(\'SlateGray\', \''+idBlock+'\');" style="background: SlateGray"></div>'+
-                            '<div onclick="changeBorderColorBlock(\'Brown\', \''+idBlock+'\');" style="background: Brown"></div>'+
-                        '</div>'+
-                    '</div>'+
-                '</div>'+
-        
 		
 		
 		        '<div>'+
@@ -163,6 +106,63 @@ function topNavBlock(elem) {
                 '</div>'+
         
 		
+		
+		        '<div>'+
+                    '<img src="public/img/palitra.svg" onclick="showPalitra(this);" class="notEdit elementTopNavImg">'+
+                    '<div class="colorPickerPalitra" style="display: none;">'+
+                        '<div class="colorPicker">'+
+                            '<div onclick="changeBgColorBlock(\'black\', \''+idBlock+'\');" style="background: black"></div>'+
+                            '<div onclick="changeBgColorBlock(\'white\', \''+idBlock+'\');" style="background: white"></div>'+
+                            '<div onclick="changeBgColorBlock(\'red\', \''+idBlock+'\');" style="background: red"></div>'+
+                            '<div onclick="changeBgColorBlock(\'IndianRed\', \''+idBlock+'\');" style="background: IndianRed"></div>'+
+                            '<div onclick="changeBgColorBlock(\'DarkRed\', \''+idBlock+'\');" style="background: DarkRed"></div>'+
+                        '</div>'+
+                        '<div class="colorPicker">'+
+                            '<div onclick="changeBgColorBlock(\'green\', \''+idBlock+'\');" style="background: green"></div>'+
+                            '<div onclick="changeBgColorBlock(\'GreenYellow\', \''+idBlock+'\');" style="background: GreenYellow"></div>'+
+                            '<div onclick="changeBgColorBlock(\'LimeGreen\', \''+idBlock+'\');" style="background: LimeGreen"></div>'+
+                            '<div onclick="changeBgColorBlock(\'SpringGreen\', \''+idBlock+'\');" style="background: SpringGreen"></div>'+
+                            '<div onclick="changeBgColorBlock(\'LightSeaGreen\', \''+idBlock+'\');" style="background: LightSeaGreen"></div>'+
+                        '</div>'+
+                        '<div class="colorPicker">'+
+                            '<div onclick="changeBgColorBlock(\'MediumSeaGreen\', \''+idBlock+'\');" style="background: MediumSeaGreen"></div>'+
+                            '<div onclick="changeBgColorBlock(\'DarkGreen\', \''+idBlock+'\');" style="background: DarkGreen"></div>'+
+                            '<div onclick="changeBgColorBlock(\'Olive\', \''+idBlock+'\');" style="background: Olive"></div>'+
+                            '<div onclick="changeBgColorBlock(\'LightSeaGreen\', \''+idBlock+'\');" style="background: LightSeaGreen"></div>'+
+                            '<div onclick="changeBgColorBlock(\'Teal\', \''+idBlock+'\');" style="background: Teal"></div>'+
+                        '</div>'+
+                        '<div class="colorPicker">'+
+                            '<div onclick="changeBgColorBlock(\'Pink\', \''+idBlock+'\');" style="background: Pink"></div>'+
+                            '<div onclick="changeBgColorBlock(\'HotPink\', \''+idBlock+'\');" style="background: HotPink"></div>'+
+                            '<div onclick="changeBgColorBlock(\'MediumVioletRed\', \''+idBlock+'\');" style="background: MediumVioletRed"></div>'+
+                            '<div onclick="changeBgColorBlock(\'LightSalmon\', \''+idBlock+'\');" style="background: LightSalmon"></div>'+
+                            '<div onclick="changeBgColorBlock(\'OrangeRed\', \''+idBlock+'\');" style="background: OrangeRed"></div>'+
+                        '</div>'+
+                        '<div class="colorPicker">'+
+                            '<div onclick="changeBgColorBlock(\'Gold\', \''+idBlock+'\');" style="background: Gold"></div>'+
+                            '<div onclick="changeBgColorBlock(\'Yellow\', \''+idBlock+'\');" style="background: Yellow"></div>'+
+                            '<div onclick="changeBgColorBlock(\'Aqua\', \''+idBlock+'\');" style="background: Aqua"></div>'+
+                            '<div onclick="changeBgColorBlock(\'DarkTurquoise\', \''+idBlock+'\');" style="background: DarkTurquoise"></div>'+
+                            '<div onclick="changeBgColorBlock(\'SteelBlue\', \''+idBlock+'\');" style="background: SteelBlue"></div>'+
+                        '</div>'+
+                        '<div class="colorPicker">'+
+                            '<div onclick="changeBgColorBlock(\'Blue\', \''+idBlock+'\');" style="background: Blue"></div>'+
+                            '<div onclick="changeBgColorBlock(\'DarkBlue\', \''+idBlock+'\');" style="background: DarkBlue"></div>'+
+                            '<div onclick="changeBgColorBlock(\'Violet\', \''+idBlock+'\');" style="background: Violet"></div>'+
+                            '<div onclick="changeBgColorBlock(\'Magenta\', \''+idBlock+'\');" style="background: Magenta"></div>'+
+                            '<div onclick="changeBgColorBlock(\'Indigo\', \''+idBlock+'\');" style="background: Indigo"></div>'+
+                        '</div>'+
+                        '<div class="colorPicker">'+
+                            '<div onclick="changeBgColorBlock(\'Snow\', \''+idBlock+'\');" style="background: Snow"></div>'+
+                            '<div onclick="changeBgColorBlock(\'AntiqueWhite\', \''+idBlock+'\');" style="background: AntiqueWhite"></div>'+
+                            '<div onclick="changeBgColorBlock(\'Gray\', \''+idBlock+'\');" style="background: Gray"></div>'+
+                            '<div onclick="changeBgColorBlock(\'SlateGray\', \''+idBlock+'\');" style="background: SlateGray"></div>'+
+                            '<div onclick="changeBgColorBlock(\'Brown\', \''+idBlock+'\');" style="background: Brown"></div>'+
+                        '</div>'+
+                    '</div>'+
+                '</div>'+
+        
+		
         
 			    '<div>'+
                     '<img src="public/img/border.svg" onclick="showList(this);" class="notEdit elementTopNavImg">'+
@@ -212,7 +212,7 @@ function topNavBlock(elem) {
 }
 
 // Стили блока
-function changeBgBlock(nameStyle, idElem) {
+function changeBgColorBlock(nameStyle, idElem) {
     let focusElem = document.querySelector('#'+idElem);
     focusElem.style.background = nameStyle
 }
@@ -251,7 +251,7 @@ function appendTable(idBlock) {
         let rows = prompt('Кол-во строк?');
         let columns = prompt('Кол-во колонок?');
 
-        newTable.setAttribute('cellspacing', 1);
+        //newTable.setAttribute('cellspacing', 1);
 
         function tableCreate(rows, columns) {
           
@@ -309,7 +309,7 @@ function appendVideo() {
 
 function appendAudio() {
     saveContent();
-    let addNewAudio = document.querySelector('#addNewAudio');
+    let addNewAudio = document.querySelector('#addNewVideo');
     addNewAudio.click();   
 }
 

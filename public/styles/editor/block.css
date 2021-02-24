@@ -1,5 +1,5 @@
 .block0 {
-    border: 1px solid black;
+    border: 1px solid rgba(0, 0, 0, 0.5);
     width: 98.8%;
     min-height: 100px;
     display: inline-block;
@@ -14,7 +14,7 @@
     border: 1px dashed red;
 }
 .block2 {
-    border: 1px solid black;
+    border: 1px solid rgba(0, 0, 0, 0.5);
     width: 65.6%;
     min-height: 100px;
     display: inline-block;
@@ -29,7 +29,7 @@
     border: 1px dashed red;
 }
 .block3 {
-    border: 1px solid black;
+    border: 1px solid rgba(0, 0, 0, 0.5);
     width: calc(33.2% - 9px);
     display: inline-block;
     min-height: 100px;

@@ -1,8 +1,56 @@
 window.addEventListener('click', () => {
     let focusElem = window.getSelection();
-    /*if(focusElem.anchorNode && focusElem.anchorNode.nodeName == "#text") {}*/
-});
+    if((focusElem.anchorNode && focusElem.anchorNode.nodeName == "#text") && (window.getSelection().getRangeAt(0).commonAncestorContainer.parentElement.localName == 'td')) {
+        
+        let range = window.getSelection().getRangeAt(0);
+        console.log(range.commonAncestorContainer.parentNode);
+
+        function topNavTable() {
     
+            // Отображение панели убравления "Таблицей"
+            headerNav.innerHTML = '<div class="notEdit allTopNav">'+
+                                        '<div class="notEdit">'+
+                                            '<div>'+
+                                                '<img src="public/img/delete.svg" onclick="deletedCell();" class="notEdit elementTopNavImg">'+
+                                            '</div>'+
+                                            '<div>'+
+                                                '<img src="public/img/column.svg" onclick="colsCell();" class="notEdit elementTopNavImg">'+
+                                            '</div>'+
+                                            '<div>'+
+                                                '<img src="public/img/row.svg" onclick="rowsCell();" class="notEdit elementTopNavImg">'+
+                                            '</div>'+
+                                            '<div>'+
+                                                '<img src="public/img/plus.svg" onclick="appendCell();" class="notEdit elementTopNavImg">'+
+                                            '</div>'+
+                                    '</div>';
+                                        
+                                        
+        }
+        topNavTable();
+        //range.commonAncestorContainer.parentNode.setAttribute('colspan', '3');
+    }
+});
+function deletedCell() {
+    let range = window.getSelection().getRangeAt(0);
+    range.commonAncestorContainer.parentNode.remove();
+}
+function colsCell() {
+    let range = window.getSelection().getRangeAt(0);
+    let ans = prompt('Введите колличество колонок которое будет занимать ячейка');
+    range.commonAncestorContainer.parentNode.setAttribute('colspan', ans);
+}
+function rowsCell() {
+    let range = window.getSelection().getRangeAt(0);
+    let ans = prompt('Введите колличество строк которое будет занимать ячейка');
+    range.commonAncestorContainer.parentNode.setAttribute('rowspan', ans);
+}
+function appendCell() {
+    let range = window.getSelection().getRangeAt(0);
+    let newCell = document.createElement('td');
+    newCell.innerText = 'Новая ячейка';
+    range.commonAncestorContainer.parentNode.parentNode.appendChild(newCell);
+}
+
 function changeColorText(color) {
 	if(typeof window.getSelection() != "undefined" && window.getSelection().anchorNode != null) {
 		let range = window.getSelection().getRangeAt(0);
@@ -47,11 +95,48 @@ function changeFontLine(lineStyle) {
     if(typeof window.getSelection() != "undefined" && window.getSelection().anchorNode != null) {
         let range = window.getSelection().getRangeAt(0);
         let newNode = document.createElement("span");
+        if(lineStyle == 'obst') {
+            newNode.classList.add('obst');
+            range.surroundContents(newNode);
+            return false;
+        }
         newNode.classList.add('lineColor');
         newNode.classList.add(lineStyle);
 
         range.surroundContents(newNode);
-        document.getSelection().removeAllRanges();
+        //document.getSelection().removeAllRanges();
+        return false;
+    } else {
+		return false;
+	}
+}
+
+function changeFontMorf(style) {
+    if(typeof window.getSelection() != "undefined" && window.getSelection().anchorNode != null) {
+        let range = window.getSelection().getRangeAt(0);
+        let newNode = document.createElement("span");
+
+        newNode.classList.add(style);
+
+        range.surroundContents(newNode);
+        //document.getSelection().removeAllRanges();
+        return false;
+    } else {
+		return false;
+	}
+}
+
+
+function appendMorf(style) {
+    if(typeof window.getSelection() != "undefined" && window.getSelection().anchorNode != null) {
+        let range = window.getSelection().getRangeAt(0);
+        let newNode = document.createElement("span");
+            console.log(range);
+            alert();
+        newNode.setAttribute('data-morfana-markup', 'ko:'+range.startOffset+'-'+range.endOffset);
+
+        range.surroundContents(newNode);
+        //document.getSelection().removeAllRanges();
         return false;
     } else {
 		return false;

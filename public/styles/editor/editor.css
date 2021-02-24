@@ -119,6 +119,11 @@ th, td {
 
 
 /* Стили которые должны перенестись и в учебник при публикации*/
+td {
+    border: 1px solid black;
+}
+
+/* Стили подчеркивания слов */
 .lineColor {
     text-decoration: underline;
     text-decoration-color: red;
@@ -129,8 +134,9 @@ th, td {
 .lineDouble {
     text-decoration-style: double;
 }
-.lineDotted {
-    text-decoration-style: dotted;
+.obst {
+    background-image: url('../../img/rus/obst.png');
+    padding-bottom: 4px;
 }
 .lineDashed {
     text-decoration-style: dashed;
@@ -138,3 +144,69 @@ th, td {
 .lineWavy {
     text-decoration-style: wavy;
 }
+
+/* Морфологический разбор слова */
+/* --------------- Корень --------------- */
+.fontRoot {position: relative;}
+.fontRoot:after {
+    position: absolute;
+    content: '';
+    border-top: 1px solid;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 24px;
+    margin-top: -9px;
+    border-radius: 50%;
+}
+/* --------------- Суффикс --------------- */
+.fontSuffix {position: relative;}
+.fontSuffix:before {
+    position: absolute;
+    content: '';
+    border-top: 1px solid;
+    top: 0;
+    left: 0;
+    width: 55%;
+    transform: rotate(-35deg);
+    margin-top: -4px;
+}
+.fontSuffix:after {
+    position: absolute;
+    content: '';
+    border-top: 1px solid;
+    top: 0;
+    right: 0;
+    width: 55%;
+    transform: rotate(35deg);
+    margin-top: -4px;
+}
+/* --------------- Основа --------------- */
+.fontFoundation {position: relative;}
+.fontFoundation:after {
+    position: absolute;
+    content: '';
+    border-bottom: 1px solid;
+    border-right: 1px solid;
+    border-left: 1px solid;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    margin-bottom: -6px;
+}
+/* --------------- Приставка --------------- */
+.fontConsole {position: relative;}
+.fontConsole:after {
+    position: absolute;
+    content: '';
+    border-top: 1px solid;
+    border-right: 1px solid;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    margin-top: -6px;
+}
+/* --------------- Оканчание --------------- */
+.fontEnding {border: 1px solid;}

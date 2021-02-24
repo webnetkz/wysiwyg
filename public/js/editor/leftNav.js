@@ -2,9 +2,10 @@ const headerNav = document.querySelector('header');
 
 
 let leftNavSettings = document.querySelector('#leftNavSettings');
-let leftNavHome = document.querySelector('#leftNavHome');
+let leftNavText = document.querySelector('#leftNavText');
 
-leftNavHome.addEventListener('click', () => {
+
+leftNavText.addEventListener('click', () => {
     headerNav.innerHTML = '<div class="notEdit allTopNav">'+
                                 '<div class="notEdit">'+
                                     '<div>'+
@@ -131,6 +132,22 @@ leftNavHome.addEventListener('click', () => {
                                             '<div onclick="changeFontSize(\'30pt\');">30pt</div>'+
                                             '<div onclick="changeFontSize(\'40pt\');">40pt</div>'+
                                             '<div onclick="changeFontSize(\'60pt\');">60pt</div>'+
+                                        '</div>'+
+                                    '</div>'+
+                                    '<div>'+
+                                        '<img src="public/img/pen.svg" onclick="showList(this);" class="notEdit elementTopNavImg">'+
+                                        '<div class="showList" style="display: none">'+
+                                            '<div onclick="changeFontLine("\'lineSolid\'");">Подлежащее</div>'+
+                                            '<div onclick="changeFontLine(\'lineDouble\');">Сказуемое</div>'+
+                                            '<div onclick="changeFontLine(\'obst\');">Обстоятельство</div>'+
+                                            '<div onclick="changeFontLine(\'lineDashed\');">Дополнение</div>'+
+                                            '<div onclick="changeFontLine(\'lineWavy\');">Определение</div>'+
+                                            
+                                            '<div onclick="changeFontMorf(\'fontConsole\');">Приставка</div>'+
+                                            '<div onclick="changeFontMorf(\'fontRoot\');">Корень</div>'+
+                                            '<div onclick="changeFontMorf(\'fontFoundation\');">Основа</div>'+
+                                            '<div onclick="changeFontMorf(\'fontSuffix\');">Суффикс</div>'+
+                                            '<div onclick="changeFontMorf(\'fontEnding\');">Окончание</div>'+
                                         '</div>'+
                                     '</div>'+
                                     '<div>'+

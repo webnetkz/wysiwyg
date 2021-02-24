@@ -9,13 +9,15 @@
         <meta charset="UTF-8">
         <title>Ретакрирование содержимого</title>
         <link rel="stylesheet" href="public/styles/editor/editor.css">
+
+
     </head>
     <body>
         <header>
             <div class="notEdit allTopNav">
 				<div class="notEdit">
 					<div>
-                        <img src="public/img/textColor.svg" onclick="showPalitra(this);" class="notEdit elementTopNavImg">
+                        <img src="public/img/textColor.svg" onclick="showPalitra(this);" class="notEdit elementTopNavImg" title="Цвет текста">
                         <div class="colorPickerPalitra" style="display: none;">
                             <div class="colorPicker">
                                 <div onclick="changeColorText('black');" style="background: black"></div>
@@ -70,7 +72,7 @@
                     </div>
 
                     <div>
-                        <img src="public/img/palitra.svg" onclick="showPalitra(this);" class="notEdit elementTopNavImg">
+                        <img src="public/img/palitra.svg" onclick="showPalitra(this);" class="notEdit elementTopNavImg"  title="Цвет фона">
                         <div class="colorPickerPalitra" style="display: none;">
                             <div class="colorPicker">
                                 <div onclick="changeBgColorText('black');" style="background: black"></div>
@@ -127,7 +129,7 @@
 				
 
                     <div>
-                        <img src="public/img/fontSize.svg" onclick="showList(this);" class="notEdit elementTopNavImg">
+                        <img src="public/img/fontSize.svg" onclick="showList(this);" class="notEdit elementTopNavImg" title="Размер шрифта">
                         <div class="showList" style="display: none">
                             <div onclick="changeFontSize('8pt');">8pt</div>
                             <div onclick="changeFontSize('10pt');">10pt</div>
@@ -143,41 +145,47 @@
                         </div>
                     </div>
                     <div>
-                        <img src="public/img/pen.svg" onclick="showList(this);" class="notEdit elementTopNavImg">
+                        <img src="public/img/pen.svg" onclick="showList(this);" class="notEdit elementTopNavImg" title="Для русского языка">
                         <div class="showList" style="display: none">
-                            <div onclick="changeFontLine('lineSolid');">Спрошная</div>
-                            <div onclick="changeFontLine('lineDouble');">Двойная</div>
-                            <div onclick="changeFontLine('lineDotted');">Точками</div>
-                            <div onclick="changeFontLine('lineDashed');">Пунктирная</div>
-                            <div onclick="changeFontLine('lineWavy');">Волнистая</div>
+                            <div onclick="changeFontLine('lineSolid');">Подлежащее</div>
+                            <div onclick="changeFontLine('lineDouble');">Сказуемое</div>
+                            <div onclick="changeFontLine('obst');">Обстоятельство</div>
+                            <div onclick="changeFontLine('lineDashed');">Дополнение</div>
+                            <div onclick="changeFontLine('lineWavy');">Определение</div>
+                            
+                            <div onclick="changeFontMorf('fontConsole');">Приставка</div>
+                            <div onclick="changeFontMorf('fontRoot');">Корень</div>
+                            <div onclick="changeFontMorf('fontFoundation');">Основа</div>
+                            <div onclick="changeFontMorf('fontSuffix');">Суффикс</div>
+                            <div onclick="changeFontMorf('fontEnding');">Окончание</div>
                         </div>
                     </div>
                     <div>
-                        <img src="public/img/normal.svg" onclick="normal();" class="notEdit elementTopNavImg">
+                        <img src="public/img/normal.svg" onclick="normal();" class="notEdit elementTopNavImg" title="Нормальный текст">
                     </div>
                     <div>
-                        <img src="public/img/bold.svg" onclick="bold();" class="notEdit elementTopNavImg">
+                        <img src="public/img/bold.svg" onclick="bold();" class="notEdit elementTopNavImg" title="Выделеный текст">
                     </div>
                     <div>
-                        <img src="public/img/italic.svg" onclick="italic();" class="notEdit elementTopNavImg">
+                        <img src="public/img/italic.svg" onclick="italic();" class="notEdit elementTopNavImg" title="Курсивом текст">
                     </div>
                     <div>
-                        <img src="public/img/centerT.svg" onclick="textAlignCenter();" class="notEdit elementTopNavImg">
+                        <img src="public/img/centerT.svg" onclick="textAlignCenter();" class="notEdit elementTopNavImg" title="Выровнить по центру текст">
                     </div>
                     <div>
-                        <img src="public/img/rightT.svg" onclick="textAlignRight();" class="notEdit elementTopNavImg">
+                        <img src="public/img/rightT.svg" onclick="textAlignRight();" class="notEdit elementTopNavImg" title="Выровнить по правому краю текст">
                     </div>
                     <div>
-                        <img src="public/img/leftT.svg" onclick="textAlignLeft();" class="notEdit elementTopNavImg">
+                        <img src="public/img/leftT.svg" onclick="textAlignLeft();" class="notEdit elementTopNavImg" title="Выровнить по левому краю текст">
                     </div>
                     <div>
-                        <img src="public/img/title.svg" onclick="textTitle();" class="notEdit elementTopNavImg">
+                        <img src="public/img/title.svg" onclick="textTitle();" class="notEdit elementTopNavImg"  title="Всплывющая подсказка для текста">
                     </div>
                     <div>
-                        <img src="public/img/link.svg" onclick="appendLinkText();" title="Создать ссылку" class="notEdit elementTopNavImg">
+                        <img src="public/img/link.svg" onclick="appendLinkText();" title="Создать ссылку" class="notEdit elementTopNavImg" title="Создать ссылку">
                     </div>
                     <div>
-                        <img src="public/img/anchor.svg" onclick="appendAnchor();" class="notEdit elementTopNavImg">
+                        <img src="public/img/anchor.svg" onclick="appendAnchor();" class="notEdit elementTopNavImg"  title="Создать якорьную ссылку">
                     </div>
             		</div>
 				</div>
@@ -204,8 +212,11 @@
 
 
         <div class="leftNav">
-            <span class="leftNavItem activeLeftNav">
-                <img src="public/img/leftNav/home.svg" class="leftNavItemImg" id="leftNavHome">
+             <span class="leftNavItem activeLeftNav">
+                <img src="public/img/leftNav/text.svg" class="leftNavItemImg" id="leftNavText">
+            </span>
+            <span class="leftNavItem">
+                <img src="public/img/leftNav/home.svg" class="leftNavItemImg" onclick="window.history.back();">
             </span>
             <span class="leftNavItem">
                 <img src="public/img/leftNav/folder.svg"  onclick="document.querySelector('.folderPanel').style.right = '0px'" class="leftNavItemImg" id="leftNavFolder">
