@@ -345,16 +345,15 @@ function createBtnDel() {
     return newDel;
 }
 
-function appendBlock(idBlock, classBlock) {
-    let focusElem = document.querySelector('#'+idBlock);
-
-    let block = classBlock;
+function appendBlock(idSection) {
+    let focusElem = document.querySelector('#'+idSection);
 
     if(focusElem) {
         let rand = URL.createObjectURL(new Blob([])).slice(-36).replace(/-/g, "")
         let block0 = document.createElement('div');
-        block0.classList.add(classBlock);
+        block0.classList.add('block0');
         block0.setAttribute('id', 'a'+rand);
+        block0.setAttribute('contenteditable', 'true'); // Возможность редактировать контент
 
         let setingsBlock = document.createElement('img');
         setingsBlock.classList.add('setingsBlock');

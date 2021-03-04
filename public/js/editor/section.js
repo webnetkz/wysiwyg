@@ -6,14 +6,6 @@ function topNavSection(elem) {
         // Отображение панели убравления "СЕКЦИЯ"
         headerNav.innerHTML = '<div class="notEdit allTopNav">'+
             						'<div class="notEdit">'+
-										'<div>'+
-											'<img src="public/img/plus.svg" onclick="showList(this);" class="notEdit elementTopNavImg">'+
-											'<div class="showList" style="display: none">'+
-												'<div onclick="appendBlock(\''+idSect+'\', \'block0\');">Добавить блок</div>'+
-												'<div onclick="appendBlock(\''+idSect+'\', \'block2\');">Добавить блок 1/2</div>'+
-												'<div onclick="appendBlock(\''+idSect+'\', \'block3\');">Добавить блок 1/3</div>'+   
-											'</div>'+
-                                        '</div>'+
 
                                         '<div>'+
                                         '<img src="public/img/palitra.svg" onclick="showPalitra(this);" class="notEdit elementTopNavImg">'+
@@ -135,8 +127,6 @@ function appendSection() {
     let rand = URL.createObjectURL(new Blob([])).slice(-36).replace(/-/g, ""); // Создание рандомного ID
     newSection.classList.add('editor'); // Добавление класса области редактирования
     newSection.setAttribute('id', 'a'+rand); // Добавление ID
-    newSection.setAttribute('contenteditable', 'true'); // Возможность редактировать контент
-
 
 
     let newSectionNav = createSectionNav(); // Создание навигации для секции
@@ -150,7 +140,7 @@ function appendSection() {
 function createSectionNav() {
     let newSectionNav = document.createElement('div'); // Создание навигации
     newSectionNav.classList.add('sectionNav'); // Добавление класса навигации
-    
+
     let newDel = document.createElement('img'); // Создание кнопки удаление секции
 
     newDel.classList.add('elementSectionNav'); // Добавление классов элементу
@@ -166,11 +156,20 @@ function createSectionNav() {
     newSetings.classList.add('notEdit');
     newSetings.src = 'public/img/settings.svg';
     newSetings.setAttribute('onclick', 'topNavSection(this);');
+
+    let newBlock = document.createElement('img');
+
+    newBlock.classList.add('elementSectionNav');
+    newBlock.classList.add('notEdit');
+    newBlock.src = 'public/img/plus.svg';
+    newBlock.setAttribute('onclick', 'appendBlock(this.previousSibling.previousSibling.parentNode.previousSibling.id);');
     
     newSectionNav.appendChild(newDel);
     newSectionNav.appendChild(newSetings);
+    newSectionNav.appendChild(newBlock);
     return newSectionNav;
 }
+
 // Удаление сеции через иконку
 function deletedSectionBtn(elem) {
     if(elem.parentNode.previousSibling) {

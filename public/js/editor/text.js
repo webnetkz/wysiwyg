@@ -177,23 +177,24 @@ function appendLinkText() {
 	}
 }
 
-function textAlignCenter() {
-    if(typeof window.getSelection() != "undefined" && window.getSelection().anchorNode != null) {
-        let range = window.getSelection().getRangeAt(0);
-        let newNode = document.createElement("p");
-        newNode.style.textAlign = 'center';
-        range.surroundContents(newNode);
-        //document.getSelection().removeAllRanges();
-        return false;
-    } else {
-		return false;
-	}
-}
+// function textAlignCenter() {
+//     if(typeof window.getSelection() != "undefined" && window.getSelection().anchorNode != null) {
+//         let range = window.getSelection().getRangeAt(0);
+//         let newNode = document.createElement("span");
+//         newNode.style.display = 'block';
+//         newNode.style.textAlign = 'center';
+//         range.surroundContents(newNode);
+//         //document.getSelection().removeAllRanges();
+//         return false;
+//     } else {
+// 		return false;
+// 	}
+// }
 function textAlignLeft() {
     if(typeof window.getSelection() != "undefined" && window.getSelection().anchorNode != null) {
         let range = window.getSelection().getRangeAt(0);
-        let newNode = document.createElement("p");
-        newNode.style.textAlign = 'left';
+        let newNode = document.createElement("span");
+        newNode.style.float = 'left';
         range.surroundContents(newNode);
         //document.getSelection().removeAllRanges();
         return false;
@@ -204,8 +205,8 @@ function textAlignLeft() {
 function textAlignRight() {
     if(typeof window.getSelection() != "undefined" && window.getSelection().anchorNode != null) {
         let range = window.getSelection().getRangeAt(0);
-        let newNode = document.createElement("p");
-        newNode.style.textAlign = 'right';
+        let newNode = document.createElement("span");
+        newNode.style.float = 'right';
         range.surroundContents(newNode);
         //document.getSelection().removeAllRanges();
         return false;

@@ -101,3 +101,14 @@ function showList(elem) {
 }
 
 
+function darkTheme() {
+	if(document.querySelector('.darkMod')) {
+        document.querySelector('.darkMod').remove();
+    } else {
+        let darkStyles = document.createElement('style');
+        darkStyles.innerText = ':root {filter: invert(100%)}';
+        darkStyles.classList.add('darkMod');
+        document.body.appendChild(darkStyles)
+    }
+}
+
