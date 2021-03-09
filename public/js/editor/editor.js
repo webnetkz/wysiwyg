@@ -112,3 +112,8 @@ function darkTheme() {
     }
 }
 
+function appendBanner() {
+    saveContent();
+    let addBanner = document.querySelector('#addBanner');
+    addBanner.click();   
+}

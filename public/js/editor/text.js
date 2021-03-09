@@ -143,7 +143,24 @@ function appendMorf(style) {
 	}
 }
 
-
+// Добавление формулы
+function appendFormulaCarret() {
+    if(typeof window.getSelection() != "undefined" && window.getSelection().anchorNode != null) {
+    
+        let range = window.getSelection().getRangeAt(0);
+        let myValue = prompt('Введите формулу без тегов "<math> </math>"');
+        if(myValue == null) {
+            return false;
+        }
+        let span = document.createElement('math');
+        span.setAttribute('contenteditable', 'false');
+        span.classList.add('formula');
+        span.innerHTML = myValue;
+    
+        range.insertNode(span);
+        return false;
+    }
+}
 
 function changeMarginText(size) {
     if(typeof window.getSelection() != "undefined" && window.getSelection().anchorNode != null) {
@@ -158,43 +175,72 @@ function changeMarginText(size) {
 		return false;
 	}
 }
-
-function appendLinkText() {
+function sup() {
     if(typeof window.getSelection() != "undefined" && window.getSelection().anchorNode != null) {
         let range = window.getSelection().getRangeAt(0);
-        let newNode = document.createElement("a");
-        let linkAnswer = prompt('Введите ссылку');
-        if(linkAnswer) {
-            newNode.href = linkAnswer;
+        let newNode = document.createElement("sup");
+        range.surroundContents(newNode);
+        //document.getSelection().removeAllRanges();
+        return false;
+    } else {
+		return false;
+	}
+}
+function clearText() {
+    if(typeof window.getSelection() != "undefined" && window.getSelection().anchorNode != null) {
+        range = window.getSelection().getRangeAt(0);
+        range.commonAncestorContainer.innerHTML = range.toString();
 
-            range.surroundContents(newNode);
-            //document.getSelection().removeAllRanges();
-            return false;
-        }
+        return false;
+    } else {
+		return false;
+	}
+}
+function sub() {
+    if(typeof window.getSelection() != "undefined" && window.getSelection().anchorNode != null) {
+        let range = window.getSelection().getRangeAt(0);
+        let newNode = document.createElement("sub");
+        range.surroundContents(newNode);
+        //document.getSelection().removeAllRanges();
         return false;
     } else {
 		return false;
 	}
 }
 
-// function textAlignCenter() {
-//     if(typeof window.getSelection() != "undefined" && window.getSelection().anchorNode != null) {
-//         let range = window.getSelection().getRangeAt(0);
-//         let newNode = document.createElement("span");
-//         newNode.style.display = 'block';
-//         newNode.style.textAlign = 'center';
-//         range.surroundContents(newNode);
-//         //document.getSelection().removeAllRanges();
-//         return false;
-//     } else {
-// 		return false;
-// 	}
-// }
+function textAlignCenter() {
+    if(typeof window.getSelection() != "undefined" && window.getSelection().anchorNode != null) {
+        let range = window.getSelection().getRangeAt(0);
+        let newNode = document.createElement("span");
+        newNode.style.display = 'block';
+        newNode.style.textAlign = 'center';
+        range.surroundContents(newNode);
+        //document.getSelection().removeAllRanges();
+        return false;
+    } else {
+		return false;
+	}
+}
+
+function textAlignCenter() {
+    if(typeof window.getSelection() != "undefined" && window.getSelection().anchorNode != null) {
+        let range = window.getSelection().getRangeAt(0);
+        let newNode = document.createElement("span");
+        newNode.style.display = 'block';
+        newNode.style.textAlign = 'center';
+        range.surroundContents(newNode);
+        //document.getSelection().removeAllRanges();
+        return false;
+    } else {
+		return false;
+	}
+}
 function textAlignLeft() {
     if(typeof window.getSelection() != "undefined" && window.getSelection().anchorNode != null) {
         let range = window.getSelection().getRangeAt(0);
         let newNode = document.createElement("span");
-        newNode.style.float = 'left';
+        newNode.style.display = 'block';
+        newNode.style.textAlign = 'left';
         range.surroundContents(newNode);
         //document.getSelection().removeAllRanges();
         return false;
@@ -206,7 +252,8 @@ function textAlignRight() {
     if(typeof window.getSelection() != "undefined" && window.getSelection().anchorNode != null) {
         let range = window.getSelection().getRangeAt(0);
         let newNode = document.createElement("span");
-        newNode.style.float = 'right';
+        newNode.style.display = 'block';
+        newNode.style.textAlign = 'right';
         range.surroundContents(newNode);
         //document.getSelection().removeAllRanges();
         return false;

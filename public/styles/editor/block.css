@@ -1,4 +1,4 @@
-.block0 {
+.blockFull {
     border: 1px solid rgba(0, 0, 0, 0.5);
     width: 98.8%;
     min-height: 100px;
@@ -7,10 +7,25 @@
     vertical-align: top;
     margin: 5px;
 }
-.block0:hover {
+.blockFull:hover {
     border: 1px dashed blue;
 }
-.block0:focus {
+.blockFull:focus {
+    border: 1px dashed red;
+}
+.block1 {
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    width: 48.9%;
+    min-height: 100px;
+    display: inline-block;
+    padding: 10px;
+    vertical-align: top;
+    margin: 5px;
+}
+.block1:hover {
+    border: 1px dashed blue;
+}
+.block1:focus {
     border: 1px dashed red;
 }
 .block2 {
@@ -37,7 +52,13 @@
     vertical-align: top;
     margin: 5px;
 }
-.block0 video {
+.block3:hover {
+    border: 1px dashed blue;
+}
+.block3:focus {
+    border: 1px dashed red;
+}
+.blockFull video {
     max-width: 900px;
 }
 .block2 video {
@@ -70,4 +91,9 @@
     opacity: 1;
     cursor: pointer;
     max-width: 40px;
+}
+.sliderBlock {
+    max-height: 300px!important;
+    min-height: 300px!important;
+    overflow-y: scroll;
 }

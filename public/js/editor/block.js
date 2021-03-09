@@ -207,8 +207,88 @@ function topNavBlock(elem) {
                         '<div onclick="changeShadowBox(\'0 0 20px rgba(0,0,0, 0.4)\', \''+idBlock+'\');">Стиль тени 7</div>'+
                     '</div>'+
 				'</div>'+
-				
+                '<div>'+
+                '<img src="public/img/settings.svg" onclick="showList(this);" class="notEdit elementTopNavImg">'+
+                '<div class="showList" style="display: none">'+
+                    '<div onclick="positionBlockUp(\''+idBlock+'\');">Поднять</div>'+
+                    '<div onclick="positionBlockDown(\''+idBlock+'\');">Спустить</div>'+
+                    '<div onclick="widthBlock(\'block1\', \''+idBlock+'\');">50%</div>'+
+                    '<div onclick="widthBlock(\'block2\', \''+idBlock+'\');">66%</div>'+
+                    '<div onclick="widthBlock(\'block3\', \''+idBlock+'\');">33%</div>'+
+                    '<div onclick="widthBlock(\'blockFull\', \''+idBlock+'\');">100%</div>'+
+                '</div>'+
+                '</div>'+	
+                '<div>'+
+                    '<img src="public/img/scroll.svg" onclick="sliderBlock(\''+idBlock+'\');" class="notEdit elementTopNavImg">'+
+                '</div>'+
+                '<div>'+
+                    '<img src="public/img/ul.svg" onclick="appendUlBlock(\''+idBlock+'\');" class="notEdit elementTopNavImg">'+
+                '</div>'+
+                '<div>'+
+                    '<img src="public/img/ol.svg" onclick="appendOlBlock(\''+idBlock+'\');" class="notEdit elementTopNavImg">'+
+                '</div>'+
     '</div>';
+}
+
+function appendUlBlock(block) {
+    let blockB = document.querySelector('#'+block);
+    blockB.innerHTML += '<ul style="padding-left: 20px;"><li>1</li><li>2</li><li>3</li></ul>';
+}
+function appendOlBlock(block) {
+    let blockB = document.querySelector('#'+block);
+    blockB.innerHTML += '<ol style="padding-left: 20px;"><li>1</li><li>2</li><li>3</li></ol>';
+}
+
+function widthBlock(classB, block) {
+    let blockB = document.querySelector('#'+block);
+    blockB.classList.remove(blockB.classList[0]);
+    blockB.classList.add(classB);
+}
+function sliderBlock(block) {
+    let blockB = document.querySelector('#'+block);
+    blockB.classList.add('sliderBlock');
+}
+
+function positionBlockUp(idB) {
+    
+    let block = document.querySelector('#'+idB);
+    let blockSet = block.nextSibling;
+    let section = block.parentNode;
+
+    if(block.previousSibling) {
+        if(block.previousSibling.previousSibling) {
+            let blockUpSet = block.previousSibling;
+            let blockUp = block.previousSibling.previousSibling;
+
+            section.insertBefore(blockSet, blockUp);
+            section.insertBefore(block, blockSet);
+
+            return false;
+        }
+    } else {
+        return false;
+    }
+}
+function positionBlockDown(idB) {
+    
+    let block = document.querySelector('#'+idB);
+    let blockSet = block.nextSibling;
+    let section = block.parentNode;
+
+    if(block.nextSibling.nextSibling) {
+        if(block.nextSibling.nextSibling) {
+            
+            let blockDown = block.nextSibling.nextSibling;
+            let blockDownSet = block.nextSibling.nextSibling.nextSibling;
+
+            section.insertBefore(blockDownSet, block);
+            section.insertBefore(blockDown, blockDownSet);
+
+            return false;
+        }
+    } else {
+        return false;
+    }
 }
 
 // Стили блока
@@ -351,7 +431,7 @@ function appendBlock(idSection) {
     if(focusElem) {
         let rand = URL.createObjectURL(new Blob([])).slice(-36).replace(/-/g, "")
         let block0 = document.createElement('div');
-        block0.classList.add('block0');
+        block0.classList.add('blockFull');
         block0.setAttribute('id', 'a'+rand);
         block0.setAttribute('contenteditable', 'true'); // Возможность редактировать контент
 

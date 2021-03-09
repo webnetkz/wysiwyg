@@ -22,10 +22,14 @@
         <div class="sectionNavOne">
             <img src="public/img/plus.svg" class="elementSectionNav notEdit" onclick="appendSection();">
         </div>
+        <div class="mainBanner">
+            <h1 class="h1Main">
+                <?=$_GET['part'];?>
+            </h1>
+        </div>
         <div id="contentBook">
             <?php
                 require_once 'app/libs/db/db.php';
-
                 $getContentSQL = 'SELECT content FROM book_'.$_GET['book'].' WHERE part = "'.$_GET['part'].'"';
                 $res = $pdo->query($getContentSQL);
                 $res = $res->fetch(PDO::FETCH_ASSOC);
@@ -132,6 +136,32 @@
 
             unset($_SESSION['block']);
             unset($_SESSION['audio']);
+        }
+
+        if(isset($_SESSION['banner'])) {
+            echo '<script>
+                let blockBanner = document.querySelector(".mainBanner");
+
+                let oldBanner = document.querySelector("#bannerSct");
+                if(oldBanner) {oldBanner.remove();}
+
+                if(blockBanner) {
+                    blockBanner.style.background = "url(books/'.$_GET['book'].'/'.$_SESSION['banner'].')";
+
+                    let editor = document.querySelector(".editor");
+                    let newBannerScript = document.createElement("script");
+                    newBannerScript.id = "bannerSct";
+                    newBannerScript.innerText = "let banner = document.querySelector(\".mainBanner\"); banner.style.background = \"url(\'books/'.$_GET['book'].'/'.$_SESSION['banner'].'\')\"; banner.style.backgroundRepeat = \'no-repeat\'; banner.style.backgroundPosition = \'center center\'; banner.style.backgroundSize = \'cover\';"
+
+                    editor.appendChild(newBannerScript);
+                    saveContent();
+
+                }
+                
+            </script>';
+
+            unset($_SESSION['block']);
+            unset($_SESSION['banner']);
         }
 
         ?>

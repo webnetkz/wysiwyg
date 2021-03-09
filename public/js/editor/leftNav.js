@@ -9,6 +9,18 @@ leftNavText.addEventListener('click', () => {
     headerNav.innerHTML = '<div class="notEdit allTopNav">'+
                                 '<div class="notEdit">'+
                                     '<div>'+
+                                        '<img src="public/img/formula.svg" onclick="appendFormulaCarret();" class="notEdit elementTopNavImg">'+
+                                    '</div>'+
+                                    '<div>'+
+                                        '<img src="public/img/clearText.svg" onclick="range.commonAncestorContainer.innerHTML = range.toString();" class="notEdit elementTopNavImg">'+
+                                    '</div>'+
+                                    '<div>'+
+                                        '<img src="public/img/sup.svg" onclick="sup();" class="notEdit elementTopNavImg">'+
+                                    '</div>'+
+                                    '<div>'+
+                                        '<img src="public/img/sub.svg" onclick="sub();" class="notEdit elementTopNavImg">'+
+                                    '</div>'+
+                                    '<div>'+
                                         '<img src="public/img/textColor.svg" onclick="showPalitra(this);" class="notEdit elementTopNavImg">'+
                                         '<div class="colorPickerPalitra" style="display: none;">'+
                                             '<div class="colorPicker">'+
