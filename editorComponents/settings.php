@@ -11,6 +11,7 @@
         box-shadow: 0 0 20px rgba(0,0,0,0.4);
         padding: 10px;
         padding-top: 20px;
+        z-index: 99999999999999999999999999999999999999999999999999999999999;
     }
     .miniImg {
         width: 100px;

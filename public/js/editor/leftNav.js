@@ -11,9 +11,9 @@ leftNavText.addEventListener('click', () => {
                                     '<div>'+
                                         '<img src="public/img/formula.svg" onclick="appendFormulaCarret();" class="notEdit elementTopNavImg">'+
                                     '</div>'+
-                                    '<div>'+
-                                        '<img src="public/img/clearText.svg" onclick="range.commonAncestorContainer.innerHTML = range.toString();" class="notEdit elementTopNavImg">'+
-                                    '</div>'+
+                                    //'<div>'+
+                                    //    '<img src="public/img/clearText.svg" onclick="range.commonAncestorContainer.innerHTML = range.toString();" class="notEdit elementTopNavImg">'+
+                                    //'</div>'+
                                     '<div>'+
                                         '<img src="public/img/sup.svg" onclick="sup();" class="notEdit elementTopNavImg">'+
                                     '</div>'+
@@ -160,6 +160,7 @@ leftNavText.addEventListener('click', () => {
                                             '<div onclick="changeFontMorf(\'fontFoundation\');">Основа</div>'+
                                             '<div onclick="changeFontMorf(\'fontSuffix\');">Суффикс</div>'+
                                             '<div onclick="changeFontMorf(\'fontEnding\');">Окончание</div>'+
+                                            '<div onclick="changeFontMorf(\'fontDar\');">Ударение</div>'+
                                         '</div>'+
                                     '</div>'+
                                     '<div>'+

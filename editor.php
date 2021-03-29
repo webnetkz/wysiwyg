@@ -48,7 +48,7 @@
                 <img src="public/img/leftNav/text.svg" class="leftNavItemImg" id="leftNavText">
             </span>
             <span class="leftNavItem">
-                <img src="public/img/leftNav/home.svg" class="leftNavItemImg" onclick="window.history.back();">
+                <img src="public/img/leftNav/home.svg" class="leftNavItemImg" onclick="location.href = 'navigation?book=<?=$_GET['book']?>'">
             </span>
             <span class="leftNavItem">
                 <img src="public/img/leftNav/settings.svg"  onclick="document.querySelector('.settingsPanel').style.right = '0px'" class="leftNavItemImg" id="leftNavSettings">
@@ -75,11 +75,21 @@
                 let blockImg = document.querySelector("#'.$_SESSION['block'].'");
                 let blockImgId = "#"+blockImg.id;
 
+                let idImg = URL.createObjectURL(new Blob([])).slice(-36).replace(/-/g, "");
+
                 if(blockImg) {
                     let newImg = document.createElement("img");
                     newImg.src = "books/'.$_GET['book'].'/'.$_SESSION['img'].'";
+                    newImg.id = idImg;
+
+                    let delImg = document.createElement("img");
+                    delImg.classList.add("setingsBlock");
+                    delImg.classList.add("notEdit");
+                    delImg.src = "public/img/delete.svg";
+                    delImg.setAttribute("onclick", \'this.previousSibling.remove(); this.remove();\');
 
                     blockImg.appendChild(newImg);
+                    blockImg.appendChild(delImg);
 
                     saveContent();
                 }
