@@ -227,7 +227,106 @@ function topNavBlock(elem) {
                 '<div>'+
                     '<img src="public/img/ol.svg" onclick="appendOlBlock(\''+idBlock+'\');" class="notEdit elementTopNavImg">'+
                 '</div>'+
+                '<div>'+
+                    '<img src="public/img/test.svg" class="notEdit elementTopNavImg" onclick="document.querySelector(\'.testsPanel\').style.right = \'0px\'; newTest(\''+idBlock+'\');" class="leftNavItemImg" id="leftNavTests">'+
+                '</div>'+
+                '<div>'+
+                '<img src="public/img/animation.svg" onclick="showList(this);" class="notEdit elementTopNavImg">'+
+                '<div class="showList" style="display: none">'+
+                    '<div onclick="appendAnimation(\'AniLeftRight\', \''+idBlock+'\');">По горизонтали</div>'+
+                    '<div onclick="appendAnimation(\'AniShadow\', \''+idBlock+'\');">Тень</div>'+
+                    '<div onclick="appendAnimation(\'AniScale\', \''+idBlock+'\');">Увеличение</div>'+
+                    '<div onclick="appendAnimation(\'AniRedBg\', \''+idBlock+'\');">Красный фон</div>'+
+                    '<div onclick="appendAnimation(\'AniRotate\', \''+idBlock+'\');">Поворот</div>'+
+                    '<div onclick="appendAnimation(\'AniJump\', \''+idBlock+'\');">Подпрыгивание</div>'+
+                '</div>'+
+                '</div>'+
+
+                '<div>'+
+                    '<img src="public/img/textColor.svg" onclick="showPalitra(this);" class="notEdit elementTopNavImg">'+
+                    '<div class="colorPickerPalitra" style="display: none;">'+
+                        '<div class="colorPicker">'+
+                            '<div onclick="changeColorTextBlock(\'black\', \''+idBlock+'\');" style="background: black"></div>'+
+                            '<div onclick="changeColorTextBlock(\'white\', \''+idBlock+'\');" style="background: white"></div>'+
+                            '<div onclick="changeColorTextBlock(\'red\', \''+idBlock+'\');" style="background: red"></div>'+
+                            '<div onclick="changeColorTextBlock(\'IndianRed\', \''+idBlock+'\');" style="background: IndianRed"></div>'+
+                            '<div onclick="changeColorTextBlock(\'DarkRed\', \''+idBlock+'\');" style="background: DarkRed"></div>'+
+                        '</div>'+
+                        '<div class="colorPicker">'+
+                            '<div onclick="changeColorTextBlock(\'green\', \''+idBlock+'\');" style="background: green"></div>'+
+                            '<div onclick="changeColorTextBlock(\'GreenYellow\', \''+idBlock+'\');" style="background: GreenYellow"></div>'+
+                            '<div onclick="changeColorTextBlock(\'LimeGreen\', \''+idBlock+'\');" style="background: LimeGreen"></div>'+
+                            '<div onclick="changeColorTextBlock(\'SpringGreen\', \''+idBlock+'\');" style="background: SpringGreen"></div>'+
+                            '<div onclick="changeColorTextBlock(\'LightSeaGreen\', \''+idBlock+'\');" style="background: LightSeaGreen"></div>'+
+                        '</div>'+
+                        '<div class="colorPicker">'+
+                            '<div onclick="changeColorTextBlock(\'MediumSeaGreen\', \''+idBlock+'\');" style="background: MediumSeaGreen"></div>'+
+                            '<div onclick="changeColorTextBlock(\'DarkGreen\', \''+idBlock+'\');" style="background: DarkGreen"></div>'+
+                            '<div onclick="changeColorTextBlock(\'Olive\', \''+idBlock+'\');" style="background: Olive"></div>'+
+                            '<div onclick="changeColorTextBlock(\'LightSeaGreen\', \''+idBlock+'\');" style="background: LightSeaGreen"></div>'+
+                            '<div onclick="changeColorTextBlock(\'Teal\', \''+idBlock+'\');" style="background: Teal"></div>'+
+                        '</div>'+
+                        '<div class="colorPicker">'+
+                            '<div onclick="changeColorTextBlock(\'Pink\', \''+idBlock+'\');" style="background: Pink"></div>'+
+                            '<div onclick="changeColorTextBlock(\'HotPink\', \''+idBlock+'\');" style="background: HotPink"></div>'+
+                            '<div onclick="changeColorTextBlock(\'MediumVioletRed\', \''+idBlock+'\');" style="background: MediumVioletRed"></div>'+
+                            '<div onclick="changeColorTextBlock(\'LightSalmon\', \''+idBlock+'\');" style="background: LightSalmon"></div>'+
+                            '<div onclick="changeColorTextBlock(\'OrangeRed\', \''+idBlock+'\');" style="background: OrangeRed"></div>'+
+                        '</div>'+
+                        '<div class="colorPicker">'+
+                            '<div onclick="changeColorTextBlock(\'Gold\', \''+idBlock+'\');" style="background: Gold"></div>'+
+                            '<div onclick="changeColorTextBlock(\'Yellow\', \''+idBlock+'\');" style="background: Yellow"></div>'+
+                            '<div onclick="changeColorTextBlock(\'Aqua\', \''+idBlock+'\');" style="background: Aqua"></div>'+
+                            '<div onclick="changeColorTextBlock(\'DarkTurquoise\', \''+idBlock+'\');" style="background: DarkTurquoise"></div>'+
+                            '<div onclick="changeColorTextBlock(\'SteelBlue\', \''+idBlock+'\');" style="background: SteelBlue"></div>'+
+                        '</div>'+
+                        '<div class="colorPicker">'+
+                            '<div onclick="changeColorTextBlock(\'Blue\', \''+idBlock+'\');" style="background: Blue"></div>'+
+                            '<div onclick="changeColorTextBlock(\'DarkBlue\', \''+idBlock+'\');" style="background: DarkBlue"></div>'+
+                            '<div onclick="changeColorTextBlock(\'Violet\', \''+idBlock+'\');" style="background: Violet"></div>'+
+                            '<div onclick="changeColorTextBlock(\'Magenta\', \''+idBlock+'\');" style="background: Magenta"></div>'+
+                            '<div onclick="changeColorTextBlock(\'Indigo\', \''+idBlock+'\');" style="background: Indigo"></div>'+
+                        '</div>'+
+                        '<div class="colorPicker">'+
+                            '<div onclick="changeColorTextBlock(\'Snow\', \''+idBlock+'\');" style="background: Snow"></div>'+
+                            '<div onclick="changeColorTextBlock(\'AntiqueWhite\', \''+idBlock+'\');" style="background: AntiqueWhite"></div>'+
+                            '<div onclick="changeColorTextBlock(\'Gray\', \''+idBlock+'\');" style="background: Gray"></div>'+
+                            '<div onclick="changeColorTextBlock(\'SlateGray\', \''+idBlock+'\');" style="background: SlateGray"></div>'+
+                            '<div onclick="changeColorTextBlock(\'Brown\', \''+idBlock+'\');" style="background: Brown"></div>'+
+                        '</div>'+
+                    '</div>'+
+                    '</div>'+
+
+
+                                    
+                    
     '</div>';
+}
+
+function changeColorTextBlock(style, block) {
+    let blockB = document.querySelector('#'+block);
+    let colorStyle = style+'TextColorBlock';
+
+    if(blockB.classList.contains(colorStyle)) {
+        blockB.classList.remove(colorStyle)
+        return false;
+    } else {
+        blockB.classList.add(colorStyle);
+        return false;
+    }
+}
+
+function appendAnimation(style, block) {
+    let blockB = document.querySelector('#'+block);
+
+    if(blockB.classList.contains(style)) {
+        blockB.classList.remove(style)
+        return false;
+    } else {
+        blockB.classList.add(style);
+        return false;
+    }
+    
 }
 
 function appendUlBlock(block) {

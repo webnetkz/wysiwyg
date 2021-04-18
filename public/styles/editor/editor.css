@@ -237,3 +237,164 @@ td {
     left: -5px;
     top: -5px;
 }
+/* --------------- Анимации --------------- */
+.AniLeftRight {
+    animation: leftRight 1s infinite;
+}
+@keyframes leftRight {
+    50% {
+        margin-left: -15px;
+    }
+}
+
+.AniShadow {
+    animation: shadow 1s infinite;
+}
+@keyframes shadow {
+    50% {
+        box-shadow: 0 0 10px rgb(105, 105, 105);
+    }
+}
+
+.AniScale {
+    animation: scale 1s infinite;
+}
+@keyframes scale {
+    50% {
+        transform: scale(1.03);
+    }
+}
+
+.AniRedBg {
+    animation: redBg 1s infinite;
+}
+@keyframes redBg {
+    50% {
+        background: rgb(235, 70, 65);
+    }
+}
+
+.AniRotate {
+    animation: rotate 1s infinite;
+}
+@keyframes rotate {
+    50% {
+        transform: rotate(3deg);
+    }
+}
+
+.AniJump{
+    animation: jump 1s infinite;
+    position: relative
+}
+@keyframes jump {
+    50% {
+        transform: translateY(-10px);
+    }
+}
+/* --------------- Цвет текста для блока --------------- */
+.BlackTextColorBlock {
+    color: Black;
+}
+.WhiteTextColorBlock {
+    color: White;
+}
+.RedTextColorBlock {
+    color: Red;
+}
+.IndianRedTextColorBlock {
+    color: IndianRed;
+}
+.DarkRedTextColorBlock {
+    color: DarkRed;
+}
+.GreenTextColorBlock {
+    color: Green;
+}
+.GreenYellowTextColorBlock {
+    color: GreenYellow;
+}
+.LimeGreenTextColorBlock {
+    color: LimeGreen;
+}
+.SpringGreenTextColorBlock {
+    color: SpringGreen;
+}
+.LightSeaGreenTextColorBlock {
+    color: LightSeaGreen;
+}
+.MediumSeaGreenTextColorBlock {
+    color: MediumSeaGreen;
+}
+.DarkGreenTextColorBlock {
+    color: DarkGreen;
+}
+.OliveTextColorBlock {
+    color: Olive;
+}
+.LightSeaGreenTextColorBlock {
+    color: LightSeaGreen;
+}
+.TealTextColorBlock {
+    color: Teal;
+}
+.PinkTextColorBlock {
+    color: Pink;
+}
+.HotPinkTextColorBlock {
+    color: HotPink;
+}
+.MediumVioletRedTextColorBlock {
+    color: MediumVioletRed;
+}
+.LightSalmonTextColorBlock {
+    color: LightSalmon;
+}
+.OrangeRedTextColorBlock {
+    color: OrangeRed;
+}
+.GoldTextColorBlock {
+    color: Gold;
+}
+.YellowTextColorBlock {
+    color: Yellow;
+}
+.AquaTextColorBlock {
+    color: Aqua;
+}
+.DarkTurquoiseTextColorBlock {
+    color: DarkTurquoise;
+}
+.SteelBlueTextColorBlock {
+    color: SteelBlue;
+}
+.BlueTextColorBlock {
+    color: Blue;
+}
+.DarkBlueTextColorBlock {
+    color: DarkBlue;
+}
+.VioletTextColorBlock {
+    color: Violet;
+}
+.MagentaTextColorBlock {
+    color: Magenta;
+}
+.IndigoTextColorBlock {
+    color: Indigo;
+}
+.SnowTextColorBlock {
+    color: Snow;   
+}
+.AntiqueWhiteTextColorBlock {
+    color: AntiqueWhite;
+}
+.GrayTextColorBlock {
+    color: Gray;
+}
+.SlateGrayTextColorBlock {
+    color: SlateGray;
+}
+.BrownTextColorBlock {
+    color: Brown;
+}

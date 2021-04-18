@@ -1,8 +1,3 @@
-<?php 
-
-    @session_start();
-    require_once 'editorComponents/settings.php';
-?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,6 +8,13 @@
 
     </head>
     <body>
+
+    <?php 
+
+    @session_start();
+    require_once 'editorComponents/settings.php';
+    require_once 'editorComponents/tests.php';
+    ?>
         <header>
             <div class="notEdit allTopNav">
 				
@@ -51,7 +53,7 @@
                 <img src="public/img/leftNav/home.svg" class="leftNavItemImg" onclick="location.href = 'navigation?book=<?=$_GET['book']?>'">
             </span>
             <span class="leftNavItem">
-                <img src="public/img/leftNav/settings.svg"  onclick="document.querySelector('.settingsPanel').style.right = '0px'" class="leftNavItemImg" id="leftNavSettings">
+                <img src="public/img/leftNav/settings.svg"  onclick="document.querySelector('.settingsPanel').style.right = '0px'" class="leftNavItemImg" id="leftNavSettings"></img>
             </span>
             <span class="leftNavItem" onclick="saveContent();">
                 <img src="public/img/leftNav/save.svg" class="leftNavItemImg" id="leftNavSave">
@@ -158,19 +160,17 @@
                 if(blockBanner) {
                     blockBanner.style.background = "url(books/'.$_GET['book'].'/'.$_SESSION['banner'].')";
 
-                    let editor = document.querySelector(".editor");
                     let newBannerScript = document.createElement("script");
                     newBannerScript.id = "bannerSct";
                     newBannerScript.innerText = "let banner = document.querySelector(\".mainBanner\"); banner.style.background = \"url(\'books/'.$_GET['book'].'/'.$_SESSION['banner'].'\')\"; banner.style.backgroundRepeat = \'no-repeat\'; banner.style.backgroundPosition = \'center center\'; banner.style.backgroundSize = \'cover\';"
 
-                    editor.appendChild(newBannerScript);
+                    document.body.appendChild(newBannerScript);
                     saveContent();
 
                 }
                 
             </script>';
 
-            unset($_SESSION['block']);
             unset($_SESSION['banner']);
         }
 
