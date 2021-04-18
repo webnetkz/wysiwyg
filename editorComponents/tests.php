@@ -170,23 +170,26 @@
         }
     }
 
-    function checkTestTwo(rand, question, ans1, ans2, ans3, ans4, res) {
+    function checkTestTwo(rand, question, ans1, ans2, ans3, ans4, res, res2) {
         let allTestOne = document.querySelectorAll('.a'+rand);
         let block = document.querySelector('#a'+rand);
+        console.log(res);
+        console.log(res2);
+        alert();
 
-        if(allTestOne[0].checked === true && res == 1) {
+        if(allTestOne[0].checked === true && (res == 1 || res2)) {
             block.innerHTML = '<h3>Вы ответили верно</h3>';
         }
 
-        if(allTestOne[1].checked === true && res == 2) {
+        if(allTestOne[1].checked === true && (res == 2 || res2 == 2)) {
             block.innerHTML = '<h3>Вы ответили верно</h3>';
         }
 
-        if(allTestOne[2].checked === true && res == 3) {
+        if(allTestOne[2].checked === true && (res == 3 || res2 == 3)) {
             block.innerHTML = '<h3>Вы ответили верно</h3>';
         }
 
-        if(allTestOne[3].checked === true && res == 4) {
+        if(allTestOne[3].checked === true && (res == 4 || res2 == 4)) {
             block.innerHTML = '<h3>Вы ответили верно</h3>';
         }
     }
