@@ -28,16 +28,18 @@
     if (move_uploaded_file($_FILES['titleImg']['tmp_name'], $uploadfile)) {
 
 			// Создание таблицы глав
-			$sqlCreateParts = 'CREATE TABLE IF NOT EXISTS parts_'.$book.'(id INT NOT NULL AUTO_INCREMENT, part VARCHAR (255) NOT NULL, PRIMARY KEY (ID) )';
+			$sqlCreateParts = 'CREATE TABLE IF NOT EXISTS parts_'.$book.'(id INT NOT NULL AUTO_INCREMENT, part VARCHAR (255) NOT NULL, banner VARCHAR(255) NOT NULL, PRIMARY KEY (ID) )';
 			$pdo->query($sqlCreateParts);
+      $pdo->query('INSERT INTO parts_'.$book.'(part) VALUES ("Глосарий")');
 
 			// Создание таблицы контента
 			$sqlCreateBook = 'CREATE TABLE IF NOT EXISTS book_'.$book.'(id INT NOT NULL AUTO_INCREMENT, part VARCHAR (255) NOT NULL, content LONGTEXT NOT NULL, PRIMARY KEY (ID) )';
 			$pdo->query($sqlCreateBook);
+      $pdo->query('INSERT INTO book_'.$book.'(part) VALUES ("Глосарий")');
 
-			// // Создание таблицы тестов
-			// $sqlCreateTest = 'CREATE TABLE IF NOT EXISTS tests_'.$book.'(id INT NOT NULL AUTO_INCREMENT, part VARCHAR (255) NOT NULL, content LONGTEXT NOT NULL, PRIMARY KEY (ID) )';
-			// $pdo->query($sqlCreateTest);
+			// // Создание таблицы глосария
+			// $sqlCreateTitle = 'CREATE TABLE IF NOT EXISTS title_'.$book.'(id INT NOT NULL AUTO_INCREMENT, part VARCHAR (255) NOT NULL, content LONGTEXT NOT NULL, PRIMARY KEY (ID) )';
+			// $pdo->query($sqlCreateTitle);
 
 			// Добавление данных в бд
 			$sql = 'INSERT INTO books(`level`, `subject`, `lang`, `pack`, `titleImg`, `status`) VALUES("'.$level.'", "'.$subject.'", "'.$lang.'", "'.$pack.'", "'.$file.'",  0)';  

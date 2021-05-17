@@ -1,9 +1,12 @@
+let params = (new URL(document.location)).searchParams;
+let book = params.get("book");
+let part = params.get("part");
+
 window.addEventListener('click', () => {
     let focusElem = window.getSelection();
     if((focusElem.anchorNode && focusElem.anchorNode.nodeName == "#text") && (window.getSelection().getRangeAt(0).commonAncestorContainer.parentElement.localName == 'td')) {
         
         let range = window.getSelection().getRangeAt(0);
-        console.log(range.commonAncestorContainer.parentNode);
 
         function topNavTable() {
     
@@ -73,6 +76,21 @@ function changeColorText(color) {
 
 		return false;
 	} else {
+		return false;
+	}
+}
+
+
+function lockText() {
+    if(typeof window.getSelection() != "undefined" && window.getSelection().anchorNode != null) {
+        let range = window.getSelection().getRangeAt(0);
+        let newNode = document.createElement("span");
+		newNode.classList.add('lockText');
+
+        range.surroundContents(newNode);
+        //document.getSelection().removeAllRanges();
+        return false;
+    } else {
 		return false;
 	}
 }
@@ -279,11 +297,12 @@ function textTitle() {
         let newNode = document.createElement("span");
         let titleText = prompt('Введите подсказку');
         if(titleText) {
-            newNode.title = titleText;
 
-        range.surroundContents(newNode);
-        //document.getSelection().removeAllRanges();
-        return false;
+            appendNewTitle(range, titleText, '/app/saveBook/saveTitle', book, part);
+
+            newNode.title = titleText;
+            range.surroundContents(newNode);
+            return false;
         }
 
         return false;
@@ -343,6 +362,19 @@ function appendAnchor() {
             return false;
         }
 
+        return false;
+    } else {
+		return false;
+	}
+}
+
+function appendLinkText() {
+    if(typeof window.getSelection() != "undefined" && window.getSelection().anchorNode != null) {
+        let range = window.getSelection().getRangeAt(0);
+        let newNode = document.createElement("a");
+        let result = prompt('Введите ссылку');
+        newNode.href = result;
+        range.surroundContents(newNode);
         return false;
     } else {
 		return false;

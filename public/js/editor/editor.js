@@ -113,7 +113,14 @@ function darkTheme() {
 }
 
 function appendBanner() {
-    saveContent();
     let addBanner = document.querySelector('#addBanner');
     addBanner.click();   
 }
+
+let audio = document.querySelector('source[src*=".mp3"]');
+if(audio) {
+	audio.parentNode.style.height = '50px';
+}
+
+
+

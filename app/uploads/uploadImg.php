@@ -35,10 +35,34 @@
 
     if (move_uploaded_file($_FILES['newFile']['tmp_name'], $uploadfile)) {
 
-            $_SESSION['img'] = $file;
-            $_SESSION['block'] = $block;
+            $code = '<script>
+                let blockImg = document.querySelector("#'.$block.'");
+                let blockImgId = "#'.$block.'"
 
-			header('Location: ../../editor?book='.$book.'&part='.$part.'#'.$block);
+                let idImg = URL.createObjectURL(new Blob([])).slice(-36).replace(/-/g, "");
+
+                if(blockImg) {
+                    let newImg = document.createElement("img");
+                    newImg.src = "books/'.$book.'/'.$file.'";
+                    newImg.id = idImg;
+
+                    let delImg = document.createElement("img");
+                    delImg.classList.add("setingsBlock");
+                    delImg.classList.add("notEdit");
+                    delImg.src = "public/img/delete.svg";
+                    delImg.setAttribute("onclick", \'this.previousSibling.remove(); this.remove();\');
+
+                    blockImg.appendChild(newImg);
+                    blockImg.appendChild(delImg);
+                    saveContent();
+
+                }
+                
+            </script>';
+
+            $code = base64_encode($code);
+
+			header('Location: ../../editor?book='.$book.'&codeImg='.$code.'&part='.$part.'#'.$block);
  
     } else {
 		exit('Не загрузился файл! Сообщите администратору!');

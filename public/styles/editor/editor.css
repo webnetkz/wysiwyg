@@ -293,108 +293,115 @@ td {
     }
 }
 /* --------------- Цвет текста для блока --------------- */
-.BlackTextColorBlock {
+.blackTextColorBlock {
     color: Black;
 }
-.WhiteTextColorBlock {
+.whiteTextColorBlock {
     color: White;
 }
-.RedTextColorBlock {
+.redTextColorBlock {
     color: Red;
 }
-.IndianRedTextColorBlock {
+.indianRedTextColorBlock {
     color: IndianRed;
 }
-.DarkRedTextColorBlock {
+.darkRedTextColorBlock {
     color: DarkRed;
 }
-.GreenTextColorBlock {
+.greenTextColorBlock {
     color: Green;
 }
-.GreenYellowTextColorBlock {
+.greenYellowTextColorBlock {
     color: GreenYellow;
 }
-.LimeGreenTextColorBlock {
+.limeGreenTextColorBlock {
     color: LimeGreen;
 }
-.SpringGreenTextColorBlock {
+.springGreenTextColorBlock {
     color: SpringGreen;
 }
-.LightSeaGreenTextColorBlock {
+.lightSeaGreenTextColorBlock {
     color: LightSeaGreen;
 }
-.MediumSeaGreenTextColorBlock {
+.mediumSeaGreenTextColorBlock {
     color: MediumSeaGreen;
 }
-.DarkGreenTextColorBlock {
+.darkGreenTextColorBlock {
     color: DarkGreen;
 }
-.OliveTextColorBlock {
+.oliveTextColorBlock {
     color: Olive;
 }
-.LightSeaGreenTextColorBlock {
+.lightSeaGreenTextColorBlock {
     color: LightSeaGreen;
 }
-.TealTextColorBlock {
+.tealTextColorBlock {
     color: Teal;
 }
-.PinkTextColorBlock {
+.pinkTextColorBlock {
     color: Pink;
 }
-.HotPinkTextColorBlock {
+.hotPinkTextColorBlock {
     color: HotPink;
 }
-.MediumVioletRedTextColorBlock {
+.mediumVioletRedTextColorBlock {
     color: MediumVioletRed;
 }
-.LightSalmonTextColorBlock {
+.lightSalmonTextColorBlock {
     color: LightSalmon;
 }
-.OrangeRedTextColorBlock {
+.orangeRedTextColorBlock {
     color: OrangeRed;
 }
-.GoldTextColorBlock {
+.goldTextColorBlock {
     color: Gold;
 }
-.YellowTextColorBlock {
+.yellowTextColorBlock {
     color: Yellow;
 }
-.AquaTextColorBlock {
+.aquaTextColorBlock {
     color: Aqua;
 }
-.DarkTurquoiseTextColorBlock {
+.darkTurquoiseTextColorBlock {
     color: DarkTurquoise;
 }
-.SteelBlueTextColorBlock {
+.steelBlueTextColorBlock {
     color: SteelBlue;
 }
-.BlueTextColorBlock {
+.blueTextColorBlock {
     color: Blue;
 }
-.DarkBlueTextColorBlock {
+.darkBlueTextColorBlock {
     color: DarkBlue;
 }
-.VioletTextColorBlock {
+.violetTextColorBlock {
     color: Violet;
 }
-.MagentaTextColorBlock {
+.magentaTextColorBlock {
     color: Magenta;
 }
-.IndigoTextColorBlock {
+.indigoTextColorBlock {
     color: Indigo;
 }
-.SnowTextColorBlock {
+.snowTextColorBlock {
     color: Snow;   
 }
-.AntiqueWhiteTextColorBlock {
+.antiqueWhiteTextColorBlock {
     color: AntiqueWhite;
 }
-.GrayTextColorBlock {
+.grayTextColorBlock {
     color: Gray;
 }
-.SlateGrayTextColorBlock {
+.slateGrayTextColorBlock {
     color: SlateGray;
 }
-.BrownTextColorBlock {
+.brownTextColorBlock {
     color: Brown;
+}
+
+
+@media only screen and (max-width: 1000px) {
+    .h1Main {
+        width: 80%!important;
+    }
 }

@@ -44,3 +44,18 @@ function request(userData, serverFile) {
 
     xhr.send('contentBook=' + userData);
 }
+
+function appendNewTitle(range, content, serverFile, book, part) {
+    range = encodeURIComponent(range);
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', serverFile);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+    xhr.onreadystatechange = function() {
+        if(xhr.readyState === 4 && xhr.status === 200) {
+            console.log(xhr.responseText);
+        }
+    }
+
+    xhr.send('range=' + range + '&content=' + content + '&book=' + book + '&part=' + part);
+}

@@ -1,11 +1,12 @@
 .blockFull {
     border: 1px solid rgba(0, 0, 0, 0.5);
     width: 98.8%;
-    min-height: 100px;
+    min-height: 50px;
     display: inline-block;
     padding: 10px;
     vertical-align: top;
     margin: 5px;
+    background-position: 5px 5px!important;
 }
 .blockFull:hover {
     border: 1px dashed blue;
@@ -16,11 +17,12 @@
 .block1 {
     border: 1px solid rgba(0, 0, 0, 0.5);
     width: 48.9%;
-    min-height: 100px;
+    min-height: 50px;
     display: inline-block;
     padding: 10px;
     vertical-align: top;
     margin: 5px;
+    background-position: 5px 5px!important;
 }
 .block1:hover {
     border: 1px dashed blue;
@@ -31,11 +33,12 @@
 .block2 {
     border: 1px solid rgba(0, 0, 0, 0.5);
     width: 65.6%;
-    min-height: 100px;
+    min-height: 50px;
     display: inline-block;
     padding: 10px;
     vertical-align: top;
     margin: 5px;
+    background-position: 5px 5px!important;
 }
 .block2:hover {
     border: 1px dashed blue;
@@ -47,10 +50,11 @@
     border: 1px solid rgba(0, 0, 0, 0.5);
     width: calc(33.2% - 9px);
     display: inline-block;
-    min-height: 100px;
+    min-height: 50px;
     padding: 10px;
     vertical-align: top;
     margin: 5px;
+    background-position: 5px 5px!important;
 }
 .block3:hover {
     border: 1px dashed blue;
@@ -96,4 +100,22 @@
     max-height: 300px!important;
     min-height: 300px!important;
     overflow-y: scroll;
+}
+.dnd {
+    position: relative;
+    top: -135px;
+    left: 500px;
+    border-radius: 10px;
+    width: 260px;
+    height: 100px;
+    border: 1px dashed rgb(100,100,100);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 1000px) {
+    .block1, .block2, .block3 {
+        width: 98.8%!important;
+    }
 }

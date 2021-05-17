@@ -35,10 +35,26 @@
 
     if (move_uploaded_file($_FILES['newFile']['tmp_name'], $uploadfile)) {
 
-            $_SESSION['audio'] = $file;
-            $_SESSION['block'] = $block;
+            $code = '<script>
+                let blockAudio = document.querySelector("#'.$block.'");
+                
+                if(blockAudio) {
+                    let blockAudioId = "#"+blockAudio.id;
+                    let newAudio = document.createElement("audio");
+                    newAudio.setAttribute("controls", "");
 
-			header('Location: ../../editor?book='.$book.'&part='.$part.'#'.$block);
+                    newAudio.src = "books/'.$book.'/'.$file.'";
+
+                    blockAudio.appendChild(newAudio);
+
+                    saveContent();
+                }
+                
+            </script>';
+
+            $code = base64_encode($code);
+
+			header('Location: ../../editor?book='.$book.'&codeAudio='.$code.'&part='.$part.'#'.$block);
  
     } else {
 		exit('Не загрузился файл! Сообщите администратору!');

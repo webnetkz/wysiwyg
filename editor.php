@@ -4,16 +4,15 @@
         <meta charset="UTF-8">
         <title>Ретакрирование содержимого</title>
         <link rel="stylesheet" href="public/styles/editor/editor.css">
-
-
     </head>
     <body>
 
-    <?php 
-
-    @session_start();
-    require_once 'editorComponents/settings.php';
-    require_once 'editorComponents/tests.php';
+    <?php
+        @session_start();
+        require_once 'app/libs/db/db.php';
+        require_once 'editorComponents/settings.php';
+        require_once 'editorComponents/tests.php';
+        require_once 'editorComponents/subIcon.php';
     ?>
         <header>
             <div class="notEdit allTopNav">
@@ -24,25 +23,33 @@
         <div class="sectionNavOne">
             <img src="public/img/plus.svg" class="elementSectionNav notEdit" onclick="appendSection();">
         </div>
-        <div class="mainBanner">
+        <?php
+            $res = $pdo->query('SELECT banner FROM parts_'.$_GET['book'].' WHERE part ="'.$_GET['part'].'"');
+            $res = $res->fetch(PDO::FETCH_ASSOC);
+            if($res['banner']) {
+                $banner = $res['banner'];
+            }
+        ?>
+        <div class="mainBanner" style="background: url('/books/<?=$_GET['book']?>/banners/<?=$banner?>')">
             <h1 class="h1Main">
                 <?=$_GET['part'];?>
             </h1>
         </div>
         <div id="contentBook">
             <?php
-                require_once 'app/libs/db/db.php';
                 $getContentSQL = 'SELECT content FROM book_'.$_GET['book'].' WHERE part = "'.$_GET['part'].'"';
                 $res = $pdo->query($getContentSQL);
                 $res = $res->fetch(PDO::FETCH_ASSOC);
-                echo urldecode($res['content']);
+
+                if($_GET['part'] == 'Глосарий') {
+                    $res = urldecode($res['content']);
+                    echo '<style>* {font-family: sans-serif} b {font-size: 1.3rem;} hr {margin: 1rem;}</style>';
+                    echo '<div class="editor" style="padding: 20px;">'.$res.'</div>';
+                } else {
+                    echo urldecode($res['content']);
+                }
             ?>
         </div>
-
-
-
-
-
 
 
         <div class="leftNav">
@@ -72,107 +79,29 @@
 
         <?php
 
-        if(isset($_SESSION['img'])) {
-            echo '<script>
-                let blockImg = document.querySelector("#'.$_SESSION['block'].'");
-                let blockImgId = "#"+blockImg.id;
+            if(isset($_GET['codeImg']) && !empty($_GET['codeImg'])) {
+                $code = base64_decode($_GET['codeImg']);
+                echo $code;
+                echo '<script> location.href = "/editor?book='.$_GET['book'].'&part='.$_GET['part'].'#'.$_GET['block'].'";</script>';
+            }
 
-                let idImg = URL.createObjectURL(new Blob([])).slice(-36).replace(/-/g, "");
+            if(isset($_GET['codeSubIcon']) && !empty($_GET['codeSubIcon'])) {
+                $code = base64_decode($_GET['codeSubIcon']);
+                echo $code;
+                echo '<script> location.href = "/editor?book='.$_GET['book'].'&part='.$_GET['part'].'#'.$_GET['block'].'";</script>';
+            }
 
-                if(blockImg) {
-                    let newImg = document.createElement("img");
-                    newImg.src = "books/'.$_GET['book'].'/'.$_SESSION['img'].'";
-                    newImg.id = idImg;
+            if(isset($_GET['codeVideo']) && !empty($_GET['codeVideo'])) {
+                $code = base64_decode($_GET['codeVideo']);
+                echo $code;
+                echo '<script> location.href = "/editor?book='.$_GET['book'].'&part='.$_GET['part'].'#'.$_GET['block'].'";</script>';
+            }
 
-                    let delImg = document.createElement("img");
-                    delImg.classList.add("setingsBlock");
-                    delImg.classList.add("notEdit");
-                    delImg.src = "public/img/delete.svg";
-                    delImg.setAttribute("onclick", \'this.previousSibling.remove(); this.remove();\');
-
-                    blockImg.appendChild(newImg);
-                    blockImg.appendChild(delImg);
-
-                    saveContent();
-                }
-                
-            </script>';
-
-            unset($_SESSION['block']);
-            unset($_SESSION['img']);
-        }
-
-        if(isset($_SESSION['video'])) {
-            echo '<script>
-                let blockVideo = document.querySelector("#'.$_SESSION['block'].'");
-                
-                if(blockVideo) {
-                    let blockVideoId = "#"+blockVideo.id;
-                    let newVideo = document.createElement("video");
-                    newVideo.setAttribute("controls", "");
-
-                    let newSource = document.createElement("source");
-                    newSource.src = "books/'.$_GET['book'].'/'.$_SESSION['video'].'";
-                    newVideo.appendChild(newSource);
-
-                    blockVideo.appendChild(newVideo);
-
-                    saveContent();
-                }
-                
-            </script>';
-
-            unset($_SESSION['block']);
-            unset($_SESSION['video']);
-        }
-
-        if(isset($_SESSION['audio'])) {
-            echo '<script>
-                let blockAudio = document.querySelector("#'.$_SESSION['block'].'");
-                
-                if(blockAudio) {
-                    let blockAudioId = "#"+blockAudio.id;
-                    let newAudio = document.createElement("audio");
-                    newAudio.setAttribute("controls", "");
-
-                    //let newSource = document.createElement("source");
-                    newAudio.src = "books/'.$_GET['book'].'/'.$_SESSION['audio'].'";
-                    //newAudio.appendChild(newSource);
-
-                    blockAudio.appendChild(newAudio);
-
-                    saveContent();
-                }
-                
-            </script>';
-
-            unset($_SESSION['block']);
-            unset($_SESSION['audio']);
-        }
-
-        if(isset($_SESSION['banner'])) {
-            echo '<script>
-                let blockBanner = document.querySelector(".mainBanner");
-
-                let oldBanner = document.querySelector("#bannerSct");
-                if(oldBanner) {oldBanner.remove();}
-
-                if(blockBanner) {
-                    blockBanner.style.background = "url(books/'.$_GET['book'].'/'.$_SESSION['banner'].')";
-
-                    let newBannerScript = document.createElement("script");
-                    newBannerScript.id = "bannerSct";
-                    newBannerScript.innerText = "let banner = document.querySelector(\".mainBanner\"); banner.style.background = \"url(\'books/'.$_GET['book'].'/'.$_SESSION['banner'].'\')\"; banner.style.backgroundRepeat = \'no-repeat\'; banner.style.backgroundPosition = \'center center\'; banner.style.backgroundSize = \'cover\';"
-
-                    document.body.appendChild(newBannerScript);
-                    saveContent();
-
-                }
-                
-            </script>';
-
-            unset($_SESSION['banner']);
-        }
+            if(isset($_GET['codeAudio']) && !empty($_GET['codeAudio'])) {
+                $code = base64_decode($_GET['codeAudio']);
+                echo $code;
+                echo '<script> location.href = "/editor?book='.$_GET['book'].'&part='.$_GET['part'].'#'.$_GET['block'].'";</script>';
+            }
 
         ?>
 

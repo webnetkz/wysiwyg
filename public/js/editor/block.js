@@ -24,7 +24,7 @@ function topNavBlock(elem) {
             '<div>'+
                 '<img src="public/img/photo.svg" onclick="appendImg(\''+idBlock+'\');" class="notEdit elementTopNavImg">'+
                 '<form action="app/uploads/uploadImg" style="display: none;"  method="POST" enctype="multipart/form-data">'+
-                    '<input type="file" onchange="this.form.submit();" id="addNewImg" name="newFile" style="display: none";>'+
+                    '<input type="file" onchange="setTimeout(this.form.submit(), 500);" id="addNewImg" name="newFile" style="display: none";>'+
                     '<input type="text" name="book" style="display: none;" value="'+book+'">'+
                     '<input type="text" name="part" style="display: none;" value="'+part+'">'+
                     '<input type="text" name="block" style="display: none;" value="'+idBlock+'">'+
@@ -42,7 +42,7 @@ function topNavBlock(elem) {
             '<div>'+
                 '<img src="public/img/audio.svg" onclick="appendAudio();" class="notEdit elementTopNavImg">'+
                 '<form action="app/uploads/uploadAudio" style="display: none;"  method="POST" enctype="multipart/form-data">'+
-                    '<input type="file" onchange="this.form.submit();" id="addNewVideo" name="newFile" style="display: none";>'+
+                    '<input type="file" onchange="this.form.submit();" id="addNewAudio" name="newFile" style="display: none";>'+
                     '<input type="text" name="book" style="display: none;" value="'+book+'">'+
                     '<input type="text" name="part" style="display: none;" value="'+part+'">'+
                     '<input type="text" name="block" style="display: none;" value="'+idBlock+'">'+
@@ -229,6 +229,9 @@ function topNavBlock(elem) {
                 '</div>'+
                 '<div>'+
                     '<img src="public/img/test.svg" class="notEdit elementTopNavImg" onclick="document.querySelector(\'.testsPanel\').style.right = \'0px\'; newTest(\''+idBlock+'\');" class="leftNavItemImg" id="leftNavTests">'+
+                '</div>'+
+                '<div>'+
+                    '<img src="public/img/subIcon.svg" class="notEdit elementTopNavImg" onclick="document.querySelector(\'.subIconPanel\').style.right = \'0px\'; newTest(\''+idBlock+'\');" class="leftNavItemImg" id="leftNavTests">'+
                 '</div>'+
                 '<div>'+
                 '<img src="public/img/animation.svg" onclick="showList(this);" class="notEdit elementTopNavImg">'+
@@ -464,8 +467,6 @@ function appendTable(idBlock) {
             focusElem.appendChild(tbl);
           }
 
-
-
           tableCreate(rows, columns);
     } else {
         return false;
@@ -478,6 +479,12 @@ function appendImg() {
     saveContent();
     let addNewImg = document.querySelector('#addNewImg');
     addNewImg.click();   
+}
+
+function appendSubIcon() {
+    saveContent();
+    let addNewSubIcon = document.querySelector('#addNewSubIcon');
+    addNewSubIcon.click();   
 }
 
 function appendVideo() {
@@ -580,8 +587,6 @@ function insertAtCaret(obj){
         sel.text = myValue;
         obj.focus();
     } else if (window.getSelection) {
-        console.log(window.getSelection());
-        console.log(window.getSelection().anchorOffset);
         alert();
         caret = window.getSelection().anchorOffset; // тут позиция каретки
         txt = obj.innerHTML;

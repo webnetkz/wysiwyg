@@ -30,6 +30,9 @@
             <br>
             <br>
             <button class="btn" onclick="newTestTwo()">Тест с вариантами ответов (несколько ответов)</button>
+            <br>
+            <br>
+            <button class="btn" onclick="newTestThree()">Тест c перетягиванием</button>
         </div>
 </div>
 <script>
@@ -101,19 +104,25 @@
 
         if(allTestOne[0].checked === true && res == 1) {
             block.innerHTML = '<h3>Вы ответили верно</h3>';
+            return false;
         }
 
         if(allTestOne[1].checked === true && res == 2) {
             block.innerHTML = '<h3>Вы ответили верно</h3>';
+            return false;
         }
 
         if(allTestOne[2].checked === true && res == 3) {
             block.innerHTML = '<h3>Вы ответили верно</h3>';
+            return false;
         }
 
         if(allTestOne[3].checked === true && res == 4) {
             block.innerHTML = '<h3>Вы ответили верно</h3>';
+            return false;
         }
+
+        block.innerHTML = '<button onclick="location.reload();" class="btn">Попробуй еще раз</button>';
     }
 
     // Test Two
@@ -197,6 +206,62 @@
 
         if(good >= 2) {
             block.innerHTML = '<h3>Вы ответили верно</h3>';
+            return false;
+        }
+
+        block.innerHTML = '<button onclick="location.reload();" class="btn">Попробуй еще раз</button>';
+    }
+
+
+
+    function newTestThree() {
+        let block = document.querySelector('#'+getIdBlock());
+
+        let question = prompt('Введите вопрос');
+        if(question != '') {
+            let ans1 = prompt('Первый вариант ответа');
+            if(ans1 != '') {
+                let ans2 = prompt('Второй вариант ответа');
+                if(ans2 != '') {
+                    let ans3 = prompt('Третий вариант ответа');
+                    if(ans3 != '') {
+                        let ans4 = prompt('Четвертый вариант ответа');
+                        if(ans4 != '') {
+                            let res = prompt('Верный ответ (Введите цифру ответа)');
+                            if(res != '') {
+                                let rand = URL.createObjectURL(new Blob([])).slice(-36).replace(/-/g, "");
+                                let testThree = '<div contenteditable="false" style="height: 220px; text-align: center; font-family: sans-serif;" id="a'+rand+'">'+
+                                    '<h3>'+question+'</h3>'+
+                                    '<p contenteditable="false" style="text-align: left; margin-left: 20px;"><button ans="1" contenteditable="false" class="btn a1" id="one'+rand+'" draggable="true">'+ans1+'</button></p><br>'+
+                                    '<p contenteditable="false" style="text-align: left; margin-left: 20px;"><button ans="2" contenteditable="false" class="btn a2" id="two'+rand+'" draggable="true">'+ans2+'</button></p><br>'+
+                                    '<p contenteditable="false" style="text-align: left; margin-left: 20px;"><button ans="3" contenteditable="false" class="btn a3" id="three'+rand+'" draggable="true">'+ans3+'</button></p><br>'+
+                                    '<p contenteditable="false" style="text-align: left; margin-left: 20px;"><button ans="4" contenteditable="false" class="btn a4" id="four'+rand+'" draggable="true">'+ans4+'</button></p><br>'+
+                                    '<div class="dnd" res="'+res+'"> </div>'+               
+                                '</div>';
+
+                                let sct = document.createElement('script');
+                                sct.setAttribute('src', '/public/js/editor/dnd.js');
+
+                                block.innerHTML = testThree;
+                                block.appendChild(sct);
+
+                            } else {
+                                let res = prompt('Верный ответ (Введите цифру ответа)');
+                            }
+                        } else {
+                            let ans4 = prompt('Четвертый вариант ответа');
+                        }
+                    } else {
+                        let ans3 = prompt('Третий вариант ответа');
+                    }
+                } else {
+                    let ans2 = prompt('Второй вариант ответа');
+                }
+            } else {
+                let ans1 = prompt('Первый вариант ответа');
+            }
+        } else {
+            let question = prompt('Введите вопрос');
         }
     }
 </script>

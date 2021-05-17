@@ -11,6 +11,9 @@ leftNavText.addEventListener('click', () => {
                                     '<div>'+
                                         '<img src="public/img/formula.svg" onclick="appendFormulaCarret();" class="notEdit elementTopNavImg">'+
                                     '</div>'+
+		'<div>'+
+                                                '<img src="public/img/lock.svg" onclick="lockText();" class="notEdit elementTopNavImg">'+
+                                        '</div>'+
                                     //'<div>'+
                                     //    '<img src="public/img/clearText.svg" onclick="range.commonAncestorContainer.innerHTML = range.toString();" class="notEdit elementTopNavImg">'+
                                     //'</div>'+

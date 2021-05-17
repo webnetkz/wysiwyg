@@ -1,6 +1,11 @@
 .bg {
     background-color: red!important;
 }
+.mainBanner {
+    background-repeat: no-repeat!important;
+    background-size: cover!important;
+    background-position: 50% 50%!important;
+}
 .editor {
     margin: 10px auto;
     margin-bottom: 10px;

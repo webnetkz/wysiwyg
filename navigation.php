@@ -42,6 +42,7 @@
                 </span>
             </div>
             <button class="btnMini" style="width: 10%" onclick="location.href = 'panel'">Назад</button>
+            <button class="btnMini" style="width: 15%" onclick="location.href = 'completeBook?book=<?=$book?>'">Готовый результат</button>
         </header>
 
             

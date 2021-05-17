@@ -35,10 +35,28 @@
 
     if (move_uploaded_file($_FILES['newFile']['tmp_name'], $uploadfile)) {
 
-            $_SESSION['video'] = $file;
-            $_SESSION['block'] = $block;
+            $code = '<script>
+                let blockVideo = document.querySelector("#'.$block.'");
+                
+                if(blockVideo) {
+                    let blockVideoId = "#"+blockVideo.id;
+                    let newVideo = document.createElement("video");
+                    newVideo.setAttribute("controls", "");
 
-			header('Location: ../../editor?book='.$book.'&part='.$part.'#'.$block);
+                    let newSource = document.createElement("source");
+                    newSource.src = "books/'.$book.'/'.$file.'";
+                    newVideo.appendChild(newSource);
+
+                    blockVideo.appendChild(newVideo);
+
+                    saveContent();
+                }
+                
+            </script>';
+
+            $code = base64_encode($code);
+
+			header('Location: ../../editor?book='.$book.'&codeVideo='.$code.'&part='.$part.'#'.$block);
  
     } else {
 		exit('Не загрузился файл! Сообщите администратору!');

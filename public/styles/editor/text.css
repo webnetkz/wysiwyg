@@ -11,4 +11,8 @@
     cursor: pointer;
     box-shadow: 0 0 5px black;
 }
+.lockText {
+	word-wrap: normal;
+	white-space: nowrap;
+}
 
