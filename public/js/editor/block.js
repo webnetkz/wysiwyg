@@ -219,7 +219,10 @@ function topNavBlock(elem) {
                 '</div>'+
                 '</div>'+	
                 '<div>'+
-                    '<img src="public/img/scroll.svg" onclick="sliderBlock(\''+idBlock+'\');" class="notEdit elementTopNavImg">'+
+                    '<img src="public/img/scroll.svg" onclick="scrollBlock(\''+idBlock+'\');" class="notEdit elementTopNavImg">'+
+                '</div>'+
+                '<div>'+
+                    '<img src="public/img/slider.svg" onclick="sliderBlock(\''+idBlock+'\');" class="notEdit elementTopNavImg">'+
                 '</div>'+
                 '<div>'+
                     '<img src="public/img/ul.svg" onclick="appendUlBlock(\''+idBlock+'\');" class="notEdit elementTopNavImg">'+
@@ -346,9 +349,15 @@ function widthBlock(classB, block) {
     blockB.classList.remove(blockB.classList[0]);
     blockB.classList.add(classB);
 }
-function sliderBlock(block) {
+function scrollBlock(block) {
     let blockB = document.querySelector('#'+block);
     blockB.classList.add('sliderBlock');
+}
+
+function sliderBlock(block) {
+    let blockB = document.querySelector('#'+block);
+    blockB.classList.add('sliderQQQ');
+    blockB.innerHTML = '<div class="itemQQ">1 Слайд</div><div class="itemQQ">2 Слайд</div><div class="itemQQ">3 Слайд</div><a class="prev" contenteditable="false" onclick="minusSlide()">&#10094;</a><a class="next" contenteditable="false" onclick="plusSlide()">&#10095;</a><div class="sliderQQQ-dots" contenteditable="false"><span  contenteditable="false" class="sliderQQQ-dots_itemQQ" onclick="currentSlide(1)"></span> <span class="sliderQQQ-dots_itemQQ" contenteditable="false" onclick="currentSlide(2)"></span> <span class="sliderQQQ-dots_itemQQ" contenteditable="false" onclick="currentSlide(3)"></span> </div></div>';
 }
 
 function positionBlockUp(idB) {
@@ -597,3 +606,44 @@ function insertAtCaret(obj){
         obj.focus();
     };
 };
+
+
+/* Индекс слайда по умолчанию */
+var slideIndex = 1;
+showSlides(slideIndex);
+
+/* Функция увеличивает индекс на 1, показывает следующй слайд*/
+function plusSlide() {
+    showSlides(slideIndex += 1);
+}
+
+/* Функция уменьшяет индекс на 1, показывает предыдущий слайд*/
+function minusSlide() {
+    showSlides(slideIndex -= 1);  
+}
+
+/* Устанавливает текущий слайд */
+function currentSlide(n) {
+    showSlides(slideIndex = n);
+}
+
+/* Основная функция сладера */
+function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("itemQQ");
+    var dots = document.getElementsByClassName("sliderQQQ-dots_itemQQ");
+    if (n > slides.length) {
+      slideIndex = 1
+    }
+    if (n < 1) {
+        slideIndex = slides.length
+    }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
+}

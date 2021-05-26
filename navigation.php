@@ -32,6 +32,21 @@
         <meta charset="UTF-8">
         <title>Панель учебников</title>
         <link rel="stylesheet" href="public/styles/styles.css">
+        <style>
+            .delBtn {
+                width: 35px;
+                float: right;
+                background: var(--colorThreeDark);
+                padding: 4px;
+                padding-left: 7px;
+                border-radius: 4px;
+            }
+            .linkNav {
+                display: flex;
+                justify-content: space-between;
+                padding: 5px;
+            }
+        </style>
     </head>
     <body>
         <header>
@@ -55,7 +70,7 @@
                             
                                 echo '<ol class="navPart">';
                                     foreach($allParts as $k => $v) {
-                                        echo '<li onclick="location.href=\'/editor?book='.$book.'&part='.$v['part'].'\'">'.$v['part'].'</li>';
+                                        echo '<li class="linkNav" onclick="location.href=\'/editor?book='.$book.'&part='.$v['part'].'\'"><span>'.$v['part'].'</span><img src="/public/img/delete.svg" class="delBtn"></li>';
                                     }
                                 echo '</ol>';
                             
