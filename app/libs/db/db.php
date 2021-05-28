@@ -1,10 +1,10 @@
 <?php
 
 $config = [
-    'host' => 'localhost:3306',
-    'db_name' => 'wysiwyg',
-    'db_user' => 'root',
-    'db_pass' => 'root',
+    'host' => 'srv-pleskdb28.ps.kz:3306',
+    'db_name' => 'webnetkz_wysiwyg',
+    'db_user' => 'webnetkz_wysiwyg',
+    'db_pass' => 'fepipe7611!!QQ',
 ];
 
 // Данные для подключения к базе данных
